@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'Comfortaa': ['Comfortaa', 'system-ui',],
+      },
+      colors: {
+        "main-color": "#399E5A",
+        "body-color-light": "#fff",
+        "border-lines-light": "#e7e7e7",
+        "dark-text": "#2F333C",
+      },
+    },
   },
   plugins: [],
 }
