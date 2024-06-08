@@ -23,7 +23,7 @@ function Sidebar() {
             gerayo
           </h1>
         </div>
-        <button className=" p-2 rounded-full hover:bg-border-lines-light active:scale-95 ">
+        <button className=" p-2 rounded-full hover:bg-border-lines-light/60 active:scale-95 ">
           <AiOutlineDoubleLeft />
         </button>
       </div>

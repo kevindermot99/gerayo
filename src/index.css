@@ -35,13 +35,9 @@ body {
 ::-webkit-scrollbar-thumb {
   border: 3px solid transparent;
   background-clip: padding-box;
-  background: #d4d4d459;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
   background: transparent;
 }
 
-.sidebar:hover::-webkit-scrollbar-thumb {
+:hover::-webkit-scrollbar-thumb {
   background: #d4d4d459;
 }
