@@ -5,7 +5,8 @@ import { BiSearch } from "react-icons/bi";
 function Navbar({ title }) {
   return (
     <div className="h-[60px] px-5 border-b-[1px] border-border-lines-light flex items-center justify-between">
-      <h1 className="font-bold tracking-tighter text-2xl text-dark-text/90 ">
+      
+      <h1 className="font-bold tracking-tighter text-2xl max-lg:ml-7 text-dark-text/90 ">
         {title}
       </h1>
       <div className="w-fit flex items-center justify-end gap-2">
@@ -14,172 +15,183 @@ function Navbar({ title }) {
             name=""
             className="select-hide-icon rounded-md tracking-tight text-sm text-dark-text font-semibold bg-border-lines-light/40 py-2 px-3 "
           >
-            <option value="Algeria" title="Algeria">
+            <option disabled value="Algeria" title="Algeria">
               🇩🇿 &nbsp; Dz
             </option>
-            <option value="Angola" title="Angola">
+            <option disabled value="Angola" title="Angola">
               🇦🇴 &nbsp; Ao
             </option>
-            <option value="Benin" title="Benin">
+            <option disabled value="Benin" title="Benin">
               🇧🇯 &nbsp; Bj
             </option>
-            <option value="Botswana" title="Botswana">
+            <option disabled value="Botswana" title="Botswana">
               🇧🇼 &nbsp; Bw
             </option>
-            <option value="Burkina Faso" title="Burkina Faso">
+            <option disabled value="Burkina Faso" title="Burkina Faso">
               🇧🇫 &nbsp; Bf
             </option>
-            <option value="Burundi" title="Burundi">
+            <option disabled value="Burundi" title="Burundi">
               🇧🇮 &nbsp; Bi
             </option>
-            <option value="Cabo Verde" title="Cabo Verde">
+            <option disabled value="Cabo Verde" title="Cabo Verde">
               🇨🇻 &nbsp; Cv
             </option>
-            <option value="Cameroon" title="Cameroon">
+            <option disabled value="Cameroon" title="Cameroon">
               🇨🇲 &nbsp; Cm
             </option>
             <option
+              disabled
               value="Central African Republic"
               title="Central African Republic"
             >
               🇨🇫 &nbsp; Cf
             </option>
-            <option value="Chad" title="Chad">
+            <option disabled value="Chad" title="Chad">
               🇹🇩 &nbsp; Td
             </option>
-            <option value="Comoros" title="Comoros">
+            <option disabled value="Comoros" title="Comoros">
               🇰🇲 &nbsp; Km
             </option>
             <option
+              disabled
               value="Congo (Congo-Brazzaville)"
               title="Congo (Congo-Brazzaville)"
             >
               🇨🇬 &nbsp; Cg
             </option>
-            <option value="Côte d’Ivoire" title="Côte d’Ivoire">
+            <option disabled value="Côte d’Ivoire" title="Côte d’Ivoire">
               🇨🇮 &nbsp; Ci
             </option>
-            <option value="Djibouti" title="Djibouti">
+            <option disabled value="Djibouti" title="Djibouti">
               🇩🇯 &nbsp; Dj
             </option>
-            <option value="Egypt" title="Egypt">
+            <option disabled value="Egypt" title="Egypt">
               🇪🇬 &nbsp; Eg
             </option>
-            <option value="Equatorial Guinea" title="Equatorial Guinea">
+            <option
+              disabled
+              value="Equatorial Guinea"
+              title="Equatorial Guinea"
+            >
               🇬🇶 &nbsp; Gq
             </option>
-            <option value="Eritrea" title="Eritrea">
+            <option disabled value="Eritrea" title="Eritrea">
               🇪🇷 &nbsp; Er
             </option>
             <option
+              disabled
               value="Eswatini (fmr. Swaziland)"
               title="Eswatini (fmr. Swaziland)"
             >
               🇸🇿 &nbsp; Sz
             </option>
-            <option value="Ethiopia" title="Ethiopia">
+            <option disabled value="Ethiopia" title="Ethiopia">
               🇪🇹 &nbsp; Et
             </option>
-            <option value="Gabon" title="Gabon">
+            <option disabled value="Gabon" title="Gabon">
               🇬🇦 &nbsp; Ga
             </option>
-            <option value="Gambia" title="Gambia">
+            <option disabled value="Gambia" title="Gambia">
               🇬🇲 &nbsp; Gm
             </option>
-            <option value="Ghana" title="Ghana">
+            <option disabled value="Ghana" title="Ghana">
               🇬🇭 &nbsp; Gh
             </option>
-            <option value="Guinea" title="Guinea">
+            <option disabled value="Guinea" title="Guinea">
               🇬🇳 &nbsp; Gn
             </option>
-            <option value="Guinea-Bissau" title="Guinea-Bissau">
+            <option disabled value="Guinea-Bissau" title="Guinea-Bissau">
               🇬🇼 &nbsp; Gw
             </option>
-            <option value="Kenya" title="Kenya">
+            <option disabled value="Kenya" title="Kenya">
               🇰🇪 &nbsp; Ke
             </option>
-            <option value="Lesotho" title="Lesotho">
+            <option disabled value="Lesotho" title="Lesotho">
               🇱🇸 &nbsp; Ls
             </option>
-            <option value="Liberia" title="Liberia">
+            <option disabled value="Liberia" title="Liberia">
               🇱🇷 &nbsp; Lr
             </option>
-            <option value="Libya" title="Libya">
+            <option disabled value="Libya" title="Libya">
               🇱🇾 &nbsp; Ly
             </option>
-            <option value="Madagascar" title="Madagascar">
+            <option disabled value="Madagascar" title="Madagascar">
               🇲🇬 &nbsp; Mg
             </option>
-            <option value="Malawi" title="Malawi">
+            <option disabled value="Malawi" title="Malawi">
               🇲🇼 &nbsp; Mw
             </option>
-            <option value="Mali" title="Mali">
+            <option disabled value="Mali" title="Mali">
               🇲🇱 &nbsp; Ml
             </option>
-            <option value="Mauritania" title="Mauritania">
+            <option disabled value="Mauritania" title="Mauritania">
               🇲🇷 &nbsp; Mr
             </option>
-            <option value="Mauritius" title="Mauritius">
+            <option disabled value="Mauritius" title="Mauritius">
               🇲🇺 &nbsp; Mu
             </option>
-            <option value="Morocco" title="Morocco">
+            <option disabled value="Morocco" title="Morocco">
               🇲🇦 &nbsp; Ma
             </option>
-            <option value="Mozambique" title="Mozambique">
+            <option disabled value="Mozambique" title="Mozambique">
               🇲🇿 &nbsp; Mz
             </option>
-            <option value="Namibia" title="Namibia">
+            <option disabled value="Namibia" title="Namibia">
               🇳🇦 &nbsp; Na
             </option>
-            <option value="Niger" title="Niger">
+            <option disabled value="Niger" title="Niger">
               🇳🇪 &nbsp; Ne
             </option>
-            <option value="Nigeria" title="Nigeria">
+            <option disabled value="Nigeria" title="Nigeria">
               🇳🇬 &nbsp; Ng
             </option>
             <option value="Rwanda" title="Rwanda" selected>
               🇷🇼 &nbsp; Rw
             </option>
-            <option value="São Tomé and Príncipe" title="São Tomé and Príncipe">
+            <option
+              disabled
+              value="São Tomé and Príncipe"
+              title="São Tomé and Príncipe"
+            >
               🇸🇹 &nbsp; St
             </option>
-            <option value="Senegal" title="Senegal">
+            <option disabled value="Senegal" title="Senegal">
               🇸🇳 &nbsp; Sn
             </option>
-            <option value="Seychelles" title="Seychelles">
+            <option disabled value="Seychelles" title="Seychelles">
               🇸🇨 &nbsp; Sc
             </option>
-            <option value="Sierra Leone" title="Sierra Leone">
+            <option disabled value="Sierra Leone" title="Sierra Leone">
               🇸🇱 &nbsp; Sl
             </option>
-            <option value="Somalia" title="Somalia">
+            <option disabled value="Somalia" title="Somalia">
               🇸🇴 &nbsp; So
             </option>
-            <option value="South Africa" title="South Africa">
+            <option disabled value="South Africa" title="South Africa">
               🇿🇦 &nbsp; Za
             </option>
-            <option value="South Sudan" title="South Sudan">
+            <option disabled value="South Sudan" title="South Sudan">
               🇸🇸 &nbsp; Ss
             </option>
-            <option value="Sudan" title="Sudan">
+            <option disabled value="Sudan" title="Sudan">
               🇸🇩 &nbsp; Sd
             </option>
-            <option value="Tanzania" title="Tanzania">
+            <option disabled value="Tanzania" title="Tanzania">
               🇹🇿 &nbsp; Tz
             </option>
-            <option value="Togo" title="Togo">
+            <option disabled value="Togo" title="Togo">
               🇹🇬 &nbsp; Tg
             </option>
-            <option value="Tunisia" title="Tunisia">
+            <option disabled value="Tunisia" title="Tunisia">
               🇹🇳 &nbsp; Tn
             </option>
-            <option value="Uganda" title="Uganda">
+            <option disabled value="Uganda" title="Uganda">
               🇺🇬 &nbsp; Ug
             </option>
-            <option value="Zambia" title="Zambia">
+            <option disabled value="Zambia" title="Zambia">
               🇿🇲 &nbsp; Zm
             </option>
-            <option value="Zimbabwe" title="Zimbabwe">
+            <option disabled value="Zimbabwe" title="Zimbabwe">
               🇿🇼 &nbsp; Zw
             </option>
           </select>
