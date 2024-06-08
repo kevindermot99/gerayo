@@ -17,10 +17,13 @@ function Sidebar() {
   return (
     <div className="min-w-[250px] w-[250px] border-r-[1px] border-border-lines-light flex flex-col max-h-dvh ">
       <div className=" w-full h-[60px] flex items-center justify-between px-3 mb  mt-1 mb-4">
-        <div className="flex">
+        <div className="flex items-center justify-start">
           {/* <img src="" alt="" /> */}
-          <h1 className="font-Comfortaa font-bold text-[26px] tracking-tighter text-main-color  ">
-            gerayo
+          <h1 className=" font-bold text-[32px] tracking-tighter text-main-color pl-3  ">
+            g
+          </h1>
+          <h1 className=" font-bold text-[32px] tracking-tighter text-main-color pr-3  ">
+            erayo.
           </h1>
         </div>
         <button className=" p-2 rounded-full hover:bg-border-lines-light/60 active:scale-95 ">
