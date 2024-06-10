@@ -19,7 +19,9 @@ export default {
       colors: {
         "main-color": "#399E5A",
         "body-color-light": "#fff",
+        "body-color-dark": "#121212",
         "border-lines-light": "#e7e7e7",
+        "border-lines-dark": "#1D1D1D",
         "dark-text": "#2F333C",
       },
     },

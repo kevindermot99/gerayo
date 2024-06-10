@@ -4,7 +4,7 @@ import { BiSearch } from "react-icons/bi";
 
 function Navbar({ title }) {
   return (
-    <div className="h-[60px] px-5 border-b-[1px] border-border-lines-light flex items-center justify-between">
+    <div className="h-[60px] px-5 border-b-[1px] border-border-lines-light dark:border-border-lines-dark flex items-center justify-between">
       
       <h1 className="font-bold tracking-tighter text-2xl max-lg:ml-7 text-dark-text/90 ">
         {title}
