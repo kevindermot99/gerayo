@@ -6,7 +6,7 @@ function Navbar({ title }) {
   return (
     <div className="h-[60px] px-5 border-b-[1px] border-border-lines-light dark:border-border-lines-dark flex items-center justify-between">
       
-      <h1 className="font-bold tracking-tighter text-2xl max-lg:ml-7 text-dark-text/90 dark:text-white/70 ">
+      <h1 className="font-bold tracking-tighter text-2xl max-lg:ml-7 text-dark-text/90 dark:text-white/70 line-clamp-1 ">
         {title}
       </h1>
       <div className="w-fit flex items-center justify-end gap-2">

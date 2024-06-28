@@ -28,7 +28,7 @@ function Sidebar() {
 
   return (
     <>
-    <div className="absolute left-3 top-[18px] cursor-pointer " onClick={showsidebar}><HiMenuAlt2 className="text-2xl text-dark-text" /></div>
+    <div className="absolute left-3 top-[18px] cursor-pointer " onClick={showsidebar}><HiMenuAlt2 className="text-2xl text-dark-text dark:text-white/70" /></div>
       <div className={`min-w-[250px] w-[250px] border-r-[1px] bg-body-color-light dark:bg-body-color-dark z-30 border-border-lines-light dark:border-border-lines-dark flex flex-col max-h-dvh max-lg:fixed transition-all duration-300  ${sidebar ? 'max-lg:left-[0px]' : 'max-lg:left-[-250px] '}`}>
         <div className=" w-full h-[60px] flex items-center justify-between px-3 mb  mt-1 mb-4">
           <div className="flex items-center justify-start">

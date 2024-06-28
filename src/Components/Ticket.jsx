@@ -57,7 +57,7 @@ function Ticket({ location, leavingAt, agency, price, src }) {
   }, [leavingAt]);
 
   return (
-    <div className="w-full min-h-[100px] bg-body-color-light dark:bg-stone-600/20 rounded-xl py-3 px-4 shadow-sm overflow-clip">
+    <div className="w-full bg-body-color-light dark:bg-stone-600/20 rounded-xl py-3 px-4 shadow-sm overflow-clip">
       <h1 className="font-bold tracking-tight text-base text-dark-text dark:text-white/70 flex items-center justify-between ">
         <span className="flex items-center">
           <MdOutlineLocationOn className="text-xl " />

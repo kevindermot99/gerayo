@@ -30,6 +30,13 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+@media screen and (max-width: 480px){
+  .gridRespo {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+}
+
 select{
   /* Arrow */
   appearance: none;
