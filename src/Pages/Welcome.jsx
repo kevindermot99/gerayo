@@ -6,7 +6,7 @@ import { GrFormNext } from "react-icons/gr";
 function Welcome() {
   return (
     <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
-      <div className="fixed top-0 left-0 p-8 max-sm:bg-white dark:bg-white w-full h-fit flex justify-between items-center select-none ">
+      <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white dark:bg-white w-full h-fit flex justify-between items-center select-none ">
         {/* tab indicator */}
         <div className="flex items-center justify-start gap-1">
           <span className={`h-[6px] w-[25px] bg-black rounded-xl `}></span>
@@ -28,7 +28,7 @@ function Welcome() {
         </div>
       </div>
 
-      <div className="max-w-[1100px] h-fit max-sm:h-full max-sm:pt-[100px] flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-3 mx-auto">
+      <div className="max-w-[1100px] h-fit max-sm:h-full max-sm:pt-[300px] flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-3 mx-auto">
         <div className="flex items-center justify-center">
           <img src={Logo} className="h-6 pt-0" />
           <h1 className=" font-bold text-[22px] tracking-tighter text-main-color pr-3  ">
