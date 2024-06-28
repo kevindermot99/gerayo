@@ -57,7 +57,7 @@ function Register() {
           <GrFormNext />
         </Link>
       </div>
-      <div className="w-full h-full flex flex-col items-center justify-center max-sm:justify-between max-sm:mt-[50px]">
+      <div className="w-full h-full flex flex-col items-center justify-center max-sm:justify-between max-sm:pt-[70px]">
         <Fade
           duration={500}
           direction="up"
