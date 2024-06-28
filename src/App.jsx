@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Welcome1 from "./Pages/Welcome1";
 import Welcome2 from "./Pages/Welcome2";
 import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 function App() {
   const [visited, setVisited] = useState(false);
@@ -22,6 +23,7 @@ function App() {
             </>
           )}
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>

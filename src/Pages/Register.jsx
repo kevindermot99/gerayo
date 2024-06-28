@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 import { CgSpinner } from "react-icons/cg";
 import { Helmet } from "react-helmet";
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
   const [pending, setPending] = useState(false);
 
@@ -73,10 +73,10 @@ function Login() {
               </h1>
             </div>
             <h1 className="font-bold tracking-tighter text-2xl text-left text-dark-text/90">
-              Let's Sign you in.
+              Let's Sign you up.
             </h1>
             <p className="tracking-tight text-sm text-left text-dark-text/80  max-w-[400px] font-semibold">
-              Welcome back!
+              Join Gerayo today.
             </p>
 
             <form className="w-full py-8 flex flex-col items-center justify-center gap-2">
@@ -100,18 +100,16 @@ function Login() {
                   placeholder="Password"
                 />
               </div>
-
-              <div className="flex items-center justify-start select-none py-2 w-full max-w-[350px]">
-                <label className="flex items-center justify-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className=" accent-main-color h-4 w-4"
-                    onClick={handleShowPassword}
-                  />
-                  <p className="text-dark-text dark:text-text-color-light font-medium text-sm capitalize">
-                    Show password
-                  </p>
-                </label>
+              <div className="flex flex-col w-full items-start justify-start max-w-[350px]">
+                <p className="text-sm font-medium py-1 text-dark-text">
+                  Confirm Password
+                </p>
+                <input
+                  type="password"
+                  id="password"
+                  className="bg-[#F2F1F6] text-dark-text text-sm  h-[43px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
+                  placeholder="Re-enter Password"
+                />
               </div>
             </form>
           </div>
@@ -123,16 +121,16 @@ function Login() {
               {pending ? (
                 <>
                   <CgSpinner className="animate-spinLoader text-2xl " />
-                  Signing in..
+                  Signing up..
                 </>
               ) : (
-                <>Sign in</>
+                <>Sign up</>
               )}
             </button>
             <p className="flex items-center justify-center w-full text-sm gap-2 text-dark-text">
-              Don't have an account?{" "}
-              <Link to={"/register"} className="text-main-color font-semibold">
-                Register
+              Already have an account?{" "}
+              <Link to={"/login"} className="text-main-color font-semibold">
+                Login
               </Link>
             </p>
           </div>
@@ -142,4 +140,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
