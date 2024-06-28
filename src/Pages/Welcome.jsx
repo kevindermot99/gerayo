@@ -5,18 +5,18 @@ import { GrFormNext } from "react-icons/gr";
 
 function Welcome() {
   return (
-    <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4">
-      <div className="fixed top-0 left-0 p-8 bg-white dark:bg-body-color-dark w-full h-fit flex justify-between items-center select-none ">
+    <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
+      <div className="fixed top-0 left-0 p-8 bg-white dark:bg-white w-full h-fit flex justify-between items-center select-none ">
         {/* tab indicator */}
         <div className="flex items-center justify-start gap-1">
           <span
-            className={`h-[6px] w-[25px] bg-main-color rounded-xl `}
+            className={`h-[6px] w-[25px] bg-black rounded-xl `}
           ></span>
           <span
-            className={`h-[6px] aspect-square bg-main-color/40 rounded-xl `}
+            className={`h-[6px] aspect-square bg-black/20 rounded-xl `}
           ></span>
           <span
-            className={`h-[6px] aspect-square bg-main-color/40 rounded-xl `}
+            className={`h-[6px] aspect-square bg-black/20 rounded-xl `}
           ></span>
         </div>
 
@@ -35,10 +35,10 @@ function Welcome() {
           <img src={BusStop} className="h-auto w-full max-w-[500px]" />
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
-          <h1 className="font-bold tracking-tighter text-2xl text-center text-dark-text/90 dark:text-white/70 line-clamp-2 max-w-[350px]">
+          <h1 className="font-bold tracking-tighter text-2xl text-center text-dark-text/90 line-clamp-2 max-w-[350px]">
           Check the next bus arrival time
           </h1>
-          <p className="tracking-tight text-sm text-center text-dark-text/80 dark:text-white/40 max-w-[400px] font-semibold">
+          <p className="tracking-tight text-sm text-center text-dark-text/80  max-w-[400px] font-semibold">
           Get real-time updates on bus schedules and never miss your ride. Simply enter your location and route to see when the next bus will arrive.
           </p>
 
