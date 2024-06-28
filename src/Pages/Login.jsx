@@ -85,7 +85,7 @@ function Login() {
                 <input
                   type="text"
                   name=""
-                  className="bg-[#F2F1F6] text-dark-text text-sm  h-[43px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
+                  className="bg-[#F2F1F6] text-dark-text text-sm  h-[50px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
                   placeholder="Your Email"
                 />
               </div>
@@ -96,7 +96,7 @@ function Login() {
                 <input
                   type="password"
                   id="password"
-                  className="bg-[#F2F1F6] text-dark-text text-sm  h-[43px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
+                  className="bg-[#F2F1F6] text-dark-text text-sm  h-[50px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
                   placeholder="Password"
                 />
               </div>
