@@ -54,7 +54,7 @@ function Welcome1() {
       <div className="max-w-[1100px] w-full h-fit max-sm:h-full max-sm:pt-[300px] flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-6 mx-auto">
         <Fade
           duration={500}
-          direction="up"
+          direction="left"
           cascade
           damping={0.3}
           className="w-full flex flex-col items-center justify-center"
