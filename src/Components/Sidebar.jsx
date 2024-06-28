@@ -41,44 +41,44 @@ function Sidebar() {
             </h1>
           </div>
           <button onClick={hidesidebar} className="active:scale-95 group lg:hidden ">
-            <IoCloseCircleOutline className="text-[30px] text-dark-text/70 group-hover:text-main-color" />
+            <IoCloseCircleOutline className="text-[30px] text-dark-text/70 dark:text-light-text group-hover:text-main-color" />
           </button>
         </div>
 
         <div className="w-full h-full sidebar pb-3">
           {/* Journey */}
           <div className="mt-0 flex flex-col px-3">
-            <h1 className="uppercase text-dark-text/80 tracking-tight text-xs px-3 mb-2">
+            <h1 className="uppercase text-dark-text/80 dark:text-light-text tracking-tight text-xs px-3 mb-2">
               Journey
             </h1>
             <div className="w-full">
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <MdModeOfTravel className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <MdModeOfTravel className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Buy a Ticket
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <LuCalendarCheck className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <LuCalendarCheck className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   My Tickets
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <RiMapPinTimeLine className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <RiMapPinTimeLine className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Upcoming Journeys
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <LuWallet className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <LuWallet className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Wallet
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <FiUsers className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <FiUsers className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Agencies
                 </h1>
               </Link>
@@ -87,25 +87,25 @@ function Sidebar() {
 
           {/* Private */}
           <div className="mt-6 flex flex-col px-3">
-            <h1 className="uppercase text-dark-text/80 tracking-tight text-xs px-3 mb-2">
+            <h1 className="uppercase text-dark-text/80 dark:text-light-text tracking-tight text-xs px-3 mb-2">
               Travel Private
             </h1>
             <div className="w-full">
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <RiVipCrown2Line className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <RiVipCrown2Line className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Vip Cabs
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <MdOutlineFamilyRestroom className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <MdOutlineFamilyRestroom className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Family trip
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <TbCarSuv className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <TbCarSuv className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Rent a car
                 </h1>
               </Link>
@@ -114,25 +114,25 @@ function Sidebar() {
 
           {/* Management */}
           <div className="mt-6 flex flex-col px-3">
-            <h1 className="uppercase text-dark-text/80 tracking-tight text-xs px-3 mb-2">
+            <h1 className="uppercase text-dark-text/80 dark:text-light-text tracking-tight text-xs px-3 mb-2">
               Management
             </h1>
             <div className="w-full">
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <TbHistoryToggle className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <TbHistoryToggle className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   History
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <FiSettings className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <FiSettings className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Settings
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 group">
-                <FiHelpCircle className=" text-xl text-dark-text/50 mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <FiHelpCircle className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Support Center
                 </h1>
               </Link>

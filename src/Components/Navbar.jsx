@@ -6,192 +6,192 @@ function Navbar({ title }) {
   return (
     <div className="h-[60px] px-5 border-b-[1px] border-border-lines-light dark:border-border-lines-dark flex items-center justify-between">
       
-      <h1 className="font-bold tracking-tighter text-2xl max-lg:ml-7 text-dark-text/90 ">
+      <h1 className="font-bold tracking-tighter text-2xl max-lg:ml-7 text-dark-text/90 dark:text-white/70 ">
         {title}
       </h1>
       <div className="w-fit flex items-center justify-end gap-2">
         <div className=" mr-2">
           <select
             name=""
-            className="select-hide-icon rounded-md tracking-tight text-sm text-dark-text font-semibold bg-border-lines-light/40 py-2 px-3 "
+            className="select-hide-icon rounded-md tracking-tight text-sm text-dark-text dark:text-white/70 font-semibold bg-border-lines-light/40 dark:bg-stone-600/20 py-2 px-3 outline-none "
           >
-            <option disabled value="Algeria" title="Algeria">
+            <option className="dark:bg-stone-700" disabled value="Algeria" title="Algeria">
               🇩🇿 &nbsp; Dz
             </option>
-            <option disabled value="Angola" title="Angola">
+            <option className="dark:bg-stone-700" disabled value="Angola" title="Angola">
               🇦🇴 &nbsp; Ao
             </option>
-            <option disabled value="Benin" title="Benin">
+            <option className="dark:bg-stone-700" disabled value="Benin" title="Benin">
               🇧🇯 &nbsp; Bj
             </option>
-            <option disabled value="Botswana" title="Botswana">
+            <option className="dark:bg-stone-700" disabled value="Botswana" title="Botswana">
               🇧🇼 &nbsp; Bw
             </option>
-            <option disabled value="Burkina Faso" title="Burkina Faso">
+            <option className="dark:bg-stone-700" disabled value="Burkina Faso" title="Burkina Faso">
               🇧🇫 &nbsp; Bf
             </option>
-            <option disabled value="Burundi" title="Burundi">
+            <option className="dark:bg-stone-700" disabled value="Burundi" title="Burundi">
               🇧🇮 &nbsp; Bi
             </option>
-            <option disabled value="Cabo Verde" title="Cabo Verde">
+            <option className="dark:bg-stone-700" disabled value="Cabo Verde" title="Cabo Verde">
               🇨🇻 &nbsp; Cv
             </option>
-            <option disabled value="Cameroon" title="Cameroon">
+            <option className="dark:bg-stone-700" disabled value="Cameroon" title="Cameroon">
               🇨🇲 &nbsp; Cm
             </option>
-            <option
+            <option className="dark:bg-stone-700"
               disabled
               value="Central African Republic"
               title="Central African Republic"
             >
               🇨🇫 &nbsp; Cf
             </option>
-            <option disabled value="Chad" title="Chad">
+            <option className="dark:bg-stone-700" disabled value="Chad" title="Chad">
               🇹🇩 &nbsp; Td
             </option>
-            <option disabled value="Comoros" title="Comoros">
+            <option className="dark:bg-stone-700" disabled value="Comoros" title="Comoros">
               🇰🇲 &nbsp; Km
             </option>
-            <option
+            <option className="dark:bg-stone-700"
               disabled
               value="Congo (Congo-Brazzaville)"
               title="Congo (Congo-Brazzaville)"
             >
               🇨🇬 &nbsp; Cg
             </option>
-            <option disabled value="Côte d’Ivoire" title="Côte d’Ivoire">
+            <option className="dark:bg-stone-700" disabled value="Côte d’Ivoire" title="Côte d’Ivoire">
               🇨🇮 &nbsp; Ci
             </option>
-            <option disabled value="Djibouti" title="Djibouti">
+            <option className="dark:bg-stone-700" disabled value="Djibouti" title="Djibouti">
               🇩🇯 &nbsp; Dj
             </option>
-            <option disabled value="Egypt" title="Egypt">
+            <option className="dark:bg-stone-700" disabled value="Egypt" title="Egypt">
               🇪🇬 &nbsp; Eg
             </option>
-            <option
+            <option className="dark:bg-stone-700"
               disabled
               value="Equatorial Guinea"
               title="Equatorial Guinea"
             >
               🇬🇶 &nbsp; Gq
             </option>
-            <option disabled value="Eritrea" title="Eritrea">
+            <option className="dark:bg-stone-700" disabled value="Eritrea" title="Eritrea">
               🇪🇷 &nbsp; Er
             </option>
-            <option
+            <option className="dark:bg-stone-700"
               disabled
               value="Eswatini (fmr. Swaziland)"
               title="Eswatini (fmr. Swaziland)"
             >
               🇸🇿 &nbsp; Sz
             </option>
-            <option disabled value="Ethiopia" title="Ethiopia">
+            <option className="dark:bg-stone-700" disabled value="Ethiopia" title="Ethiopia">
               🇪🇹 &nbsp; Et
             </option>
-            <option disabled value="Gabon" title="Gabon">
+            <option className="dark:bg-stone-700" disabled value="Gabon" title="Gabon">
               🇬🇦 &nbsp; Ga
             </option>
-            <option disabled value="Gambia" title="Gambia">
+            <option className="dark:bg-stone-700" disabled value="Gambia" title="Gambia">
               🇬🇲 &nbsp; Gm
             </option>
-            <option disabled value="Ghana" title="Ghana">
+            <option className="dark:bg-stone-700" disabled value="Ghana" title="Ghana">
               🇬🇭 &nbsp; Gh
             </option>
-            <option disabled value="Guinea" title="Guinea">
+            <option className="dark:bg-stone-700" disabled value="Guinea" title="Guinea">
               🇬🇳 &nbsp; Gn
             </option>
-            <option disabled value="Guinea-Bissau" title="Guinea-Bissau">
+            <option className="dark:bg-stone-700" disabled value="Guinea-Bissau" title="Guinea-Bissau">
               🇬🇼 &nbsp; Gw
             </option>
-            <option disabled value="Kenya" title="Kenya">
+            <option className="dark:bg-stone-700" disabled value="Kenya" title="Kenya">
               🇰🇪 &nbsp; Ke
             </option>
-            <option disabled value="Lesotho" title="Lesotho">
+            <option className="dark:bg-stone-700" disabled value="Lesotho" title="Lesotho">
               🇱🇸 &nbsp; Ls
             </option>
-            <option disabled value="Liberia" title="Liberia">
+            <option className="dark:bg-stone-700" disabled value="Liberia" title="Liberia">
               🇱🇷 &nbsp; Lr
             </option>
-            <option disabled value="Libya" title="Libya">
+            <option className="dark:bg-stone-700" disabled value="Libya" title="Libya">
               🇱🇾 &nbsp; Ly
             </option>
-            <option disabled value="Madagascar" title="Madagascar">
+            <option className="dark:bg-stone-700" disabled value="Madagascar" title="Madagascar">
               🇲🇬 &nbsp; Mg
             </option>
-            <option disabled value="Malawi" title="Malawi">
+            <option className="dark:bg-stone-700" disabled value="Malawi" title="Malawi">
               🇲🇼 &nbsp; Mw
             </option>
-            <option disabled value="Mali" title="Mali">
+            <option className="dark:bg-stone-700" disabled value="Mali" title="Mali">
               🇲🇱 &nbsp; Ml
             </option>
-            <option disabled value="Mauritania" title="Mauritania">
+            <option className="dark:bg-stone-700" disabled value="Mauritania" title="Mauritania">
               🇲🇷 &nbsp; Mr
             </option>
-            <option disabled value="Mauritius" title="Mauritius">
+            <option className="dark:bg-stone-700" disabled value="Mauritius" title="Mauritius">
               🇲🇺 &nbsp; Mu
             </option>
-            <option disabled value="Morocco" title="Morocco">
+            <option className="dark:bg-stone-700" disabled value="Morocco" title="Morocco">
               🇲🇦 &nbsp; Ma
             </option>
-            <option disabled value="Mozambique" title="Mozambique">
+            <option className="dark:bg-stone-700" disabled value="Mozambique" title="Mozambique">
               🇲🇿 &nbsp; Mz
             </option>
-            <option disabled value="Namibia" title="Namibia">
+            <option className="dark:bg-stone-700" disabled value="Namibia" title="Namibia">
               🇳🇦 &nbsp; Na
             </option>
-            <option disabled value="Niger" title="Niger">
+            <option className="dark:bg-stone-700" disabled value="Niger" title="Niger">
               🇳🇪 &nbsp; Ne
             </option>
-            <option disabled value="Nigeria" title="Nigeria">
+            <option className="dark:bg-stone-700" disabled value="Nigeria" title="Nigeria">
               🇳🇬 &nbsp; Ng
             </option>
-            <option value="Rwanda" title="Rwanda" selected>
+            <option className="dark:bg-stone-700" value="Rwanda" title="Rwanda" selected>
               🇷🇼 &nbsp; Rw
             </option>
-            <option
+            <option className="dark:bg-stone-700"
               disabled
               value="São Tomé and Príncipe"
               title="São Tomé and Príncipe"
             >
               🇸🇹 &nbsp; St
             </option>
-            <option disabled value="Senegal" title="Senegal">
+            <option className="dark:bg-stone-700" disabled value="Senegal" title="Senegal">
               🇸🇳 &nbsp; Sn
             </option>
-            <option disabled value="Seychelles" title="Seychelles">
+            <option className="dark:bg-stone-700" disabled value="Seychelles" title="Seychelles">
               🇸🇨 &nbsp; Sc
             </option>
-            <option disabled value="Sierra Leone" title="Sierra Leone">
+            <option className="dark:bg-stone-700" disabled value="Sierra Leone" title="Sierra Leone">
               🇸🇱 &nbsp; Sl
             </option>
-            <option disabled value="Somalia" title="Somalia">
+            <option className="dark:bg-stone-700" disabled value="Somalia" title="Somalia">
               🇸🇴 &nbsp; So
             </option>
-            <option disabled value="South Africa" title="South Africa">
+            <option className="dark:bg-stone-700" disabled value="South Africa" title="South Africa">
               🇿🇦 &nbsp; Za
             </option>
-            <option disabled value="South Sudan" title="South Sudan">
+            <option className="dark:bg-stone-700" disabled value="South Sudan" title="South Sudan">
               🇸🇸 &nbsp; Ss
             </option>
-            <option disabled value="Sudan" title="Sudan">
+            <option className="dark:bg-stone-700" disabled value="Sudan" title="Sudan">
               🇸🇩 &nbsp; Sd
             </option>
-            <option disabled value="Tanzania" title="Tanzania">
+            <option className="dark:bg-stone-700" disabled value="Tanzania" title="Tanzania">
               🇹🇿 &nbsp; Tz
             </option>
-            <option disabled value="Togo" title="Togo">
+            <option className="dark:bg-stone-700" disabled value="Togo" title="Togo">
               🇹🇬 &nbsp; Tg
             </option>
-            <option disabled value="Tunisia" title="Tunisia">
+            <option className="dark:bg-stone-700" disabled value="Tunisia" title="Tunisia">
               🇹🇳 &nbsp; Tn
             </option>
-            <option disabled value="Uganda" title="Uganda">
+            <option className="dark:bg-stone-700" disabled value="Uganda" title="Uganda">
               🇺🇬 &nbsp; Ug
             </option>
-            <option disabled value="Zambia" title="Zambia">
+            <option className="dark:bg-stone-700" disabled value="Zambia" title="Zambia">
               🇿🇲 &nbsp; Zm
             </option>
-            <option disabled value="Zimbabwe" title="Zimbabwe">
+            <option className="dark:bg-stone-700" disabled value="Zimbabwe" title="Zimbabwe">
               🇿🇼 &nbsp; Zw
             </option>
           </select>
@@ -200,13 +200,13 @@ function Navbar({ title }) {
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
           title="Search"
         >
-          <BiSearch className="text-2xl text-dark-text group-hover:text-main-color " />
+          <BiSearch className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
         </button>
         <button
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotificationsOutline className="text-2xl text-dark-text group-hover:text-main-color " />
+          <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
         </button>
         <div
           className="flex cursor-pointer active:scale-95 select-none"

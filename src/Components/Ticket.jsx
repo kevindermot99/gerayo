@@ -57,8 +57,8 @@ function Ticket({ location, leavingAt, agency, price, src }) {
   }, [leavingAt]);
 
   return (
-    <div className="w-full min-h-[100px] bg-body-color-light dark:bg-[#282828]/40 rounded-xl py-3 px-4 shadow-sm overflow-clip">
-      <h1 className="font-bold tracking-tight text-base text-dark-text flex items-center justify-between ">
+    <div className="w-full min-h-[100px] bg-body-color-light dark:bg-stone-600/20 rounded-xl py-3 px-4 shadow-sm overflow-clip">
+      <h1 className="font-bold tracking-tight text-base text-dark-text dark:text-white/70 flex items-center justify-between ">
         <span className="flex items-center">
           <MdOutlineLocationOn className="text-xl " />
           {location}
@@ -67,7 +67,7 @@ function Ticket({ location, leavingAt, agency, price, src }) {
           <SlOptions />
         </button>
       </h1>
-      <p className="text-xs font-medium opacity-50 px-0 pt-1 ">
+      <p className="text-xs font-medium opacity-50 px-0 pt-1 text-dark-text dark:text-white  ">
         Leaving at <span className="font-bold ">{leavingAt}</span>
       </p>
       <div className="flex items-center justify-between w-full pt-2">
@@ -76,27 +76,27 @@ function Ticket({ location, leavingAt, agency, price, src }) {
             src={src}
             className="h-7 aspect-square rounded-full  bg-border-lines-light/40"
           />
-          <p className="text-xs font-semibold text-dark-text truncate   ">
+          <p className="text-xs font-semibold text-dark-text dark:text-white/70 truncate   ">
             {agency}
           </p>
         </div>
-        <h1 className="tracking-tight font-bold text-sm text-dark-text w-fit">
+        <h1 className="tracking-tight font-bold text-sm text-dark-text dark:text-white/70 w-fit">
           {numberWithCommas(price)} rwf
         </h1>
       </div>
       <div className="flex items-center justify-between pt-2">
         <div className="flex items-center">
-          <button className="text-xl pr-3 text-dark-text/70 hover:text-main-color font-medium">
+          <button className="text-xl pr-3 text-dark-text/70 dark:text-white/70 hover:text-main-color font-medium">
             <LuCalendar className="text-base" />
           </button>
-          <button className="text-xl pr-3 text-dark-text/70 hover:text-main-color font-medium">
+          <button className="text-xl pr-3 text-dark-text/70 dark:text-white/70 hover:text-main-color font-medium">
             <BsBusFront className="text-base" />
           </button>
-          <button className="text-xl pr-3 flex items-center gap-1 text-dark-text/70 hover:text-main-color font-medium">
+          <button className="text-xl pr-3 flex items-center gap-1 text-dark-text/70 dark:text-white/70 hover:text-main-color font-medium">
             <IoMdShare className="text-base" />
           </button>
         </div>
-        <p className="text-dark-text/50 font-bold text-sm ">{timeLeft}</p>
+        <p className="text-dark-text/50 dark:text-white  font-bold text-sm ">{timeLeft}</p>
       </div>
     </div>
   );

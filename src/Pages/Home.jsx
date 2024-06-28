@@ -20,27 +20,27 @@ function Home() {
       <div className=" w-full min-h-full">
         <Navbar title="Buy a ticket" />
         <div className="h-[45px] py-3 px-5 w-full border-b-[1px] border-border-lines-light dark:border-body-color-dark flex items-center justify-start gap-5">
-          <button className="h-[45px] flex items-center justify-center gap-1 text-dark-text border-b-2 border-main-color select-none ">
+          <button className="h-[45px] flex items-center justify-center gap-1 text-dark-text dark:text-white/70 border-b-2 border-main-color select-none ">
             <HiOutlineViewBoards className="text-2xl text-main-color " />
             <p className="tracking-tight font-medium text-sm">Pipeline View</p>
           </button>
-          <button className="h-[45px] flex items-center justify-center gap-1 text-dark-text border-b-2 border-transparent select-none ">
-            <TbListDetails className="text-[22px] text-dark-text/50 " />
+          <button className="h-[45px] flex items-center justify-center gap-1 text-dark-text dark:text-light-text border-b-2 border-transparent select-none ">
+            <TbListDetails className="text-[22px] text-dark-text/50 dark:text-light-text" />
             <p className="tracking-tight font-medium text-sm">List View</p>
           </button>
           <p className="text-dark-text/30  ">|</p>
-          <p className="tracking-tight text-sm text-dark-text/50 font-semibold ">
+          <p className="tracking-tight text-sm text-dark-text/50 dark:text-light-text font-semibold ">
             From
-            <span className="text-dark-text px-2">
+            <span className=" px-2">
               <select
                 name=""
-                className="select-icon-padding py-1 pl-3 rounded-md bg-border-lines-light/40  "
+                className="select-icon-padding py-1 pl-3 rounded-md bg-border-lines-light/40 dark:bg-stone-600/20 text-dark-text dark:text-white/70 outline-none  "
               >
-                <option value="Nyabugogo">Kigali</option>
-                <option value="Muhanga">South</option>
-                <option value="Karongi">East</option>
-                <option value="Huye">West</option>
-                <option value="Huye">North</option>
+                <option className="dark:bg-stone-700" value="Nyabugogo">Kigali</option>
+                <option className="dark:bg-stone-700" value="Muhanga">South</option>
+                <option className="dark:bg-stone-700" value="Karongi">East</option>
+                <option className="dark:bg-stone-700" value="Huye">West</option>
+                <option className="dark:bg-stone-700" value="Huye">North</option>
               </select>
             </span>
           </p>
@@ -50,13 +50,13 @@ function Home() {
         </div>
         <div className="gridRespo p-5 gap-2 overflow-y-auto max-h-[90vh] pb-20">
           
-          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-border-lines-dark/30 rounded-xl p-2">
-            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text ">
+          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-stone-600/10 rounded-xl p-2">
+            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text dark:text-light-text ">
               to East
             </h1>
-            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text ">
+            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text dark:text-white/70 ">
               1,403 rwf
-              <span className="uppercase text-xs font-medium opacity-50 px-2">
+              <span className="uppercase text-xs font-medium opacity-50 text-dark-text dark:text-light-text  px-2">
               5 Tickets
               </span>
             </h1>
@@ -68,13 +68,13 @@ function Home() {
               <Ticket location="Bugesera" leavingAt="9:00 am" agency="HORIZON EXPRESS" price={2500} src={horizonLogo} />
             </div>
           </div>
-          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-border-lines-dark/30 rounded-xl p-2">
-            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text ">
+          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-stone-600/10 rounded-xl p-2">
+            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text dark:text-light-text  ">
               to West
             </h1>
-            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text ">
+            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text dark:text-white/70 ">
               1,403 rwf
-              <span className="uppercase text-xs font-medium opacity-50 px-2">
+              <span className="uppercase text-xs font-medium opacity-50 text-dark-text dark:text-light-text  px-2">
               5 Tickets
               </span>
             </h1>
@@ -86,13 +86,13 @@ function Home() {
               <Ticket location="Rusizi" leavingAt="2:00 am" agency="VOLCANO EXPRESS" price={2500} src={volcanoLogo} />
             </div>
           </div>
-          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-border-lines-dark/30 rounded-xl p-2">
-            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text ">
+          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-stone-600/10 rounded-xl p-2">
+            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text dark:text-light-text ">
               to South
             </h1>
-            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text ">
+            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text dark:text-white/70 ">
               1,403 rwf
-              <span className="uppercase text-xs font-medium opacity-50 px-2">
+              <span className="uppercase text-xs font-medium opacity-50 text-dark-text dark:text-light-text  px-2">
               5 Tickets
               </span>
             </h1>
@@ -104,13 +104,13 @@ function Home() {
               <Ticket location="Bugesera" leavingAt="1:00 pm" agency="HORIZON EXPRESS" price={2500} src={horizonLogo} />
             </div>
           </div>
-          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-border-lines-dark/30 rounded-xl p-2">
-            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text ">
+          <div className="w-full h-fit bg-border-lines-light/30 dark:bg-stone-600/10 rounded-xl p-2">
+            <h1 className="capitalize tracking-wide text-sm opacity-50 font-medium px-2 pt-1 text-dark-text dark:text-light-text ">
               to North
             </h1>
-            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text ">
+            <h1 className="capitalize tracking-tight font-bold text-lg px-2 pb-1 text-dark-text dark:text-white/70 ">
               1,403 rwf
-              <span className="uppercase text-xs font-medium opacity-50 px-2">
+              <span className="uppercase text-xs font-medium opacity-50 text-dark-text dark:text-light-text  px-2">
                 5 Tickets
               </span>
             </h1>

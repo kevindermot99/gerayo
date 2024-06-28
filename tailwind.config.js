@@ -23,6 +23,7 @@ export default {
         "border-lines-light": "#e7e7e7",
         "border-lines-dark": "#1D1D1D",
         "dark-text": "#2F333C",
+        "light-text": "#7d7d7d"
       },
     },
   },
