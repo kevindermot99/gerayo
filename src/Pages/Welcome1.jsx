@@ -36,13 +36,14 @@ function Welcome1() {
         </div>
 
         {/* Skip */}
-        <div
+        <Link 
+        to={'/login'}
           className="flex items-center justify-start text-main-color cursor-pointer h-fit w-fit active:scale-95 transition "
           title="Skip for now"
         >
           <p className=" font-medium text-sm ">Skip</p>
           <GrFormNext />
-        </div>
+        </Link>
       </div>
 
       <div className="max-w-[1100px] w-full h-fit max-sm:h-full max-sm:pt-[300px] flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-6 mx-auto">
@@ -78,7 +79,7 @@ function Welcome1() {
             {pending ? (
               <>
                 <CgSpinner className="animate-spinLoader text-2xl " />
-                Moving on..
+                Moving on
               </>
             ) : (
               <>Continue</>

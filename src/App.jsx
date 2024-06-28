@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Welcome1 from "./Pages/Welcome1";
 import Welcome2 from "./Pages/Welcome2";
+import Login from "./Pages/Login";
 
 function App() {
   const [visited, setVisited] = useState(false);
@@ -20,6 +21,7 @@ function App() {
               <Route path="/feature2" element={<Welcome2 />} />
             </>
           )}
+            <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>

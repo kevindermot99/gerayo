@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import Travelers from "../assets/travelers.jpg";
 import { GrFormNext } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { CgSpinner } from "react-icons/cg";
 
 function Welcome2() {
   const navigate = useNavigate();
+  const [pending, setPending] = useState(false);
 
   const handleClick = () => {
-    setInterval(() => {
-      navigate("/feature2");
-    }, 5000);
+    setPending(true);
+    setTimeout(() => {
+      navigate("/login");
+    }, 1500);
   };
   return (
     <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
@@ -32,13 +35,14 @@ function Welcome2() {
         </div>
 
         {/* Skip */}
-        <div
+        <Link
+          to={"/login"}
           className="flex items-center justify-start text-main-color cursor-pointer h-fit w-fit active:scale-95 transition "
           title="Skip for now"
         >
           <p className=" font-medium text-sm ">Skip</p>
           <GrFormNext />
-        </div>
+        </Link>
       </div>
 
       <div className="max-w-[1100px] h-fit max-sm:h-full flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-6 mx-auto">
@@ -70,9 +74,16 @@ function Welcome2() {
 
           <button
             onClick={handleClick}
-            className="bg-main-color my-5 text-white font-bold text-base transition active:scale-90 h-[50px] w-full max-w-[250px] rounded-[20px] "
+            className="bg-main-color my-5 outline-none text-white font-bold text-base transition active:scale-90 h-[50px] w-full max-w-[250px] rounded-[20px] flex items-center justify-center gap-2"
           >
-            Start
+            {pending ? (
+              <>
+                <CgSpinner className="animate-spinLoader text-2xl " />
+                One sec..
+              </>
+            ) : (
+              <>Let me in</>
+            )}
           </button>
         </Fade>
       </div>
