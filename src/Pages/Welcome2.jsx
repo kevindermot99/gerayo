@@ -41,7 +41,7 @@ function Welcome2() {
         </div>
       </div>
 
-      <div className="max-w-[1100px] h-fit max-sm:h-full flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-3 mx-auto">
+      <div className="max-w-[1100px] h-fit max-sm:h-full flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-6 mx-auto">
         <Fade
           duration={500}
           direction="up"
@@ -62,7 +62,7 @@ function Welcome2() {
             <h1 className="font-bold tracking-tighter text-2xl text-center text-dark-text/90 line-clamp-2 max-w-[350px]">
               Purchase bus tickets online.
             </h1>
-            <p className="tracking-tight text-sm text-center text-dark-text/80  max-w-[400px] font-semibold">
+            <p className="tracking-tight text-sm text-center text-dark-text/80  max-w-[400px] font-semibold px-10">
               Buy your tickets while sipping coffee, chilling in your office
               move nothing but your fingers!
             </p>

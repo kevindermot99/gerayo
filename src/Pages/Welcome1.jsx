@@ -45,7 +45,7 @@ function Welcome1() {
         </div>
       </div>
 
-      <div className="max-w-[1100px] w-full h-fit max-sm:h-full max-sm:pt-[300px] flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-3 mx-auto">
+      <div className="max-w-[1100px] w-full h-fit max-sm:h-full max-sm:pt-[300px] flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-6 mx-auto">
         <Fade
           duration={500}
           direction="up"
@@ -66,7 +66,7 @@ function Welcome1() {
             <h1 className="font-bold tracking-tighter text-2xl text-center text-dark-text/90 line-clamp-2 max-w-[350px]">
               Check the next bus arrival time
             </h1>
-            <p className="tracking-tight text-sm text-center text-dark-text/80  max-w-[400px] font-semibold">
+            <p className="tracking-tight text-sm text-center text-dark-text/80  max-w-[400px] font-semibold px-10">
               Enter your location and route for real-time bus updates and never
               miss your ride.
             </p>
