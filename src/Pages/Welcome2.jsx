@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../assets/logo.png";
-import Travelers from "../assets/travelers.png";
+import Travelers from "../assets/travelers.jpg";
 import { GrFormNext } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";

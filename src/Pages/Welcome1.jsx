@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
-import BusStop from "../assets/bus-Stop.png";
+import BusStop from "../assets/bus-Stop.jpg";
 import { GrFormNext } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
