@@ -6,6 +6,7 @@ import { GrFormNext } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { CgSpinner } from "react-icons/cg";
+import { Helmet } from "react-helmet";
 
 function Welcome1() {
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ function Welcome1() {
   };
   return (
     <div className="h-svh w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
+      {/* Helmet */}
+      <Helmet>
+        <title>Introduction | gerayo.</title>
+      </Helmet>
       <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white dark:bg-white w-full h-fit flex justify-between items-center select-none ">
         {/* tab indicator */}
         <div className="flex items-center justify-start gap-1">
