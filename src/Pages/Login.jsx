@@ -17,7 +17,7 @@ function Login() {
     }, 1500);
   };
   return (
-    <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
+    <div className="h-svh w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
       <div className="w-[50%] max-md:w-full h-full flex flex-col items-start justify-between">
         <div className="flex flex-col items-start justify-start w-full">
           <h1 className="font-bold tracking-tighter text-2xl text-left text-dark-text/90">

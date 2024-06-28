@@ -17,7 +17,7 @@ function Welcome2() {
     }, 1500);
   };
   return (
-    <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
+    <div className="h-svh w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
       <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white dark:bg-white w-full h-fit flex justify-between items-center select-none ">
         {/* tab indicator */}
         <div className="flex items-center justify-start gap-1">
