@@ -1,19 +1,21 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import BusStop from "../assets/bus-Stop.png";
 import { GrFormNext } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { CgSpinner } from "react-icons/cg";
 
 function Welcome1() {
   const navigate = useNavigate();
+  const [pending, setPending] = useState(false);
 
   const handleClick = () => {
-    // Perform any actions before navigating, if needed
-
-    // Redirect to '/feature2'
-    navigate("/feature2");
+    setPending(true)
+    setTimeout(() => {
+      navigate("/feature2");
+    }, 1000);
   };
   return (
     <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
@@ -45,11 +47,11 @@ function Welcome1() {
 
       <div className="max-w-[1100px] w-full h-fit max-sm:h-full max-sm:pt-[300px] flex flex-col items-center justify-end max-sm:gap-10 py-10 max-sm:py-3 mx-auto">
         <Fade
-        duration={500}
-        direction="up"
-        cascade
-        damping={0.3}
-        className="w-full flex flex-col items-center justify-center"
+          duration={500}
+          direction="up"
+          cascade
+          damping={0.3}
+          className="w-full flex flex-col items-center justify-center"
         >
           <div className="flex items-center justify-center ">
             <img src={Logo} className="h-6" />
@@ -70,11 +72,18 @@ function Welcome1() {
             </p>
           </div>
           <button
-              onClick={handleClick}
-              className="bg-main-color my-5 outline-none text-white font-bold text-base transition active:scale-90 h-[50px] w-full max-w-[250px] rounded-[20px] flex items-center justify-center"
-            >
-              Continue
-            </button>
+            onClick={handleClick}
+            className="bg-main-color my-5 outline-none text-white font-bold text-base transition active:scale-90 h-[50px] w-full max-w-[250px] rounded-[20px] flex items-center justify-center gap-2"
+          >
+            {pending ? (
+              <>
+                <CgSpinner className="animate-spinLoader text-2xl " />
+                Moving on..
+              </>
+            ) : (
+              <>Continue</>
+            )}
+          </button>
         </Fade>
       </div>
     </div>

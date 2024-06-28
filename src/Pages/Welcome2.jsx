@@ -9,10 +9,9 @@ function Welcome2() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    // Perform any actions before navigating, if needed
-
-    // Redirect to '/feature2'
-    navigate("/feature2");
+    setInterval(() => {
+      navigate("/feature2");
+    }, 5000);
   };
   return (
     <div className="h-[100vh] w-full overflow-x-clip overflow-y-auto flex flex-col items-center justify-center max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
@@ -73,7 +72,7 @@ function Welcome2() {
             onClick={handleClick}
             className="bg-main-color my-5 text-white font-bold text-base transition active:scale-90 h-[50px] w-full max-w-[250px] rounded-[20px] "
           >
-            Continue
+            Start
           </button>
         </Fade>
       </div>

@@ -25,6 +25,9 @@ export default {
         "dark-text": "#2F333C",
         "light-text": "#7d7d7d"
       },
+      animation: {
+        spinLoader: 'spin .4s linear infinite',
+      },
     },
   },
   plugins: [],
