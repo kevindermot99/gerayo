@@ -52,6 +52,12 @@ function Sidebar() {
               Journey
             </h1>
             <div className="w-full">
+            <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+                <RiMapPinTimeLine className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
+                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
+                  Track your bus
+                </h1>
+              </Link>
               <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
                 <MdModeOfTravel className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
@@ -62,18 +68,6 @@ function Sidebar() {
                 <LuCalendarCheck className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   My Tickets
-                </h1>
-              </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
-                <RiMapPinTimeLine className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
-                  Upcoming Journeys
-                </h1>
-              </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
-                <LuWallet className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
-                  Wallet
                 </h1>
               </Link>
               <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
@@ -95,12 +89,6 @@ function Sidebar() {
                 <RiVipCrown2Line className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Vip Cabs
-                </h1>
-              </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
-                <MdOutlineFamilyRestroom className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
-                <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
-                  Family trip
                 </h1>
               </Link>
               <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">

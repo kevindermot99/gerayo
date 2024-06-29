@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 function Register() {
   const navigate = useNavigate();
   const [pending, setPending] = useState(false);
+  const [guestPending, setGuestPending] = useState(false);
 
   const handleClick = () => {
     setPending(true);
@@ -25,6 +26,18 @@ function Register() {
     } else {
       input.type = "password";
     }
+  };
+
+  const LoginGuest = () => {
+    setGuestPending(true);
+    setTimeout(() => {
+      try {
+        localStorage.setItem("visitedAs", "guest");
+        navigate("/");
+      } catch (err) {
+        console.log("Failed to Login Guest");
+      }
+    }, 1000);
   };
 
   return (
@@ -48,14 +61,23 @@ function Register() {
         </div>
 
         {/* Skip */}
-        <Link
-          to={"/login"}
-          className="flex items-center justify-start text-main-color cursor-pointer h-fit w-fit active:scale-95 transition "
-          title="Skip for now"
+        {/* Skip */}
+        <button
+          onClick={LoginGuest}
+          className="outline-none flex items-center justify-start text-main-color cursor-pointer h-fit w-fit active:scale-95 transition "
+          title="Login as a Guest"
         >
-          <p className=" font-medium text-sm ">Continue as Guest</p>
-          <GrFormNext />
-        </Link>
+          {guestPending ? (
+            <>
+              <CgSpinner className="animate-spinLoader text-2xl " />
+            </>
+          ) : (
+            <>
+              <p className=" font-medium text-sm ">Continue as Guest</p>
+              <GrFormNext />
+            </>
+          )}
+        </button>
       </div>
       <div className="w-full h-full flex flex-col items-center justify-center max-sm:justify-between max-sm:pt-[70px]">
         {/* <Fade
