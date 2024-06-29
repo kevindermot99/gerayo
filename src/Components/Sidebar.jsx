@@ -52,25 +52,25 @@ function Sidebar() {
               Journey
             </h1>
             <div className="w-full">
-            <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+            <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <RiMapPinTimeLine className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
-                  Track your bus
+                  Find my bus
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <MdModeOfTravel className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Buy a Ticket
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <LuCalendarCheck className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   My Tickets
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <FiUsers className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Agencies
@@ -85,13 +85,13 @@ function Sidebar() {
               Travel Private
             </h1>
             <div className="w-full">
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-600/20 group">
                 <RiVipCrown2Line className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Vip Cabs
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <TbCarSuv className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Rent a car
@@ -106,19 +106,19 @@ function Sidebar() {
               Management
             </h1>
             <div className="w-full">
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <TbHistoryToggle className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   History
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <FiSettings className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Settings
                 </h1>
               </Link>
-              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-border-lines-light/60 dark:hover:bg-stone-600/20 group">
+              <Link className="flex gap-2 items-center px-2 py-3 rounded-lg hover:bg-stone-100  dark:hover:bg-stone-600/20 group">
                 <FiHelpCircle className=" text-xl text-dark-text/50 dark:text-light-text mx-[2px] group-hover:text-main-color " />
                 <h1 className="text-dark-text dark:text-white/70 font-semibold tracking-tight text-sm capitalize group-hover:text-main-color ">
                   Support Center

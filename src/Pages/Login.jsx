@@ -28,12 +28,19 @@ function Login() {
     }
   };
 
+  useEffect(() => {
+    const visitedAs = localStorage.getItem('visitedAs')
+    if(visitedAs){
+      navigate('/')
+    }
+  }, [])
+
   const LoginGuest = () => {
     setGuestPending(true);
     setTimeout(() => {
       try {
         localStorage.setItem("visitedAs", "guest");
-        navigate("/");
+        window.location.reload()
       } catch (err) {
         console.log("Failed to Login Guest");
       }
