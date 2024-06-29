@@ -58,12 +58,12 @@ function Login() {
         </Link>
       </div>
       <div className="w-full h-full flex flex-col items-center justify-center max-sm:justify-between max-sm:pt-[70px]">
-        <Fade
+        {/* <Fade
           duration={500}
           cascade
           damping={0.3}
           className="w-full flex flex-col items-center justify-center"
-        >
+        > */}
           <div className="flex flex-col items-center justify-center w-full h-fit max-sm:mt-10">
             <div className="flex items-center justify-center py-3">
               <img src={Logo} className="h-6 pt-0" />
@@ -135,7 +135,7 @@ function Login() {
               </Link>
             </p>
           </div>
-        </Fade>
+        {/* </Fade> */}
       </div>
     </div>
   );
