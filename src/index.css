@@ -78,9 +78,5 @@ select.select-icon-padding{
 ::-webkit-scrollbar-thumb {
   border: 3px solid transparent;
   background-clip: padding-box;
-  background: transparent;
-}
-
-:hover::-webkit-scrollbar-thumb {
   background: #8f8f8f59;
 }
