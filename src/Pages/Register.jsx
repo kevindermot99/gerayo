@@ -60,7 +60,6 @@ function Register() {
       <div className="w-full h-full flex flex-col items-center justify-center max-sm:justify-between max-sm:pt-[70px]">
         <Fade
           duration={500}
-          direction="right"
           cascade
           damping={0.3}
           className="w-full flex flex-col items-center justify-center"
