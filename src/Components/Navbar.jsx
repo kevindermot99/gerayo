@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { BiSearch } from "react-icons/bi";
+import { VscAccount } from "react-icons/vsc";
+import { FiSettings } from "react-icons/fi";
+import { FiHelpCircle } from "react-icons/fi";
 
 function Navbar({ title }) {
+  const [profileMenu, setProfileMenu] = useState(false)
+
+  const showMenu = () => {
+    setProfileMenu(!profileMenu)
+  }
+
   return (
     <div className="h-[60px] px-5 border-b-[1px] border-border-lines-light dark:border-border-lines-dark flex items-center justify-between">
+      {/* Profile Menu overlay */}
+      <div onClick={() => setProfileMenu(false)} className={`bg-stone-600/10 fixed top-0 left-0 w-full h-full ${profileMenu ? 'z-30' : '-z-10'}`}>
+
+      </div>
       <h1 className="font-bold tracking-tighter text-2xl max-lg:ml-7 text-dark-text/90 dark:text-white/70 line-clamp-1 ">
         {title}
       </h1>
@@ -319,11 +332,7 @@ function Navbar({ title }) {
             >
               🇳🇬 &nbsp; Ng
             </option>
-            <option
-              className="dark:bg-stone-700"
-              value="Rwanda"
-              title="Rwanda"
-            >
+            <option className="dark:bg-stone-700" value="Rwanda" title="Rwanda">
               🇷🇼 &nbsp; Rw
             </option>
             <option
@@ -453,13 +462,42 @@ function Navbar({ title }) {
           <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
         </button>
         <div
-          className="flex cursor-pointer active:scale-95 select-none"
+          className="flex cursor-pointer select-none relative"
           title="Andrew"
         >
-          <div className="h-8 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center">
+          <div onClick={showMenu} className={`h-8 active:scale-95 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center ${profileMenu ? 'z-30' : ''}`}>
             <p className="bg-main-color text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
               A
             </p>
+          </div>
+
+          {/* dropdown */}
+          <div className={`bg-white min-h-[180px] w-[230px] absolute top-[40px] rounded-xl right-0 overflow-x-clip overflow-y-auto border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 ${profileMenu ? 'flex z-30' : ' hidden'}`}>
+            <button className="h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <VscAccount className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                Profile
+              </h1>
+            </button>
+            <button className="h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <FiSettings className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                Settings
+              </h1>
+            </button>
+            <button className="h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <FiHelpCircle className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                Support Center
+              </h1>
+            </button>
+            <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
+            <button className="h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <VscAccount className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                Profile
+              </h1>
+            </button>
           </div>
         </div>
       </div>
