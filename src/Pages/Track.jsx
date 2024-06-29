@@ -25,7 +25,6 @@ function Track() {
   
   return (
     <div className="w-full h-full flex min-h-screen bg-body-color-light dark:bg-body-color-dark  overflow-y-hidden max-h-dvh ">
-      <Sidebar />
       <div className=" w-full min-h-full">
         <Navbar title="Home" />
 
