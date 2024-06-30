@@ -36,15 +36,18 @@ function Navbar({ title }) {
       ></div>
 
       {/* Menu */}
-      <div className="flex items-center justify-start gap-0">
+      <div className="flex items-center justify-start gap-2">
         {/* <img src="" alt="" /> */}
-        <img
-          src={Logo}
-          className=" h-[28px] pointer-events-none select-none"
-        ></img>
-        <h1 className=" font-bold text-[26px] tracking-tighter text-main-color pr-8 pointer-events-none select-none ">
-          gerayo.
-        </h1>
+        <div className="w-fit h-fit flex items-center justify-start">
+          <img
+            src={Logo}
+            className=" h-[28px] pointer-events-none select-none"
+          ></img>
+          <h1 className=" font-bold text-[26px] tracking-tighter text-main-color pr-8 pointer-events-none select-none ">
+            gerayo.
+          </h1>
+        </div>
+
         <Link
           to={`/`}
           className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg relative ${
@@ -52,18 +55,24 @@ function Navbar({ title }) {
           }`}
         >
           Find my bus
-          <span className={`h-[6px] w-[20px] bg-main-color rounded-md ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${location.pathname === '/' ? 'flex' : 'hidden'
-          }`}></span>
+          <span
+            className={`h-[6px] w-[20px] bg-main-color rounded-md ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${
+              location.pathname === "/" ? "flex" : "hidden"
+            }`}
+          ></span>
         </Link>
         <Link
           to={`/ticket`}
-          className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg relative ${
+          className={`text-dark-text font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-4 rounded-lg relative ${
             location.pathname === "/ticket" ? "bg-stone-100" : ""
           }`}
         >
           Buy Ticket
-          <span className={`h-[6px] w-[20px] bg-main-color rounded-md ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${location.pathname === '/ticket' ? 'flex' : 'hidden'
-          }`}></span>
+          <span
+            className={`h-[6px] w-[20px] bg-main-color rounded-md ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${
+              location.pathname === "/ticket" ? "flex" : "hidden"
+            }`}
+          ></span>
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-3">

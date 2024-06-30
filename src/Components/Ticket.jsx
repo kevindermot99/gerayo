@@ -20,7 +20,7 @@ function Ticket() {
         />
       </div>
       <div className="flex flex-col items-center justify-start max-md:items-start gap-2 z-10">
-        <div className="w-full flex items-center justify-start gap-2 max-md:max-w-[70%] max-md:flex-wrap max-md:items-start ">
+        <div className="w-full flex items-center justify-start gap-2 max-md:max-w-[90%] max-md:flex-wrap max-md:items-start ">
           <div
             title="Time Left"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
@@ -76,7 +76,7 @@ function Ticket() {
           <div className="min-w-fit w-fit min-h-full border-l-[1px] max-md:border-l-[0px] max-md:pt-10 max-md:w-full border-border-lines-light pl-4 pb-2 max-md:pl-0 flex flex-col justify-end items-center">
             <h1 className="text-dark-text font-bold text-xl ">3,880.00 rwf</h1>
             <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm mb-5 max-md:mb-3">
-              Journey Price
+              Travel Cost
             </p>
             <button className="h-[40px] max-md:w-full px-8 bg-main-color text-white shadow-xl font-semibold rounded-lg text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <MdOutlineShoppingCartCheckout className="text-xl" />
