@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineArrowCircleLeft } from "react-icons/md";
 
-function Profile() {
+function Search() {
   return (
     <div className="w-full flex bg-stone-100 h-full  ">
       <div className="w-full h-full pt-10 flex flex-col ">
@@ -17,4 +17,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Search;
