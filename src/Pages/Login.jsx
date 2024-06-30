@@ -6,18 +6,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { CgSpinner } from "react-icons/cg";
 import { Helmet } from "react-helmet";
+import { loadConfigFromFile } from "vite";
 
 function Login() {
   const navigate = useNavigate();
   const [pending, setPending] = useState(false);
   const [guestPending, setGuestPending] = useState(false);
 
-  const handleClick = () => {
-    setPending(true);
-    setTimeout(() => {
-      navigate("/feature2");
-    }, 1500);
-  };
 
   const handleShowPassword = () => {
     const input = document.getElementById("password");
@@ -35,17 +30,28 @@ function Login() {
     }
   }, [])
 
+  // function randomCode(length) {
+  //   const randomNumbers = [];
+  //   for (let i = 0; i < length; i++) {
+  //     randomNumbers.push(Math.floor(Math.random() * 10));
+  //   }
+  //   return randomNumbers;
+  // }
+
   const LoginGuest = () => {
     setGuestPending(true);
     setTimeout(() => {
       try {
         localStorage.setItem("visitedAs", "guest");
+        // localStorage.setItem("guestEmail", "guest"+randomCode(5)+"@gmail.com")
         window.location.reload()
       } catch (err) {
         console.log("Failed to Login Guest");
       }
     }, 1000);
   };
+
+
 
   return (
     <div className="h-svh w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">

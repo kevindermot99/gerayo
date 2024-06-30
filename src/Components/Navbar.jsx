@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { BiSearch } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
@@ -94,14 +94,19 @@ function Navbar({ title }) {
         >
           <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
         </button>
-        <div className="flex cursor-pointer select-none relative" title="Guest">
+        <div
+          className="flex cursor-pointer select-none relative"
+          title="Guest1516"
+        >
           <div
             onClick={showMenu}
-            className={`h-8 active:scale-95 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center ${
+            className={`h-8 active:scale-95 aspect-square rounded-full flex items-center justify-center ${
               profileMenu ? "z-30" : ""
             }`}
           >
-            <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
+            <p
+              className={`bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center `}
+            >
               G
             </p>
           </div>
@@ -112,6 +117,11 @@ function Navbar({ title }) {
               profileMenu ? "flex z-30 " : "hidden -z-10"
             }`}
           >
+            <div className="h-[43px] min-h-[43px] w-full rounded-lg flex items-center justify-start px-3 gap-3">
+              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
+                Guest1516@gmail.com
+              </h1>
+            </div>
             <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
               <VscAccount className="text-[23px] text-dark-text/60" />
               <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize ">

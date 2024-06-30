@@ -20,7 +20,7 @@ import { FiHelpCircle } from "react-icons/fi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { Helmet } from "react-helmet";
 
-function Track() {
+function Track({ guestEmail }) {
   const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -185,6 +185,11 @@ function Track() {
               : "opacity-0 translate-y-6 -z-10"
           }`}
         >
+          <div className="h-[43px] min-h-[43px] w-full rounded-lg flex items-center justify-start px-3 gap-3">
+            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
+              {guestEmail}
+            </h1>
+          </div>
           <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
             <VscAccount className="text-[23px] min-w-fit text-dark-text/60" />
             <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
