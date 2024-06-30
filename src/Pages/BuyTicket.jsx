@@ -27,6 +27,7 @@ import { VscAccount } from "react-icons/vsc";
 import { FiSettings } from "react-icons/fi";
 import { FiHelpCircle } from "react-icons/fi";
 import { HiOutlineLogout } from "react-icons/hi";
+import { Helmet } from "react-helmet";
 
 function BuyTicket() {
   const [visited, setVisited] = useState(null);
@@ -58,6 +59,10 @@ function BuyTicket() {
 
   return (
     <>
+      {/* Helmet */}
+      <Helmet>
+        <title>Buy Tickets | gerayo.</title>
+      </Helmet>
       {/* Profile Menu overlay */}
       <div
         onClick={() => setProfileMenu(false)}

@@ -67,7 +67,7 @@ function Navbar({ title }) {
             location.pathname === "/ticket" ? "bg-stone-100" : ""
           }`}
         >
-          Buy Ticket
+          Buy Tickets
           <span
             className={`h-[6px] w-[20px] bg-main-color rounded-md ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${
               location.pathname === "/ticket" ? "flex" : "hidden"
