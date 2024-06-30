@@ -36,7 +36,7 @@ function Navbar({ title }) {
       ></div>
 
       {/* Menu */}
-      <div className="flex items-center justify-start gap-2">
+      <div className="flex items-center justify-start gap-0">
         {/* <img src="" alt="" /> */}
         <img
           src={Logo}
