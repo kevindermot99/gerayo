@@ -80,3 +80,11 @@ select.select-icon-padding{
   background-clip: padding-box;
   background: #8f8f8f59;
 }
+
+.hidescrollbar::-webkit-scrollbar {
+  height: 0;
+  width: 0;;
+}
+.hidescrollbar::-webkit-scrollbar {
+  background-color: transparent;
+}

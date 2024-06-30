@@ -143,7 +143,7 @@ function BuyTicket() {
               Showing 13 Tickets
             </p>
             {/* tabs */}
-            <div className="w-full h-fit flex items-center justify-between gap-2 py-3 overflow-x-auto">
+            <div className="w-full h-fit flex items-center justify-between gap-2 py-3 overflow-x-auto hidescrollbar">
               <div className="flex items-center justify-start">
                 <Link
                   to={`/`}
