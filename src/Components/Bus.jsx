@@ -25,7 +25,7 @@ function Bus() {
             title="Status"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
-            <TbRadarFilled className="text-base animate-spinSlow " />
+            <TbRadarFilled className="text-base" />
             At the station
           </div>
           <div
