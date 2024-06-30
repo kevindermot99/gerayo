@@ -58,6 +58,15 @@ function BuyTicket() {
 
   return (
     <>
+      {/* Profile Menu overlay */}
+      <div
+        onClick={() => setProfileMenu(false)}
+        className={`bg-transparent fixed top-0 left-0 w-full h-full ${
+          profileMenu
+            ? "transition ease-in-out duration-200 opacity-100  z-30"
+            : "hidden"
+        }`}
+      ></div>
       <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
         <Navbar title="Home" />
         <div className="h-[50px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-20 max-md:px-4">
