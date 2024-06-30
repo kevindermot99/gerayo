@@ -13,17 +13,24 @@ import Bus from "../Components/Bus";
 import { TiPin } from "react-icons/ti";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { PiTicketDuotone } from "react-icons/pi";
+import { CgSpinner } from "react-icons/cg";
 
 function Track() {
   const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
     if (!visitadAs) {
       navigate("/login");
     }
+  }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   }, []);
 
   return (
@@ -54,7 +61,7 @@ function Track() {
       </div>
 
       {/* phone Menu */}
-      <div className="h-[50px] w-full border-b-[1px] border-border-lines-light hidden max-md:flex items-center justify-between px-20 max-md:px-4 sticky top-0 z-20 bg-white">
+      <div className="h-[60px] w-full border-b-[1px] border-border-lines-light hidden max-md:flex items-center justify-between px-20 max-md:px-4 sticky top-0 z-20 bg-white">
         <h1 className=" font-bold text-[26px] tracking-tighter text-dark-text pr-8 pointer-events-none select-none ">
           Find my bus
         </h1>
@@ -191,10 +198,21 @@ function Track() {
 
             {/* Buses */}
             <div className="flex flex-col items-start justify-startn h-fit w-full">
+              
+              {loading ? (
+                <>
+                  <div className="w-full h-[300px] flex items-start justify-center p-5">
+                    <CgSpinner className="animate-spinLoader text-3xl text-dark-text/40 " />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Bus />
               <Bus />
               <Bus />
               <Bus />
-              <Bus />
+                </>
+              )}
             </div>
           </div>
 

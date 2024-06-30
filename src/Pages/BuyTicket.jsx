@@ -22,16 +22,24 @@ import { FiSunset } from "react-icons/fi";
 import { FiSunrise } from "react-icons/fi";
 import { PiTicketDuotone } from "react-icons/pi";
 import { IoNotificationsOutline } from "react-icons/io5";
+import { CgSpinner } from "react-icons/cg";
 
 function BuyTicket() {
   const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
     if (!visitadAs) {
       navigate("/login");
     }
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   }, []);
 
   return (
@@ -62,7 +70,7 @@ function BuyTicket() {
       </div>
 
       {/* phone Menu */}
-      <div className="h-[50px] w-full border-b-[1px] border-border-lines-light hidden max-md:flex items-center justify-between px-20 max-md:px-4 sticky top-0 z-20 bg-white">
+      <div className="h-[60px] w-full border-b-[1px] border-border-lines-light hidden max-md:flex items-center justify-between px-20 max-md:px-4 sticky top-0 z-20 bg-white">
         <h1 className=" font-bold text-[26px] tracking-tighter text-dark-text pr-8 pointer-events-none select-none ">
           Buy Tickets
         </h1>
@@ -75,7 +83,10 @@ function BuyTicket() {
       </div>
 
       <div className="h-[70px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
-        <Link to={`/`} className="flex flex-col items-center justify-center gap-[2px]">
+        <Link
+          to={`/`}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
           <TbBusStop
             className={`text-[23px] max-h-6 ${
               location.pathname === "/" ? "text-main-color" : ""
@@ -89,7 +100,10 @@ function BuyTicket() {
             Bus
           </p>
         </Link>
-        <Link to={`/ticket`} className="flex flex-col items-center justify-center gap-[2px]">
+        <Link
+          to={`/ticket`}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
           <PiTicketDuotone
             className={`text-[23px] max-h-6 ${
               location.pathname === "/ticket" ? "text-main-color" : ""
@@ -97,15 +111,22 @@ function BuyTicket() {
           />
           <p
             className={`text-xs tracking-tight font-semibold line-clamp-1  ${
-              location.pathname === "/ticket" ? "text-main-color" : "text-dark-text"
+              location.pathname === "/ticket"
+                ? "text-main-color"
+                : "text-dark-text"
             }`}
           >
             Tickets
           </p>
         </Link>
-        <Link to={``} className="flex flex-col items-center justify-center gap-[2px]">
+        <Link
+          to={``}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
           <LuSearch
-            className={`text-[23px] max-h-6 ${location.pathname === "/" ? "" : ""} `}
+            className={`text-[23px] max-h-6 ${
+              location.pathname === "/" ? "" : ""
+            } `}
           />
           <p
             className={`text-xs tracking-tight font-semibold line-clamp-1  ${
@@ -115,7 +136,10 @@ function BuyTicket() {
             Search
           </p>
         </Link>
-        <Link to={`/profile`} className="flex flex-col items-center justify-center gap-[2px]">
+        <Link
+          to={`/profile`}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
           <div
             // onClick={showMenu}
             className={`h-[23px] aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
@@ -185,11 +209,21 @@ function BuyTicket() {
             </div>
 
             {/* Buses */}
-            <div className="flex flex-col items-start justify-startn h-fit w-full">
-              <Ticket />
-              <Ticket />
-              <Ticket />
-              <Ticket />
+            <div className="flex flex-col items-start justify-startn h-fit w-full relative">
+              {loading ? (
+                <>
+                  <div className="w-full h-[300px] flex items-start justify-center p-5">
+                    <CgSpinner className="animate-spinLoader text-3xl text-dark-text/40 " />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Ticket />
+                  <Ticket />
+                  <Ticket />
+                  <Ticket />
+                </>
+              )}
             </div>
           </div>
 
