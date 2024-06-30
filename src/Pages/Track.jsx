@@ -215,7 +215,7 @@ function Track() {
       <div className="w-full h-fit flex bg-body-color-light ">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full h-fit py-10 px-20 max-md:px-4 max-sm:py-7">
+          <div className="w-full h-fit py-10 px-20 max-md:px-4 max-sm:py-7 max-md:mb-12">
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Showing 132 Buses
             </p>
@@ -278,7 +278,7 @@ function Track() {
                 </>
               )}
             </div>
-            <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">
+            <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 pb-8">
               {loading ? "Fetching.." : "You have reached the bottom"}
             </div>
           </div>

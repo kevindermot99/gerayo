@@ -150,7 +150,10 @@ function BuyTicket() {
             Search
           </p>
         </Link>
-        <div onClick={showMenu} className="flex flex-col items-center justify-center gap-[2px] cursor-pointer">
+        <div
+          onClick={showMenu}
+          className="flex flex-col items-center justify-center gap-[2px] cursor-pointer"
+        >
           <div
             className={`h-6 aspect-square select-none hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
             }`}
@@ -170,45 +173,47 @@ function BuyTicket() {
 
         {/* dropdown */}
         <div
-            className={`bg-white min-h-[180px] w-[90%] max-w-[250px] absolute bottom-[80px] rounded-xl right-3 overflow-clip border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right ${
-              profileMenu ? "flex z-30 opacity-100 transition-all translate-y-0 " : "opacity-0 translate-y-6 -z-10"
-            }`}
+          className={`bg-white min-h-[180px] w-[90%] max-w-[250px] absolute bottom-[80px] rounded-xl right-3 overflow-clip border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right ${
+            profileMenu
+              ? "flex z-30 opacity-100 transition-all translate-y-0 "
+              : "opacity-0 translate-y-6 -z-10"
+          }`}
+        >
+          <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+            <VscAccount className="text-[23px] min-w-fit text-dark-text/60" />
+            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
+              Profile
+            </h1>
+          </button>
+          <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+            <FiSettings className="text-[23px] min-w-fit text-dark-text/60" />
+            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
+              Settings
+            </h1>
+          </button>
+          <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+            <FiHelpCircle className="text-[23px] min-w-fit text-dark-text/60" />
+            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize">
+              Support Center
+            </h1>
+          </button>
+          <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
+          <button
+            onClick={logMeOut}
+            className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
           >
-            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <VscAccount className="text-[23px] min-w-fit text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
-                Profile
-              </h1>
-            </button>
-            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <FiSettings className="text-[23px] min-w-fit text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
-                Settings
-              </h1>
-            </button>
-            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <FiHelpCircle className="text-[23px] min-w-fit text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize">
-                Support Center
-              </h1>
-            </button>
-            <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
-            <button
-              onClick={logMeOut}
-              className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
-            >
-              <HiOutlineLogout className="text-[23px] text-red-600/70" />
-              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
-                Log Out
-              </h1>
-            </button>
-          </div>
+            <HiOutlineLogout className="text-[23px] text-red-600/70" />
+            <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+              Log Out
+            </h1>
+          </button>
+        </div>
       </div>
       {/* --------- */}
       <div className="w-full h-fit flex bg-body-color-light ">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full h-fit py-10 px-20 max-md:px-4 max-md:py-7">
+          <div className="w-full h-fit py-10 px-20 max-md:px-4 max-md:py-7 max-md:mb-12 ">
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Showing 13 Tickets
             </p>
@@ -271,12 +276,10 @@ function BuyTicket() {
                 </>
               )}
             </div>
-            <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">
-            {loading ? 'Fetching..' : 'You have reached the bottom'}
+            <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 pb-8">
+              {loading ? "Fetching.." : "You have reached the bottom"}
+            </div>
           </div>
-          </div>
-
-          
         </div>
       </div>
     </>
