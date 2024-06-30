@@ -23,14 +23,14 @@ function Navbar({ title }) {
   };
 
   return (
-    <div className="h-[60px] px-20 max-md:px-4 border-b-[1px] border-border-lines-light dark:border-border-lines-dark flex items-center justify-between">
+    <div className="h-[60px] px-20 max-md:px-4 border-b-[1px] border-border-lines-light dark:border-border-lines-dark flex items-center justify-between bg-white">
       {/* Profile Menu overlay */}
       <div
         onClick={() => setProfileMenu(false)}
         className={`bg-transparent fixed top-0 left-0 w-full h-full ${
           profileMenu
             ? "transition ease-in-out duration-200 opacity-100  z-30"
-            : "opacity-0 -z-10"
+            : "hidden"
         }`}
       ></div>
 
@@ -80,7 +80,7 @@ function Navbar({ title }) {
               profileMenu ? "z-30" : ""
             }`}
           >
-            <p className="bg-main-color text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
+            <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
               G
             </p>
           </div>
