@@ -21,6 +21,7 @@ import Ticket from "../Components/Ticket";
 import { FiSunset } from "react-icons/fi";
 import { FiSunrise } from "react-icons/fi";
 import { PiTicketDuotone } from "react-icons/pi";
+import { IoNotificationsOutline } from "react-icons/io5";
 
 function BuyTicket() {
   const [visited, setVisited] = useState(null);
@@ -35,7 +36,7 @@ function BuyTicket() {
 
   return (
     <>
-      <div className="w-full h-fit sticky top-0 z-20 bg-white">
+      <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
         <Navbar title="Home" />
         <div className="h-[50px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-20 max-md:px-4">
           <form className="h-full w-full flex items-center justify-start py-2 gap-0 relative">
@@ -59,6 +60,81 @@ function BuyTicket() {
           </form>
         </div>
       </div>
+
+      {/* phone Menu */}
+      <div className="h-[50px] w-full border-b-[1px] border-border-lines-light hidden max-md:flex items-center justify-between px-20 max-md:px-4 sticky top-0 z-20 bg-white">
+        <h1 className=" font-bold text-[26px] tracking-tighter text-dark-text pr-8 pointer-events-none select-none ">
+          Buy Tickets
+        </h1>
+        <button
+          className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
+          title="Notifications"
+        >
+          <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
+        </button>
+      </div>
+
+      <div className="h-[60px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
+        <Link to={`/`} className="flex flex-col items-center justify-center gap-[2px]">
+          <TbBusStop
+            className={`text-[23px] ${
+              location.pathname === "/" ? "text-main-color" : ""
+            }`}
+          />
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "/" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Bus
+          </p>
+        </Link>
+        <Link to={`/ticket`} className="flex flex-col items-center justify-center gap-[2px]">
+          <PiTicketDuotone
+            className={`text-[23px] ${
+              location.pathname === "/ticket" ? "text-main-color" : ""
+            }`}
+          />
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "/ticket" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Tickets
+          </p>
+        </Link>
+        <Link to={``} className="flex flex-col items-center justify-center gap-[2px]">
+          <LuSearch
+            className={`text-[23px] ${location.pathname === "/" ? "" : ""} `}
+          />
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "/" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Search
+          </p>
+        </Link>
+        <Link to={``} className="flex flex-col items-center justify-center gap-[2px]">
+          <div
+            // onClick={showMenu}
+            className={`h-6 active:scale-95 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
+            }`}
+          >
+            <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
+              G
+            </p>
+          </div>
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "/" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Profile
+          </p>
+        </Link>
+      </div>
+      {/* --------- */}
       <div className="w-full h-fit flex bg-body-color-light dark:bg-body-color-dark ">
         <div className=" w-full min-h-full">
           {/* content */}
@@ -67,34 +143,34 @@ function BuyTicket() {
               Showing 13 Tickets
             </p>
             {/* tabs */}
-            <div className="w-full h-fit flex items-center justify-between gap-2 py-3">
+            <div className="w-full h-fit flex items-center justify-between gap-2 py-3 overflow-x-auto">
               <div className="flex items-center justify-start">
                 <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <PiTicketDuotone className="text-xl" />
                   All Tickets
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <FiSunrise className="text-xl" />
                   Beforenoon
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <FiSunset className="text-xl" />
                   Afternoon
                 </Link>
               </div>
               <div className="flex items-center justify-start">
-              <Link
+                <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight hover:bg-stone-100 text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-stone-100 text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <TiPin className="text-xl" />
                   Pinned (0)
@@ -117,7 +193,9 @@ function BuyTicket() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">You have reached the bottom </div>
+          <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">
+            You have reached the bottom{" "}
+          </div>
         </div>
       </div>
     </>

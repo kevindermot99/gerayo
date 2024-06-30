@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../Components/Sidebar";
 import Navbar from "../Components/Navbar";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { LuSearch } from "react-icons/lu";
+import { BiSearch } from "react-icons/bi";
 import { RiRouteFill } from "react-icons/ri";
 import { MdMyLocation } from "react-icons/md";
 import { TbBusStop } from "react-icons/tb";
 import { PiSealWarningBold } from "react-icons/pi";
 import Bus from "../Components/Bus";
 import { TiPin } from "react-icons/ti";
-
+import { IoNotificationsOutline } from "react-icons/io5";
+import { PiTicketDuotone } from "react-icons/pi";
 
 function Track() {
   const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -25,7 +28,7 @@ function Track() {
 
   return (
     <>
-      <div className="w-full h-fit sticky top-0 z-20 bg-white">
+      <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
         <Navbar title="Home" />
         <div className="h-[50px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-20 max-md:px-4">
           <form className="h-full w-full flex items-center justify-start py-2 gap-0 relative">
@@ -49,42 +52,130 @@ function Track() {
           </form>
         </div>
       </div>
+
+      {/* phone Menu */}
+      <div className="h-[50px] w-full border-b-[1px] border-border-lines-light hidden max-md:flex items-center justify-between px-20 max-md:px-4 sticky top-0 z-20 bg-white">
+        <h1 className=" font-bold text-[26px] tracking-tighter text-dark-text pr-8 pointer-events-none select-none ">
+          Find my bus
+        </h1>
+        <button
+          className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
+          title="Notifications"
+        >
+          <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
+        </button>
+      </div>
+
+      <div className="h-[60px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
+        <Link
+          to={`/`}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
+          <TbBusStop
+            className={`text-[23px] ${
+              location.pathname === "/" ? "text-main-color" : ""
+            }`}
+          />
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "/" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Bus
+          </p>
+        </Link>
+        <Link
+          to={`/ticket`}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
+          <PiTicketDuotone
+            className={`text-[23px] ${
+              location.pathname === "/ticket" ? "text-main-color" : ""
+            }`}
+          />
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "/ticket" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Tickets
+          </p>
+        </Link>
+        <Link
+          to={``}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
+          <LuSearch
+            className={`text-[23px] ${location.pathname === "/" ? "" : ""} `}
+          />
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Search
+          </p>
+        </Link>
+        <Link
+          to={``}
+          className="flex flex-col items-center justify-center gap-[2px]"
+        >
+          <div
+            // onClick={showMenu}
+            className={`h-6 active:scale-95 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
+            }`}
+          >
+            <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
+              G
+            </p>
+          </div>
+          <p
+            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
+              location.pathname === "" ? "text-main-color" : "text-dark-text"
+            }`}
+          >
+            Profile
+          </p>
+        </Link>
+      </div>
+      {/* --------- */}
+
       <div className="w-full h-fit flex bg-body-color-light dark:bg-body-color-dark ">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full h-fit py-10 px-20 max-sm:px-4 max-sm:py-7">
+          <div className="w-full h-fit py-10 px-20 max-md:px-4 max-sm:py-7">
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Showing 132 Buses
             </p>
             {/* tabs */}
-            <div className="w-full h-fit flex items-center justify-between gap-2 py-3">
+            <div className="w-full h-fit flex items-center justify-between gap-2 py-3 max-md:overflow-x-auto">
               <div className="flex items-center justify-start">
                 <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <TbBusStop className="text-xl" />
                   All Buses
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <RiRouteFill className="text-xl" />
                   On Route
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <MdMyLocation className="text-xl" />
                   Near Me
                 </Link>
               </div>
               <div className="flex items-center justify-start">
-              <Link
+                <Link
                   to={`/`}
-                  className="text-dark-text font-medium tracking-tight hover:bg-stone-100 text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-stone-100 text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <TiPin className="text-xl" />
                   Pinned (0)
@@ -107,7 +198,9 @@ function Track() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">You have reached the bottom </div>
+          <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">
+            You have reached the bottom{" "}
+          </div>
         </div>
       </div>
     </>
