@@ -74,10 +74,10 @@ function BuyTicket() {
         </button>
       </div>
 
-      <div className="h-[60px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
+      <div className="h-[70px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
         <Link to={`/`} className="flex flex-col items-center justify-center gap-[2px]">
           <TbBusStop
-            className={`text-[23px] ${
+            className={`text-[23px] max-h-6 ${
               location.pathname === "/" ? "text-main-color" : ""
             }`}
           />
@@ -91,7 +91,7 @@ function BuyTicket() {
         </Link>
         <Link to={`/ticket`} className="flex flex-col items-center justify-center gap-[2px]">
           <PiTicketDuotone
-            className={`text-[23px] ${
+            className={`text-[23px] max-h-6 ${
               location.pathname === "/ticket" ? "text-main-color" : ""
             }`}
           />
@@ -105,7 +105,7 @@ function BuyTicket() {
         </Link>
         <Link to={``} className="flex flex-col items-center justify-center gap-[2px]">
           <LuSearch
-            className={`text-[23px] ${location.pathname === "/" ? "" : ""} `}
+            className={`text-[23px] max-h-6 ${location.pathname === "/" ? "" : ""} `}
           />
           <p
             className={`text-xs tracking-tight font-semibold line-clamp-1  ${
@@ -118,7 +118,7 @@ function BuyTicket() {
         <Link to={``} className="flex flex-col items-center justify-center gap-[2px]">
           <div
             // onClick={showMenu}
-            className={`h-6 active:scale-95 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
+            className={`h-[23px] active:scale-95 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
             }`}
           >
             <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
