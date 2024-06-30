@@ -5,13 +5,14 @@ import { VscAccount } from "react-icons/vsc";
 import { FiSettings } from "react-icons/fi";
 import { FiHelpCircle } from "react-icons/fi";
 import { HiOutlineLogout } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import { IoLanguageOutline } from "react-icons/io5";
 
 function Navbar({ title }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const showMenu = () => {
     setProfileMenu(!profileMenu);
@@ -35,27 +36,38 @@ function Navbar({ title }) {
       ></div>
 
       {/* Menu */}
-      <div className="flex items-center justify-start">
+      <div className="flex items-center justify-start gap-2">
         {/* <img src="" alt="" /> */}
-        <img src={Logo} className=" h-[28px] pointer-events-none select-none"></img>
-        <h1 className=" font-bold text-[26px] tracking-tighter text-main-color pr-10 pointer-events-none select-none ">
+        <img
+          src={Logo}
+          className=" h-[28px] pointer-events-none select-none"
+        ></img>
+        <h1 className=" font-bold text-[26px] tracking-tighter text-main-color pr-8 pointer-events-none select-none ">
           gerayo.
         </h1>
         <Link
           to={`/`}
-          className="text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg"
+          className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg relative ${
+            location.pathname === "/" ? "bg-stone-100 " : ""
+          }`}
         >
           Find my bus
+          <span className={`h-[6px] w-[20px] bg-main-color rounded-md ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${location.pathname === '/' ? 'flex' : 'hidden'
+          }`}></span>
         </Link>
         <Link
           to={`/`}
-          className="text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg"
+          className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg relative ${
+            location.pathname === "/ticket" ? "bg-stone-100" : ""
+          }`}
         >
           Buy Ticket
+          <span className={`h-[6px] w-[20px] bg-main-color rounded-md ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${location.pathname === '/ticket' ? 'flex' : 'hidden'
+          }`}></span>
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-3">
-      <Link
+        <Link
           to={`/`}
           className="text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg"
         >
