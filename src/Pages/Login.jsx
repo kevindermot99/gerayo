@@ -49,12 +49,12 @@ function Login() {
 
 
   return (
-    <div className="h-svh w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-white">
+    <div className="h-svh w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white">
       {/* Helmet */}
       <Helmet>
         <title>Login | gerayo.</title>
       </Helmet>
-      <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white dark:bg-white w-full h-fit flex justify-end items-center select-none ">
+      <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white w-full h-fit flex justify-end items-center select-none ">
         
         {/* Skip */}
         <button
@@ -124,7 +124,7 @@ function Login() {
                   className=" accent-main-color h-4 w-4"
                   onClick={handleShowPassword}
                 />
-                <p className="text-dark-text dark:text-text-color-light font-medium text-sm capitalize">
+                <p className="text-dark-text font-medium text-sm capitalize">
                   Show password
                 </p>
               </label>

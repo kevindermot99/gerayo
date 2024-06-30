@@ -1,21 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../Components/Sidebar";
 import Navbar from "../Components/Navbar";
-import { HiOutlineViewBoards } from "react-icons/hi";
-import { TbListDetails } from "react-icons/tb";
-import { LuCalendar } from "react-icons/lu";
-import { IoMdShare } from "react-icons/io";
-import { MdOutlineLocationOn } from "react-icons/md";
-import { BsBusFront } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
-import { SlOptions } from "react-icons/sl";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { LuSearch } from "react-icons/lu";
-import { RiRouteFill } from "react-icons/ri";
-import { MdMyLocation } from "react-icons/md";
 import { TbBusStop } from "react-icons/tb";
 import { PiSealWarningBold } from "react-icons/pi";
-import Bus from "../Components/Bus";
 import { TiPin } from "react-icons/ti";
 import Ticket from "../Components/Ticket";
 import { FiSunset } from "react-icons/fi";
@@ -58,7 +47,7 @@ function BuyTicket({ guestEmail }) {
   }, []);
 
   return (
-    <>
+    <div className="bg-white dark:bg-white min-h-svh">
       {/* Helmet */}
       <Helmet>
         <title>Buy Tickets | gerayo.</title>
@@ -106,7 +95,7 @@ function BuyTicket({ guestEmail }) {
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
+          <IoNotificationsOutline className="text-2xl text-dark-text group-hover:text-main-color " />
         </button>
       </div>
 
@@ -295,13 +284,19 @@ function BuyTicket({ guestEmail }) {
                 </>
               )}
             </div>
-            <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 pb-8">
-              {loading ? "Fetching.." : "You have reached the bottom"}
-            </div>
+            {loading ? (
+              <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium">
+                Fetching..
+              </div>
+            ) : (
+              <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 max-md:pb-8">
+                You have reached the bottom
+              </div>
+            )}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

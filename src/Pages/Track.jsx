@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../Components/Sidebar";
 import Navbar from "../Components/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -50,7 +49,7 @@ function Track({ guestEmail }) {
   }, []);
 
   return (
-    <>
+    <div className="bg-white dark:bg-white min-h-svh">
       {/* Helmet */}
       <Helmet>
         <title>Find my bus | gerayo.</title>
@@ -64,7 +63,7 @@ function Track({ guestEmail }) {
             : "hidden"
         }`}
       ></div>
-      <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
+      <div className="w-full h-fit sticky top-0 z-20 bg-white dark:bg-white max-md:hidden ">
         <Navbar guestEmail={guestEmail} />
         <div className="h-[50px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-20 max-md:px-4">
           <form className="h-full w-full flex items-center justify-start py-2 gap-0 relative">
@@ -98,7 +97,7 @@ function Track({ guestEmail }) {
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
+          <IoNotificationsOutline className="text-2xl text-dark-text group-hover:text-main-color " />
         </button>
       </div>
 
@@ -288,13 +287,19 @@ function Track({ guestEmail }) {
                 </>
               )}
             </div>
-            <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 pb-8">
-              {loading ? "Fetching.." : "You have reached the bottom"}
-            </div>
+            {loading ? (
+              <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium">
+                Fetching..
+              </div>
+            ) : (
+              <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 max-md:pb-8">
+                You have reached the bottom
+              </div>
+            )}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

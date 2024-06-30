@@ -24,7 +24,7 @@ function Navbar({ guestEmail }) {
   };
 
   return (
-    <div className="h-[60px] px-20 max-md:px-4 border-b-[1px] border-border-lines-light dark:border-border-lines-dark flex items-center justify-between bg-white">
+    <div className="h-[60px] px-20 max-md:px-4 border-b-[1px] border-border-lines-light flex items-center justify-between bg-white">
       {/* Profile Menu overlay */}
       <div
         onClick={() => setProfileMenu(false)}
@@ -86,13 +86,13 @@ function Navbar({ guestEmail }) {
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
           title="Search"
         >
-          <BiSearch className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
+          <BiSearch className="text-2xl text-dark-text group-hover:text-main-color " />
         </button>
         <button
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotificationsOutline className="text-2xl text-dark-text dark:text-white/70 group-hover:text-main-color " />
+          <IoNotificationsOutline className="text-2xl text-dark-text group-hover:text-main-color " />
         </button>
         <div
           className="flex cursor-pointer select-none relative"
