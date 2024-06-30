@@ -65,7 +65,7 @@ function Track({ guestEmail }) {
         }`}
       ></div>
       <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
-        <Navbar title="Home" />
+        <Navbar guestEmail={guestEmail} />
         <div className="h-[50px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-20 max-md:px-4">
           <form className="h-full w-full flex items-center justify-start py-2 gap-0 relative">
             <input
@@ -187,7 +187,7 @@ function Track({ guestEmail }) {
         >
           <div className="h-[43px] min-h-[43px] w-full rounded-lg flex items-center justify-start px-3 gap-3">
             <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
-              {guestEmail}
+              guest{guestEmail}@gmail.com
             </h1>
           </div>
           <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">

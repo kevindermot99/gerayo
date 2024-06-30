@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const visitedAs = localStorage.getItem("visitedAs");
-    const storedGuestEmail = localStorage.getItem("guestEmail");
+    const storedGuestEmail = localStorage.getItem("guestEmailCode");
     if (visitedAs) {
       setVisited(true);
     }
@@ -25,7 +25,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Track guestEmail={guestEmail} />} />
-          <Route path="/ticket" element={<BuyTicket />} />
+          <Route path="/ticket" element={<BuyTicket guestEmail={guestEmail} />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

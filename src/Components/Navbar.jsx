@@ -9,7 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import { IoLanguageOutline } from "react-icons/io5";
 
-function Navbar({ title }) {
+function Navbar({ guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -96,7 +96,7 @@ function Navbar({ title }) {
         </button>
         <div
           className="flex cursor-pointer select-none relative"
-          title="Guest1516"
+          title={`Guest${guestEmail}`}
         >
           <div
             onClick={showMenu}
@@ -119,7 +119,7 @@ function Navbar({ title }) {
           >
             <div className="h-[43px] min-h-[43px] w-full rounded-lg flex items-center justify-start px-3 gap-3">
               <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
-                Guest1516@gmail.com
+                guest{guestEmail}@gmail.com
               </h1>
             </div>
             <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">

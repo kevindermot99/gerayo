@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { CgSpinner } from "react-icons/cg";
 import { Helmet } from "react-helmet";
-import { loadConfigFromFile } from "vite";
 
 function Login() {
   const navigate = useNavigate();
@@ -30,20 +29,16 @@ function Login() {
     }
   }, [])
 
-  // function randomCode(length) {
-  //   const randomNumbers = [];
-  //   for (let i = 0; i < length; i++) {
-  //     randomNumbers.push(Math.floor(Math.random() * 10));
-  //   }
-  //   return randomNumbers;
-  // }
+  function randomCode() {
+    return Array.from({ length: 5 }, () => Math.floor(Math.random() * 10)).join('');
+  }
 
   const LoginGuest = () => {
     setGuestPending(true);
     setTimeout(() => {
       try {
         localStorage.setItem("visitedAs", "guest");
-        // localStorage.setItem("guestEmail", "guest"+randomCode(5)+"@gmail.com")
+        localStorage.setItem("guestEmailCode", randomCode())
         window.location.reload()
       } catch (err) {
         console.log("Failed to Login Guest");
