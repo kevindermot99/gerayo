@@ -49,7 +49,7 @@ function Track({ guestEmail }) {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-white min-h-svh">
+    <div className="bg-white dark:bg-white min-h-svh text-dark-text">
       {/* Helmet */}
       <Helmet>
         <title>Find my bus | gerayo.</title>

@@ -47,7 +47,7 @@ function BuyTicket({ guestEmail }) {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-white min-h-svh">
+    <div className="bg-white dark:bg-white min-h-svh text-dark-text">
       {/* Helmet */}
       <Helmet>
         <title>Buy Tickets | gerayo.</title>
