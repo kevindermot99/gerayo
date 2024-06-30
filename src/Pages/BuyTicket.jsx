@@ -23,11 +23,25 @@ import { FiSunrise } from "react-icons/fi";
 import { PiTicketDuotone } from "react-icons/pi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { CgSpinner } from "react-icons/cg";
+import { VscAccount } from "react-icons/vsc";
+import { FiSettings } from "react-icons/fi";
+import { FiHelpCircle } from "react-icons/fi";
+import { HiOutlineLogout } from "react-icons/hi";
 
 function BuyTicket() {
   const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [profileMenu, setProfileMenu] = useState(false);
+
+  const showMenu = () => {
+    setProfileMenu(!profileMenu);
+  };
+
+  const logMeOut = () => {
+    localStorage.removeItem("visitedAs");
+    window.location.reload();
+  };
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -136,13 +150,9 @@ function BuyTicket() {
             Search
           </p>
         </Link>
-        <Link
-          to={`/profile`}
-          className="flex flex-col items-center justify-center gap-[2px]"
-        >
+        <div onClick={showMenu} className="flex flex-col items-center justify-center gap-[2px] cursor-pointer">
           <div
-            // onClick={showMenu}
-            className={`h-[23px] aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
+            className={`h-6 aspect-square select-none hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
             }`}
           >
             <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
@@ -151,12 +161,48 @@ function BuyTicket() {
           </div>
           <p
             className={`text-xs tracking-tight font-semibold line-clamp-1  ${
-              location.pathname === "/" ? "text-main-color" : "text-dark-text"
+              location.pathname === "" ? "text-main-color" : "text-dark-text"
             }`}
           >
             Profile
           </p>
-        </Link>
+        </div>
+
+        {/* dropdown */}
+        <div
+            className={`bg-white min-h-[180px] w-[90%] max-w-[250px] absolute bottom-[80px] rounded-xl right-3 overflow-clip border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right ${
+              profileMenu ? "flex z-30 opacity-100 transition-all translate-y-0 " : "opacity-0 translate-y-6 -z-10"
+            }`}
+          >
+            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <VscAccount className="text-[23px] min-w-fit text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
+                Profile
+              </h1>
+            </button>
+            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <FiSettings className="text-[23px] min-w-fit text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
+                Settings
+              </h1>
+            </button>
+            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <FiHelpCircle className="text-[23px] min-w-fit text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize">
+                Support Center
+              </h1>
+            </button>
+            <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
+            <button
+              onClick={logMeOut}
+              className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
+            >
+              <HiOutlineLogout className="text-[23px] text-red-600/70" />
+              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                Log Out
+              </h1>
+            </button>
+          </div>
       </div>
       {/* --------- */}
       <div className="w-full h-fit flex bg-body-color-light ">
@@ -212,7 +258,7 @@ function BuyTicket() {
             <div className="flex flex-col items-start justify-startn h-fit w-full relative">
               {loading ? (
                 <>
-                  <div className="w-full h-[300px] flex items-start justify-center p-5">
+                  <div className="w-full h-fit flex items-start justify-center pt-5 pb-3">
                     <CgSpinner className="animate-spinLoader text-3xl text-dark-text/40 " />
                   </div>
                 </>
@@ -225,11 +271,12 @@ function BuyTicket() {
                 </>
               )}
             </div>
+            <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">
+            {loading ? 'Fetching..' : 'You have reached the bottom'}
+          </div>
           </div>
 
-          <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pb-10">
-            You have reached the bottom{" "}
-          </div>
+          
         </div>
       </div>
     </>
