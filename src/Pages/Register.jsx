@@ -53,21 +53,9 @@ function Register() {
       <Helmet>
         <title>Login | gerayo.</title>
       </Helmet>
-      <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white dark:bg-white w-full h-fit flex justify-between items-center select-none ">
-        {/* tab indicator */}
-        <div className="flex items-center justify-start gap-1">
-          <Link
-            to={`/`}
-            className={`h-[8px] aspect-square bg-black/20 rounded-xl `}
-          ></Link>
-          <Link
-            to={`/feature2`}
-            className={`h-[8px] aspect-square bg-black/20 rounded-xl `}
-          ></Link>
-          <span className={`h-[8px] w-[25px] bg-black rounded-xl `}></span>
-        </div>
+      <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white dark:bg-white w-full h-fit flex justify-end items-center select-none ">
+        
 
-        {/* Skip */}
         {/* Skip */}
         <button
           onClick={LoginGuest}

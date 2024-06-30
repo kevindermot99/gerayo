@@ -66,7 +66,7 @@ function Bus() {
             <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm mb-5">
               Journey Price
             </p>
-            <button className="h-[40px] px-8 bg-main-color text-white font-semibold rounded-lg text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <button className="h-[40px] px-8 bg-main-color text-white shadow-xl font-semibold rounded-lg text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <FaMapLocationDot className="text-xl" />
               Track Bus
             </button>

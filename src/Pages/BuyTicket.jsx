@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../Components/Sidebar";
 import Navbar from "../Components/Navbar";
+import { HiOutlineViewBoards } from "react-icons/hi";
+import { TbListDetails } from "react-icons/tb";
+import { LuCalendar } from "react-icons/lu";
+import { IoMdShare } from "react-icons/io";
+import { MdOutlineLocationOn } from "react-icons/md";
+import { BsBusFront } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
+import { SlOptions } from "react-icons/sl";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { LuSearch } from "react-icons/lu";
 import { RiRouteFill } from "react-icons/ri";
@@ -10,9 +17,12 @@ import { TbBusStop } from "react-icons/tb";
 import { PiSealWarningBold } from "react-icons/pi";
 import Bus from "../Components/Bus";
 import { TiPin } from "react-icons/ti";
+import Ticket from "../Components/Ticket";
+import { FiSunset } from "react-icons/fi";
+import { FiSunrise } from "react-icons/fi";
+import { PiTicketDuotone } from "react-icons/pi";
 
-
-function Track() {
+function BuyTicket() {
   const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
 
@@ -54,7 +64,7 @@ function Track() {
           {/* content */}
           <div className="w-full h-fit py-10 px-20 max-sm:px-4 max-sm:py-7">
             <p className="text-dark-text font-bold tracking-tight text-sm">
-              Showing 132 Buses
+              Showing 13 Tickets
             </p>
             {/* tabs */}
             <div className="w-full h-fit flex items-center justify-between gap-2 py-3">
@@ -63,22 +73,22 @@ function Track() {
                   to={`/`}
                   className="text-dark-text font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
-                  <TbBusStop className="text-xl" />
-                  All Buses
+                  <PiTicketDuotone className="text-xl" />
+                  All Tickets
                 </Link>
                 <Link
                   to={`/`}
                   className="text-dark-text font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
-                  <RiRouteFill className="text-xl" />
-                  On Route
+                  <FiSunrise className="text-xl" />
+                  Beforenoon
                 </Link>
                 <Link
                   to={`/`}
                   className="text-dark-text font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
-                  <MdMyLocation className="text-xl" />
-                  Near Me
+                  <FiSunset className="text-xl" />
+                  Afternoon
                 </Link>
               </div>
               <div className="flex items-center justify-start">
@@ -100,10 +110,10 @@ function Track() {
 
             {/* Buses */}
             <div className="flex flex-col items-start justify-startn h-fit w-full">
-              <Bus />
-              <Bus />
-              <Bus />
-              <Bus />
+              <Ticket />
+              <Ticket />
+              <Ticket />
+              <Ticket />
             </div>
           </div>
 
@@ -114,4 +124,4 @@ function Track() {
   );
 }
 
-export default Track;
+export default BuyTicket;

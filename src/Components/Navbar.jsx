@@ -56,7 +56,7 @@ function Navbar({ title }) {
           }`}></span>
         </Link>
         <Link
-          to={`/`}
+          to={`/ticket`}
           className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg relative ${
             location.pathname === "/ticket" ? "bg-stone-100" : ""
           }`}

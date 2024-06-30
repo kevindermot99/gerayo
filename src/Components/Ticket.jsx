@@ -1,102 +1,99 @@
-import React, {useEffect, useState} from "react";
-import { TbListDetails } from "react-icons/tb";
-import { LuCalendar } from "react-icons/lu";
-import { IoMdShare } from "react-icons/io";
-import { MdOutlineLocationOn } from "react-icons/md";
-import { BsBusFront } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import { SlOptions } from "react-icons/sl";
-
-function Ticket({ location, leavingAt, agency, price, src }) {
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
-  const [timeLeft, setTimeLeft] = useState("");
-
-  useEffect(() => {
-    function parseTime(timeStr) {
-      const [time, modifier] = timeStr.split(" ");
-      let [hours, minutes] = time.split(":");
-      if (modifier === "PM" && hours !== "12") {
-        hours = parseInt(hours, 10) + 12;
-      }
-      if (modifier === "AM" && hours === "12") {
-        hours = 0;
-      }
-      return { hours: parseInt(hours, 10), minutes: parseInt(minutes, 10) };
-    }
-
-    const { hours, minutes } = parseTime(leavingAt.toUpperCase());
-    const leavingTime = new Date();
-    leavingTime.setHours(hours, minutes, 0, 0);
-
-    function updateCountdown() {
-      const now = new Date();
-      let difference = leavingTime - now;
-
-      if (difference < 0) {
-        difference += 24 * 60 * 60 * 1000; // Add 24 hours in milliseconds if time is negative
-      }
-
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      setTimeLeft(
-        `${hours.toString().padStart(2, '0')}:${minutes
-          .toString()
-          .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
-      );
-    }
-
-    const timerId = setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call to set the time immediately
-
-    return () => clearInterval(timerId); // Cleanup interval on component unmount
-  }, [leavingAt]);
-
+import React from "react";
+import { FaMapLocationDot } from "react-icons/fa6";
+import { MdOutlineErrorOutline } from "react-icons/md";
+import { TiPin } from "react-icons/ti";
+import { MdOutlineShoppingCartCheckout } from "react-icons/md";
+function Ticket() {
   return (
-    <div className="w-full bg-body-color-light dark:bg-stone-600/20 rounded-xl py-3 px-4 shadow-sm overflow-clip">
-      <h1 className="font-bold tracking-tight text-base text-dark-text dark:text-white/70 flex items-center justify-between ">
-        <span className="flex items-center">
-          <MdOutlineLocationOn className="text-xl " />
-          {location}
-        </span>
-        <button>
-          <SlOptions />
-        </button>
-      </h1>
-      <p className="text-xs font-medium opacity-50 px-0 pt-1 text-dark-text dark:text-white  ">
-        Leaving at <span className="font-bold ">{leavingAt}</span>
-      </p>
-      <div className="flex items-center justify-between w-full pt-2">
-        <div className="flex items-center gap-2 w-fit max-w-[70%] ">
-          <img
-            src={src}
-            className="h-7 aspect-square rounded-full  bg-border-lines-light/40"
-          />
-          <p className="text-xs font-semibold text-dark-text dark:text-white/70 truncate   ">
-            {agency}
-          </p>
-        </div>
-        <h1 className="tracking-tight font-bold text-sm text-dark-text dark:text-white/70 w-fit">
-          {numberWithCommas(price)} rwf
-        </h1>
+    <div className="w-full h-fit bg-stone-100 mt-4 rounded-xl flex flex-col text-start justify-start p-4 relative">
+      {/* icon */}
+      <div className="h-[50px] aspect-square rounded-full absolute top-[-25px] right-8 z-10 bg-stone-100 p-2 ring-8 ring-white shadow-xl ">
+        <img
+          src="https://img.icons8.com/?size=96&id=26pCmevJ7hFx&format=png"
+          alt=""
+        />
       </div>
-      <div className="flex items-center justify-between pt-2">
-        <div className="flex items-center">
-          <button className="text-xl pr-3 text-dark-text/70 dark:text-white/70 hover:text-main-color font-medium">
-            <LuCalendar className="text-base" />
-          </button>
-          <button className="text-xl pr-3 text-dark-text/70 dark:text-white/70 hover:text-main-color font-medium">
-            <BsBusFront className="text-base" />
-          </button>
-          <button className="text-xl pr-3 flex items-center gap-1 text-dark-text/70 dark:text-white/70 hover:text-main-color font-medium">
-            <IoMdShare className="text-base" />
-          </button>
+      <div className="flex flex-col items-center justify-start gap-2 z-10">
+        <div className="w-full flex items-center justify-start gap-2 ">
+          <div
+            title="Status"
+            className=" py-2 px-4 bg-stone-200 flex items-center justify-center rounded-lg text-xs font-semibold text-dark-text"
+          >
+            St: On Route
+          </div>
+          <div
+            title="Plate Number"
+            className=" py-2 px-4 bg-stone-200 flex items-center justify-center rounded-lg text-xs font-semibold text-dark-text"
+          >
+            Pn: RAC435KG
+          </div>
+          <div
+            title="Maximum Passengers"
+            className=" py-2 px-4 bg-stone-200 flex items-center justify-center rounded-lg text-xs font-semibold text-dark-text"
+          >
+            Mp: 70
+          </div>
         </div>
-        <p className="text-dark-text/50 dark:text-white  font-bold text-sm ">{timeLeft}</p>
+        <div className="w-full h-full flex justify-between items-auto gap-0">
+          <div className="w-full h-full flex flex-col justify-start items-start">
+            <h1 className="text-dark-text font-bold text-2xl capitalize pt-2">
+              Zindiro - Kimironko
+            </h1>
+            <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm pb-2">
+              Kigali bus service (KBS) - Yutong Bus
+            </p>
+            <div className="h-[1px] w-full bg-stone-200 mt-1"></div>
+            <div className="flex items-center justify-start ga-2 mt-3">
+              <div className="flex flex-col items-start justify-start gap-0">
+                <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm">
+                  departure time
+                </p>
+                <h1 className="text-dark-text font-bold text-xl ">8:00 am</h1>
+              </div>
+              <div className="px-5 text-sm h-full text-dark-text/30">
+                &bull; &bull; &bull; &bull;
+              </div>
+              <div className="flex flex-col items-start justify-start gap-0">
+                <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm">
+                  Estimated Arrival Time
+                </p>
+                <h1 className="text-dark-text font-bold text-xl ">9:20 am</h1>
+              </div>
+            </div>
+          </div>
+          <div className="min-w-fit w-fit min-h-full border-l-[1px] border-border-lines-light pl-4 pb-2 flex flex-col justify-end items-center">
+            <h1 className="text-dark-text font-bold text-xl ">280 rwf</h1>
+            <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm mb-5">
+              Journey Price
+            </p>
+            <button className="h-[40px] px-8 bg-main-color text-white shadow-xl font-semibold rounded-lg text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+              <MdOutlineShoppingCartCheckout className="text-xl" />
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+        <div className="w-full border-t-[1px] border-border-lines-light pt-3 flex items-center justify-between">
+          <div className="w-fit h-full flex items-center justify-start gap-3">
+          <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-sm text-dark-text/60 gap-1 ">
+              <TiPin className="text-lg " />
+              Pin
+            </button>
+          </div>
+          <div className="w-fit h-full flex items-center justify-start gap-3">
+            <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-xs text-dark-text/60 gap-1 ">
+              <MdOutlineErrorOutline className="text-base " />
+              Report a Problem
+            </button>
+            <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-xs text-dark-text/60 gap-1 ">
+              <MdOutlineErrorOutline className="text-base " />
+              Submit Feedback
+            </button>
+            <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-xs text-dark-text/60 gap-1 ">
+              <MdOutlineErrorOutline className="text-base " />
+              Service Request Form
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

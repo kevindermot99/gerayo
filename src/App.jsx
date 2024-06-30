@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
+import BuyTicket from "./Pages/BuyTicket";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Track from "./Pages/Track";
@@ -19,6 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Track />} />
+          <Route path="/ticket" element={<BuyTicket />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
