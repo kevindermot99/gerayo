@@ -62,7 +62,7 @@ function Bus() {
             </div>
           </div>
           <div className="min-w-fit w-fit min-h-full border-l-[1px] border-border-lines-light pl-4 pb-2 flex flex-col justify-end items-center">
-            <h1 className="text-dark-text font-bold text-xl ">280 rwf</h1>
+            <h1 className="text-dark-text font-bold text-xl ">280.00 rwf</h1>
             <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm mb-5">
               Journey Price
             </p>
