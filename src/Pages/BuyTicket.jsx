@@ -115,10 +115,10 @@ function BuyTicket() {
             Search
           </p>
         </Link>
-        <Link to={``} className="flex flex-col items-center justify-center gap-[2px]">
+        <Link to={`/profile`} className="flex flex-col items-center justify-center gap-[2px]">
           <div
             // onClick={showMenu}
-            className={`h-[23px] active:scale-95 aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
+            className={`h-[23px] aspect-square hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
             }`}
           >
             <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
@@ -135,7 +135,7 @@ function BuyTicket() {
         </Link>
       </div>
       {/* --------- */}
-      <div className="w-full h-fit flex bg-body-color-light dark:bg-body-color-dark ">
+      <div className="w-full h-fit flex bg-body-color-light ">
         <div className=" w-full min-h-full">
           {/* content */}
           <div className="w-full h-fit py-10 px-20 max-sm:px-4 max-sm:py-7">
