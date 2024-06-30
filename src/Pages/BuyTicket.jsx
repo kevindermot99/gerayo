@@ -162,13 +162,13 @@ function BuyTicket() {
       <div className="w-full h-fit flex bg-body-color-light ">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full h-fit py-10 px-20 max-sm:px-4 max-sm:py-7">
+          <div className="w-full h-fit py-10 px-20 max-md:px-4 max-md:py-7">
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Showing 13 Tickets
             </p>
             {/* tabs */}
-            <div className="w-full h-fit flex items-center justify-between gap-2 py-3 overflow-x-auto hidescrollbar">
-              <div className="flex items-center justify-start">
+            <div className="w-full h-fit flex items-center justify-between max-md:justify-start gap-2 py-3 overflow-x-auto hidescrollbar">
+              <div className="flex items-center justify-start gap-2">
                 <Link
                   to={`/`}
                   className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
@@ -178,14 +178,14 @@ function BuyTicket() {
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <FiSunrise className="text-xl" />
                   Beforenoon
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <FiSunset className="text-xl" />
                   Afternoon
@@ -203,7 +203,7 @@ function BuyTicket() {
             </div>
 
             {/* warning */}
-            <div className="h-[40px] w-fit rounded-lg bg-main-color/5 ring-1 ring-main-color/30 text-main-color font-bold flex items-center justify-start px-4 text-xs gap-2 my-1 ">
+            <div className="h-[40px] w-fit rounded-lg bg-main-color/5 ring-1 ring-main-color/30 text-main-color font-bold flex items-center justify-start px-4 text-xs gap-2 my-1 max-md:mb-8 ">
               <PiSealWarningBold className="text-xl" />
               This information might take a minute or two to update.
             </div>

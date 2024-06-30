@@ -155,8 +155,8 @@ const [loading, setLoading] = useState(true);
               Showing 132 Buses
             </p>
             {/* tabs */}
-            <div className="w-full h-fit flex items-center justify-between gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
-              <div className="flex items-center justify-start">
+            <div className="w-full h-fit flex items-center justify-between max-md:justify-start  gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
+              <div className="flex items-center justify-start gap-2">
                 <Link
                   to={`/`}
                   className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
@@ -166,14 +166,14 @@ const [loading, setLoading] = useState(true);
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <RiRouteFill className="text-xl" />
                   On Route
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <MdMyLocation className="text-xl" />
                   Near Me
@@ -191,7 +191,7 @@ const [loading, setLoading] = useState(true);
             </div>
 
             {/* warning */}
-            <div className="h-[40px] w-fit rounded-lg bg-main-color/5 ring-1 ring-main-color/30 text-main-color font-bold flex items-center justify-start px-4 text-xs gap-2 my-1 ">
+            <div className="h-[40px] w-fit rounded-lg bg-main-color/5 ring-1 ring-main-color/30 text-main-color font-bold flex items-center justify-start px-4 text-xs gap-2 my-1 max-md:mb-8 ">
               <PiSealWarningBold className="text-xl" />
               This information might take a minute or two to update.
             </div>
