@@ -11,7 +11,6 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { MdLocationOn } from "react-icons/md";
 import { HiOutlineTicket } from "react-icons/hi2";
 
-
 function Navbar({ guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const navigate = useNavigate();
@@ -82,21 +81,20 @@ function Navbar({ guestEmail }) {
         >
           Support Center
         </Link>
-        <button
+        <Link
+          to={`/search`}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
           title="Search"
         >
           <BiSearch className="text-2xl text-dark-text group-hover:text-main-color " />
-        </button>
+        </Link>
         <button
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
           <IoNotificationsOutline className="text-2xl text-dark-text group-hover:text-main-color " />
         </button>
-        <div
-          className="flex cursor-pointer select-none relative"
-        >
+        <div className="flex cursor-pointer select-none relative">
           <div
             onClick={showMenu}
             className={`h-8 active:scale-95 aspect-square rounded-full flex items-center justify-center ${

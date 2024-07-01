@@ -53,7 +53,7 @@ function Ticket() {
               Different Express - Coaster Bus
             </p>
             <div className="h-[1px] w-full bg-stone-200 mt-1"></div>
-            <div className="flex items-center justify-start max-md:items-start ga-2 mt-3 max-md:gap-12">
+            <div className="w-full flex items-center justify-between max-md:items-start gap-2 mt-3 max-md:gap-12">
               <div className="flex flex-col items-start justify-start gap-0">
                 <p className="text-dark-text/70 capitalize font-medium tracking-tight flex items-center justify-start gap-1 text-sm">
                   <LuAlarmClock className="text-base pb-[2px] text-dark-text/70 " />

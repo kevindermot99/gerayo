@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Track guestEmail={guestEmail} />} />
           <Route path="/ticket" element={<BuyTicket guestEmail={guestEmail} />} />
-          <Route path="/search/:query" element={<Search />} />
+          <Route path="/search" element={<Search guestEmail={guestEmail} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           {/* <Route path="/*" element={<PageError />} /> */}

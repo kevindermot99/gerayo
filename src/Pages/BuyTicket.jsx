@@ -64,7 +64,7 @@ function BuyTicket({ guestEmail }) {
       ></div>
       <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
         <Navbar guestEmail={guestEmail} />
-        <div className="h-[50px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-20 max-md:px-4">
+        <div className="h-[55px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-20 max-md:px-4">
           <form className="h-full w-full flex items-center justify-start py-2 gap-0 relative">
             <input
               placeholder="From"
@@ -79,7 +79,7 @@ function BuyTicket({ guestEmail }) {
               type="text"
               className="bg-stone-100 h-full w-full max-w-[200px] rounded-md ring-2 outline-none ring-transparent focus:ring-stone-200 px-3 font-medium tracking-tight text-sm z-0"
             />
-            <button className="h-full px-3 bg-main-color ml-1 rounded-md flex items-center justify-center text-white font-semibold text-sm tracking-tight transition active:scale-[0.98] whitespace-nowrap gap-1">
+            <button className="h-full px-4 bg-main-color ml-1 rounded-lg flex items-center justify-center text-white font-semibold text-sm tracking-tight transition active:scale-[0.98] whitespace-nowrap gap-1">
               <LuSearch className="text-base" />
               Search
             </button>
