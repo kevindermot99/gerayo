@@ -8,6 +8,7 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import { IoLanguageOutline } from "react-icons/io5";
+import { MdLocationOn } from "react-icons/md";
 
 function Navbar({ guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -39,10 +40,7 @@ function Navbar({ guestEmail }) {
       <div className="flex items-center justify-start gap-2">
         {/* <img src="" alt="" /> */}
         <div className="w-fit h-fit flex items-center justify-start">
-          <img
-            src={Logo}
-            className=" h-[28px] pointer-events-none select-none"
-          ></img>
+          <MdLocationOn className="text-[30px] text-main-color translate-y-[1px] translate-x-[3px]" />
           <h1 className=" font-bold text-[26px] tracking-tighter text-main-color pr-8 pointer-events-none select-none ">
             gerayo.
           </h1>
@@ -113,11 +111,13 @@ function Navbar({ guestEmail }) {
 
           {/* dropdown */}
           <div
-            className={`bg-white min-h-[180px] w-[230px] absolute top-[40px] rounded-xl right-0 overflow-clip border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right ${
-              profileMenu ? "flex z-30 " : "hidden -z-10"
+            className={`bg-white min-h-[180px] w-[230px] absolute top-[40px] rounded-xl right-0 overflow-clip whitespace-nowrap border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right transition-all duration-200 ease-in-out ${
+              profileMenu
+                ? "opacity-100 visible z-30 translate-y-0"
+                : "opacity-0 invisible -z-10 -translate-y-1"
             }`}
           >
-            <div className="h-[43px] min-h-[43px] w-full rounded-lg flex items-center justify-start px-3 gap-3">
+            <div className="h-[43px] min-h-[43px] w-full rounded-lg cursor-default flex items-center justify-start px-3 gap-3">
               <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
                 guest{guestEmail}@gmail.com
               </h1>

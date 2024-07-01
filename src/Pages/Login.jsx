@@ -6,12 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { CgSpinner } from "react-icons/cg";
 import { Helmet } from "react-helmet";
+import { MdLocationOn } from "react-icons/md";
 
 function Login() {
   const navigate = useNavigate();
   const [pending, setPending] = useState(false);
   const [guestPending, setGuestPending] = useState(false);
-
 
   const handleShowPassword = () => {
     const input = document.getElementById("password");
@@ -23,14 +23,16 @@ function Login() {
   };
 
   useEffect(() => {
-    const visitedAs = localStorage.getItem('visitedAs')
-    if(visitedAs){
-      navigate('/')
+    const visitedAs = localStorage.getItem("visitedAs");
+    if (visitedAs) {
+      navigate("/");
     }
-  }, [])
+  }, []);
 
   function randomCode() {
-    return Array.from({ length: 5 }, () => Math.floor(Math.random() * 10)).join('');
+    return Array.from({ length: 5 }, () => Math.floor(Math.random() * 10)).join(
+      ""
+    );
   }
 
   const LoginGuest = () => {
@@ -38,15 +40,13 @@ function Login() {
     setTimeout(() => {
       try {
         localStorage.setItem("visitedAs", "guest");
-        localStorage.setItem("guestEmailCode", randomCode())
-        window.location.reload()
+        localStorage.setItem("guestEmailCode", randomCode());
+        window.location.reload();
       } catch (err) {
         console.log("Failed to Login Guest");
       }
     }, 1000);
   };
-
-
 
   return (
     <div className="h-svh w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white">
@@ -55,7 +55,6 @@ function Login() {
         <title>Login | gerayo.</title>
       </Helmet>
       <div className="fixed top-0 left-0 p-8 max-[250px]:bg-white w-full h-fit flex justify-end items-center select-none ">
-        
         {/* Skip */}
         <button
           onClick={LoginGuest}
@@ -83,8 +82,8 @@ function Login() {
         > */}
         <div className="flex flex-col items-center justify-center w-full h-fit max-sm:mt-10">
           <div className="flex items-center justify-center py-3">
-            <img src={Logo} className="h-6 pt-0" />
-            <h1 className=" font-bold text-[22px] tracking-tighter text-main-color pr-3  ">
+            <MdLocationOn className="text-[30px] text-main-color pb-[1px] translate-x-1" />
+            <h1 className=" font-bold text-[25px] tracking-tighter text-main-color pr-3  ">
               gerayo.
             </h1>
           </div>

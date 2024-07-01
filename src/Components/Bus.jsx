@@ -46,14 +46,14 @@ function Bus() {
         <div className="w-full h-full flex justify-between items-start gap-0 max-md:flex-col ">
           <div className="w-full h-full flex flex-col justify-start items-start">
             <h1 className="text-dark-text font-bold text-2xl capitalize pt-2 flex items-center gap-0">
-              <MdLocationOn className="text-[28px] text-main-color pb-1 " />
+            <MdLocationOn className="text-[28px] text-main-color pb-1 " />
               Zindiro - Kimironko
             </h1>
             <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm pb-2">
               Kigali bus service (KBS) - Yutong Bus
             </p>
             <div className="h-[1px] w-full bg-stone-200 mt-1"></div>
-            <div className="flex items-center justify-start max-md:items-start ga-2 mt-3 max-md:gap-12">
+            <div className="w-full flex items-center justify-between max-md:items-start ga-2 mt-3 pr-4 max-md:gap-12">
               <div className="flex flex-col items-start justify-start gap-0">
                 <p className="text-dark-text/70 capitalize font-medium tracking-tight flex items-center justify-start gap-1 text-sm">
                   <LuAlarmClock className="text-base pb-[2px] text-dark-text/70 " />
@@ -64,7 +64,7 @@ function Bus() {
               <div className="px-5 text-sm h-full text-dark-text/30 max-md:hidden">
                 &bull; &bull; &bull; &bull;
               </div>
-              <div className="flex flex-col items-start justify-start gap-0">
+              <div className="flex flex-col items-end justify-start gap-0">
                 <p className="text-dark-text/70 capitalize font-medium tracking-tight flex items-center justify-start gap-1 text-sm">
                   <LuAlarmClock className="text-base pb-[2px] text-dark-text/70 " />
                   Estimated Arrival Time
