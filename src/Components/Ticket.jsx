@@ -64,7 +64,7 @@ function Ticket() {
               <div className="px-5 text-sm h-full text-dark-text/30 max-md:hidden">
                 &bull; &bull; &bull; &bull;
               </div>
-              <div className="flex flex-col items-start justify-start gap-0">
+              <div className="flex flex-col items-end justify-start gap-0">
                 <p className="text-dark-text/70 capitalize font-medium tracking-tight flex items-center justify-start gap-1 text-sm">
                   <LuAlarmClock className="text-base pb-[2px] text-dark-text/70 " />
                   Estimated Arrival Time

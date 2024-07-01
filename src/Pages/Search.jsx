@@ -233,7 +233,7 @@ function Search({ guestEmail }) {
                   To
                 </p>
                 <input
-                  placeholder="From"
+                  placeholder="To"
                   type="text"
                   className="bg-stone-100 h-[45px] w-full rounded-xl ring-2 outline-none ring-transparent focus:ring-stone-200 px-5 font-medium tracking-tight text-sm z-0"
                 />
