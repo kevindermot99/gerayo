@@ -13,7 +13,7 @@ import { HiOutlineTicket } from "react-icons/hi2";
 import { CgSpinner } from "react-icons/cg";
 
 
-function Navbar({ guestEmail }) {
+function Navbar({ show , guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -95,6 +95,7 @@ function Navbar({ guestEmail }) {
           <BiSearch className="text-2xl text-dark-text group-hover:text-main-color " />
         </Link>
         <button
+        onClick={show}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >

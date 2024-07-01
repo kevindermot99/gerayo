@@ -44,7 +44,7 @@ function MobileBottomNavbar({ guestEmail }) {
         onClick={() => setProfileMenu(false)}
         className={`bg-transparent fixed top-0 left-0 w-full h-full ${
           profileMenu
-            ? "transition ease-in-out duration-200 opacity-100  z-30"
+            ? "transition ease-in-out duration-200 opacity-100 z-50"
             : "hidden"
         }`}
       ></div>

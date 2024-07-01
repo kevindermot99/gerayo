@@ -27,6 +27,10 @@ body {
   margin: 0;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .gridRespo {
   max-width: 1200px;
   margin: 0 auto;
