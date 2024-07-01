@@ -11,9 +11,9 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { MdLocationOn } from "react-icons/md";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { CgSpinner } from "react-icons/cg";
+import addNotification from "react-push-notification";
 
-
-function Navbar({ show , guestEmail }) {
+function Navbar({ show, guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,6 +21,17 @@ function Navbar({ show , guestEmail }) {
 
   const showMenu = () => {
     setProfileMenu(!profileMenu);
+  };
+
+  const notify = () => {
+    addNotification({
+      title: "Hello",
+      message: "Welcome to gerayo",
+      duration: Infinity,
+      icon: Logo,
+      native: true,
+      onClick: () => window.location = "https://www.google.com/"
+    });
   };
 
   const logMeOut = () => {
@@ -81,12 +92,13 @@ function Navbar({ show , guestEmail }) {
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-3">
-        <Link
-          to={`/`}
+        <button
+          onClick={notify}
+          // to={`/`}
           className="text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg"
         >
           Support Center
-        </Link>
+        </button>
         <Link
           to={`/search`}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
@@ -95,7 +107,7 @@ function Navbar({ show , guestEmail }) {
           <BiSearch className="text-2xl text-dark-text group-hover:text-main-color " />
         </Link>
         <button
-        onClick={show}
+          onClick={show}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
