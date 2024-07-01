@@ -32,6 +32,13 @@ body {
   padding-right: 8px;
 }
 
+@media screen and (max-width: 480px){
+  .no-scroll {
+    overflow: hidden;
+    padding-right: unset !important;
+  }
+}
+
 .gridRespo {
   max-width: 1200px;
   margin: 0 auto;
