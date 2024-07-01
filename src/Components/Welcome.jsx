@@ -50,7 +50,7 @@ function Welcome() {
               <CgSpinner className="animate-spinLoader text-3xl" />
             </>
           ) : (
-            <>Let’s Continue!</>
+            <>Continue</>
           )}
         </button>
       </div>
