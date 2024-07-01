@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import BuyTicket from "./Pages/BuyTicket";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
@@ -22,7 +22,7 @@ function App() {
   }, []);
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Track guestEmail={guestEmail} />} />
           <Route path="/ticket" element={<BuyTicket guestEmail={guestEmail} />} />
@@ -31,7 +31,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           {/* <Route path="/*" element={<PageError />} /> */}
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
