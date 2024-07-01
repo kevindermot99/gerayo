@@ -70,7 +70,7 @@ function Track({ guestEmail }) {
             <input
               placeholder="From"
               type="text"
-              className="bg-stone-100 h-full w-full max-w-[200px] rounded-md outline-stone-200 px-3 font-medium tracking-tight text-sm z-0"
+              className="bg-stone-100 h-full w-full max-w-[200px] rounded-md outline-none ring-2 ring-transparent focus:ring-stone-200 px-3 font-medium tracking-tight text-sm z-0"
             />
             <div className="bg-main-color text-white h-full flex items-center justify-center aspect-square rounded-full ring-4 ring-white z-10 ">
               <FaArrowRightLong className="text-md" />
@@ -78,7 +78,7 @@ function Track({ guestEmail }) {
             <input
               placeholder="To"
               type="text"
-              className="bg-stone-100 h-full w-full max-w-[200px] rounded-md outline-stone-200 px-3 font-medium tracking-tight text-sm z-0"
+              className="bg-stone-100 h-full w-full max-w-[200px] rounded-md outline-none ring-2 ring-transparent focus:ring-stone-200 px-3 font-medium tracking-tight text-sm z-0"
             />
             <button className="h-full px-3 bg-main-color ml-1 rounded-md flex items-center justify-center text-white font-semibold text-sm tracking-tight transition active:scale-[0.98] whitespace-nowrap gap-1">
               <LuSearch className="text-base" />
@@ -178,13 +178,13 @@ function Track({ guestEmail }) {
 
         {/* dropdown */}
         <div
-          className={`bg-white min-h-[180px] w-[90%] max-w-[250px] absolute bottom-[80px] rounded-xl right-3 overflow-clip border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right ${
+          className={`bg-white min-h-[180px] w-[90%] max-w-[250px] absolute bottom-[80px] rounded-xl right-3 overflow-clip border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-bottom-right transition-all duration-200 ease-in-out ${
             profileMenu
-              ? "flex z-30 opacity-100 transition-all translate-y-0 "
-              : "opacity-0 translate-y-6 -z-10"
+              ? "opacity-100 visible z-30 translate-y-0"
+              : "opacity-0 invisible -z-10 translate-y-2"
           }`}
         >
-          <div className="h-[43px] min-h-[43px] w-full rounded-lg flex items-center justify-start px-3 gap-3">
+          <div className="h-[43px] min-h-[43px] w-full rounded-lg cursor-default flex items-center justify-start px-3 gap-3">
             <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
               guest{guestEmail}@gmail.com
             </h1>
