@@ -23,15 +23,15 @@ import MobileTopBar from "../Components/MobileTopBar";
 import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 import Filter from "../Components/Filter";
 import Notification from "../Components/Notification";
+import Welcome from "../Components/Welcome";
 
 function Track({ guestEmail }) {
-  const [visited, setVisited] = useState(null);
+  const [visited, setVisited] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
   const [showNotification, setShowNotification] = useState(false)
-
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -46,6 +46,14 @@ function Track({ guestEmail }) {
     }, 500);
   }, []);
 
+  // check if this user has visited before
+  useEffect(() => {
+    const visitedBefore = localStorage.getItem('visitedGerayo')
+    if(visitedBefore){
+      setVisited(true)
+    }
+  }, [])
+
   const showNotificationPopup = () => {
     setShowNotification(true)
     document.documentElement.classList.add('no-scroll');
@@ -58,6 +66,9 @@ function Track({ guestEmail }) {
 
   return (
     <div className="bg-white dark:bg-white min-h-svh text-dark-text">
+      {/* Welcome */}
+      {!visited &&  <Welcome />}
+
       {/* Notification */}
       {showNotification && <Notification hide={hideNotificationPopup} />}
       
