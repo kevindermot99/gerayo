@@ -9,6 +9,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import { IoLanguageOutline } from "react-icons/io5";
 import { MdLocationOn } from "react-icons/md";
+import { HiOutlineTicket } from "react-icons/hi2";
+
 
 function Navbar({ guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -78,7 +80,7 @@ function Navbar({ guestEmail }) {
           to={`/`}
           className="text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg"
         >
-          Help Center
+          Support Center
         </Link>
         <button
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
@@ -94,13 +96,13 @@ function Navbar({ guestEmail }) {
         </button>
         <div
           className="flex cursor-pointer select-none relative"
-          title={`Guest${guestEmail}`}
         >
           <div
             onClick={showMenu}
             className={`h-8 active:scale-95 aspect-square rounded-full flex items-center justify-center ${
               profileMenu ? "z-30" : ""
             }`}
+            title={`Guest${guestEmail}`}
           >
             <p
               className={`bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center `}
@@ -129,15 +131,15 @@ function Navbar({ guestEmail }) {
               </h1>
             </button>
             <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <FiSettings className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize ">
-                Settings
+              <HiOutlineTicket className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize">
+                My Tickets
               </h1>
             </button>
             <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <FiHelpCircle className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize">
-                Support Center
+              <FiSettings className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize ">
+                Settings
               </h1>
             </button>
             <div className="w-full h-[1px] bg-border-lines-light my-2"></div>

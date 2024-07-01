@@ -17,6 +17,7 @@ import { FiSettings } from "react-icons/fi";
 import { FiHelpCircle } from "react-icons/fi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { Helmet } from "react-helmet";
+import { HiOutlineTicket } from "react-icons/hi2";
 
 function BuyTicket({ guestEmail }) {
   const [visited, setVisited] = useState(null);
@@ -194,15 +195,15 @@ function BuyTicket({ guestEmail }) {
             </h1>
           </button>
           <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-            <FiSettings className="text-[23px] min-w-fit text-dark-text/60" />
-            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
-              Settings
+            <HiOutlineTicket className="text-[23px] min-w-fit text-dark-text/60" />
+            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize">
+              My Tickets
             </h1>
           </button>
           <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-            <FiHelpCircle className="text-[23px] min-w-fit text-dark-text/60" />
-            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize">
-              Support Center
+            <FiSettings className="text-[23px] min-w-fit text-dark-text/60" />
+            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
+              Settings
             </h1>
           </button>
           <div className="w-full h-[1px] bg-border-lines-light my-2"></div>

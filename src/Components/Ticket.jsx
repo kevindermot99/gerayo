@@ -29,14 +29,14 @@ function Ticket() {
             32 Minutes
           </div>
           <div
-            title="Plate Number"
+            title="Bus Plate Number"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-2 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <FaRectangleAd className="text-base" />
             RAC435KG
           </div>
           <div
-            title="Maximum Passengers"
+            title="Bus Maximum Passengers"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <MdEventSeat className="text-base" />

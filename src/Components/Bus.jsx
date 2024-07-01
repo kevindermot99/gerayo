@@ -22,21 +22,21 @@ function Bus() {
       <div className="flex flex-col items-center justify-start max-md:items-start gap-2 z-10">
         <div className="w-full flex items-center justify-start gap-2 max-md:max-w-[90%] max-md:flex-wrap max-md:items-start ">
           <div
-            title="Status"
+            title="Bus Status"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <TbRadarFilled className="text-base animate-spinSlow " />
             At the station
           </div>
           <div
-            title="Plate Number"
+            title="Bus Plate Number"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-2 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <FaRectangleAd className="text-base" />
             RAC435KG
           </div>
           <div
-            title="Maximum Passengers"
+            title="Bus Maximum Passengers"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <MdEventSeat className="text-base" />
