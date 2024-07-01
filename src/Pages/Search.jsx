@@ -1,40 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { LuSearch } from "react-icons/lu";
-import { TbBusStop } from "react-icons/tb";
-import { PiSealWarningBold } from "react-icons/pi";
-import { TiPin } from "react-icons/ti";
 import Ticket from "../Components/Ticket";
-import { FiSunset } from "react-icons/fi";
-import { FiSunrise } from "react-icons/fi";
-import { PiTicketDuotone } from "react-icons/pi";
-import { IoNotificationsOutline } from "react-icons/io5";
 import { CgSpinner } from "react-icons/cg";
-import { VscAccount } from "react-icons/vsc";
-import { FiSettings } from "react-icons/fi";
-import { FiHelpCircle } from "react-icons/fi";
-import { HiOutlineLogout } from "react-icons/hi";
 import { Helmet } from "react-helmet";
-import { HiOutlineTicket } from "react-icons/hi2";
 import MobileTopBar from "../Components/MobileTopBar";
 import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 
 function Search({ guestEmail }) {
-  const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
-
-  const showMenu = () => {
-    setProfileMenu(!profileMenu);
-  };
-
-  const logMeOut = () => {
-    localStorage.removeItem("visitedAs");
-    window.location.reload();
-  };
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -69,7 +46,7 @@ function Search({ guestEmail }) {
       </div>
 
       {/* phone Topbar */}
-      <MobileTopBar title={'Search'} />
+      <MobileTopBar title={"Search"} />
 
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />
@@ -80,7 +57,7 @@ function Search({ guestEmail }) {
             Search
           </h1>
           <div className="h-fit w-full flex items-start justify-start">
-            <form className="h-full w-full flex items-start justify-start flex-col py-3 gap-2 relative">
+            <form className="h-full w-full flex items-start justify-start flex-col py-3 max-sm:py-[4px] max-sm:pb-2 gap-2 relative">
               <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm pt-2">
                 Search for
               </p>
@@ -119,7 +96,6 @@ function Search({ guestEmail }) {
               </button>
             </form>
           </div>
-          
         </div>
         <div className=" w-full min-h-full ">
           {/* content */}

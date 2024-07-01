@@ -29,14 +29,6 @@ function Track({ guestEmail }) {
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
 
-  const showMenu = () => {
-    setProfileMenu(!profileMenu);
-  };
-
-  const logMeOut = () => {
-    localStorage.removeItem("visitedAs");
-    window.location.reload();
-  };
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");

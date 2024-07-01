@@ -10,11 +10,14 @@ import Logo from "../assets/logo.png";
 import { IoLanguageOutline } from "react-icons/io5";
 import { MdLocationOn } from "react-icons/md";
 import { HiOutlineTicket } from "react-icons/hi2";
+import { CgSpinner } from "react-icons/cg";
+
 
 function Navbar({ guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [loggingOut, setLoggingOut] = useState(false);
 
   const showMenu = () => {
     setProfileMenu(!profileMenu);
@@ -22,7 +25,10 @@ function Navbar({ guestEmail }) {
 
   const logMeOut = () => {
     localStorage.removeItem("visitedAs");
-    window.location.reload();
+    setLoggingOut(true);
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   return (
@@ -145,10 +151,21 @@ function Navbar({ guestEmail }) {
               onClick={logMeOut}
               className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
             >
-              <HiOutlineLogout className="text-[23px] text-red-600/70" />
-              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
-                Log Out
-              </h1>
+              {loggingOut ? (
+                <>
+                  <CgSpinner className="animate-spinLoader text-[23px] text-red-600/70" />
+                  <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                    Logging out..
+                  </h1>
+                </>
+              ) : (
+                <>
+                  <HiOutlineLogout className="text-[23px] text-red-600/70" />
+                  <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                    Log Out
+                  </h1>
+                </>
+              )}
             </button>
           </div>
         </div>
