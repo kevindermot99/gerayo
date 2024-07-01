@@ -11,7 +11,6 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { MdLocationOn } from "react-icons/md";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { CgSpinner } from "react-icons/cg";
-import addNotification from "react-push-notification";
 
 function Navbar({ show, guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -21,17 +20,6 @@ function Navbar({ show, guestEmail }) {
 
   const showMenu = () => {
     setProfileMenu(!profileMenu);
-  };
-
-  const notify = () => {
-    addNotification({
-      title: "Hello",
-      message: "Welcome to gerayo",
-      duration: Infinity,
-      icon: Logo,
-      native: true,
-      onClick: () => window.location = "https://www.google.com/"
-    });
   };
 
   const logMeOut = () => {
@@ -92,13 +80,12 @@ function Navbar({ show, guestEmail }) {
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-3">
-        <button
-          onClick={notify}
-          // to={`/`}
+        <Link
+          to={`/`}
           className="text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg"
         >
           Support Center
-        </button>
+        </Link>
         <Link
           to={`/search`}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
