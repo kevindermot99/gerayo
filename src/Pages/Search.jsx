@@ -117,17 +117,17 @@ function Search({ guestEmail }) {
           </p>
         </Link>
         <Link
-          to={``}
+          to={`/search`}
           className="flex flex-col items-center justify-center gap-[2px]"
         >
           <LuSearch
             className={`text-[23px] max-h-6 ${
-              location.pathname === "/" ? "" : ""
+              location.pathname === "/search" ? "text-main-color " : ""
             } `}
           />
           <p
             className={`text-xs tracking-tight font-semibold line-clamp-1  ${
-              location.pathname === "/" ? "text-main-color" : "text-dark-text"
+              location.pathname === "/search" ? "text-main-color" : "text-dark-text"
             }`}
           >
             Search
