@@ -21,12 +21,14 @@ import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 import MobileTopBar from "../Components/MobileTopBar";
 import { IoFilterSharp } from "react-icons/io5";
 import Filter from "../Components/Filter";
+import Notification from "../Components/Notification";
 
 function BuyTicket({ guestEmail }) {
   const [visited, setVisited] = useState(null);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const showMenu = () => {
     setProfileMenu(!profileMenu);
@@ -50,8 +52,21 @@ function BuyTicket({ guestEmail }) {
     }, 500);
   }, []);
 
+  const showNotificationPopup = () => {
+    setShowNotification(true)
+    document.documentElement.classList.add('no-scroll');
+  }
+
+  const hideNotificationPopup = () => {
+    setShowNotification(false)
+    document.documentElement.classList.remove('no-scroll');
+  }
+
   return (
     <div className="bg-white dark:bg-white min-h-svh text-dark-text">
+      {/* Notification */}
+      {showNotification && <Notification hide={hideNotificationPopup} />}
+
       {/* Helmet */}
       <Helmet>
         <title>Buy Tickets | gerayo.</title>
@@ -67,12 +82,12 @@ function BuyTicket({ guestEmail }) {
       ></div>
       {/* Pc navBar */}
       <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
-        <Navbar guestEmail={guestEmail} />
+        <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
         <Filter />
       </div>
 
       {/* phone Topbar */}
-      <MobileTopBar title={'Buy Tickets'} />
+      <MobileTopBar show={showNotificationPopup} title={'Buy Tickets'} />
 
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />

@@ -29,6 +29,7 @@ body {
 
 .no-scroll {
   overflow: hidden;
+  padding-right: 8px;
 }
 
 .gridRespo {

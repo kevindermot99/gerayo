@@ -7,11 +7,13 @@ import { CgSpinner } from "react-icons/cg";
 import { Helmet } from "react-helmet";
 import MobileTopBar from "../Components/MobileTopBar";
 import MobileBottomNavbar from "../Components/MobileBottomNavbar";
+import Notification from "../Components/Notification";
 
 function Search({ guestEmail }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -26,8 +28,21 @@ function Search({ guestEmail }) {
     }, 500);
   }, []);
 
+  const showNotificationPopup = () => {
+    setShowNotification(true);
+    document.documentElement.classList.add("no-scroll");
+  };
+
+  const hideNotificationPopup = () => {
+    setShowNotification(false);
+    document.documentElement.classList.remove("no-scroll");
+  };
+
   return (
     <div className="bg-white dark:bg-white min-h-svh text-dark-text">
+      {/* Notification */}
+      {showNotification && <Notification hide={hideNotificationPopup} />}
+
       {/* Helmet */}
       <Helmet>
         <title>Buy Tickets | gerayo.</title>
@@ -42,11 +57,11 @@ function Search({ guestEmail }) {
         }`}
       ></div>
       <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
-        <Navbar guestEmail={guestEmail} />
+        <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
       </div>
 
       {/* phone Topbar */}
-      <MobileTopBar title={"Search"} />
+      <MobileTopBar show={showNotificationPopup} title={"Search"} />
 
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />

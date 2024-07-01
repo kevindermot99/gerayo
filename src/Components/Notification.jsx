@@ -13,7 +13,7 @@ function Notification({ hide }) {
         setAnimate(false)
         setTimeout(() => {
             hide()
-        }, 300);
+        }, 200);
     }
 
   return (
