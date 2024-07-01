@@ -19,6 +19,8 @@ import { FiHelpCircle } from "react-icons/fi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { Helmet } from "react-helmet";
 import { HiOutlineTicket } from "react-icons/hi2";
+import MobileTopBar from "../Components/MobileTopBar";
+import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 
 function Track({ guestEmail }) {
   const [visited, setVisited] = useState(null);
@@ -89,138 +91,11 @@ function Track({ guestEmail }) {
         </div>
       </div>
 
-      {/* phone Menu */}
-      <div className="h-[60px] w-full border-b-[1px] border-border-lines-light hidden max-md:flex items-center justify-between px-20 max-md:px-4 sticky top-0 z-20 bg-white">
-        <h1 className=" font-bold text-[26px] tracking-tighter text-dark-text pr-8 pointer-events-none select-none ">
-          Find my bus
-        </h1>
-        <button
-          className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
-          title="Notifications"
-        >
-          <IoNotificationsOutline className="text-2xl text-dark-text group-hover:text-main-color " />
-        </button>
-      </div>
+      {/* phone Topbar */}
+      <MobileTopBar title={'Find my bus'} />
 
-      <div className="h-[70px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
-        <Link
-          to={`/`}
-          className="flex flex-col items-center justify-center gap-[2px]"
-        >
-          <TbBusStop
-            className={`text-[23px] max-h-6 ${
-              location.pathname === "/" ? "text-main-color" : ""
-            }`}
-          />
-          <p
-            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
-              location.pathname === "/" ? "text-main-color" : "text-dark-text"
-            }`}
-          >
-            Bus
-          </p>
-        </Link>
-        <Link
-          to={`/ticket`}
-          className="flex flex-col items-center justify-center gap-[2px]"
-        >
-          <PiTicketDuotone
-            className={`text-[23px] max-h-6 ${
-              location.pathname === "/ticket" ? "text-main-color" : ""
-            }`}
-          />
-          <p
-            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
-              location.pathname === "/ticket"
-                ? "text-main-color"
-                : "text-dark-text"
-            }`}
-          >
-            Tickets
-          </p>
-        </Link>
-        <Link
-          to={`/search`}
-          className="flex flex-col items-center justify-center gap-[2px]"
-        >
-          <LuSearch
-            className={`text-[23px] max-h-6 ${
-              location.pathname === "/search" ? "text-main-color" : ""
-            } `}
-          />
-          <p
-            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
-              location.pathname === "/search" ? "text-main-color" : "text-dark-text"
-            }`}
-          >
-            Search
-          </p>
-        </Link>
-        <div
-          onClick={showMenu}
-          className="flex flex-col items-center justify-center gap-[2px] cursor-pointer"
-        >
-          <div
-            className={`h-6 aspect-square select-none hover:bg-border-lines-light/50 rounded-full flex items-center justify-center
-            }`}
-          >
-            <p className="bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center ">
-              G
-            </p>
-          </div>
-          <p
-            className={`text-xs tracking-tight font-semibold line-clamp-1  ${
-              location.pathname === "" ? "text-main-color" : "text-dark-text"
-            }`}
-          >
-            Profile
-          </p>
-        </div>
-
-        {/* dropdown */}
-        <div
-          className={`bg-white min-h-[180px] w-[90%] max-w-[250px] absolute bottom-[80px] rounded-xl right-3 overflow-clip border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-bottom-right transition-all duration-200 ease-in-out ${
-            profileMenu
-              ? "opacity-100 visible z-30 translate-y-0"
-              : "opacity-0 invisible -z-10 translate-y-2"
-          }`}
-        >
-          <div className="h-[43px] min-h-[43px] w-full rounded-lg cursor-default flex items-center justify-start px-3 gap-3">
-            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
-              guest{guestEmail}@gmail.com
-            </h1>
-          </div>
-          <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-            <VscAccount className="text-[23px] min-w-fit text-dark-text/60" />
-            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
-              Profile
-            </h1>
-          </button>
-          <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-            <HiOutlineTicket className="text-[23px] min-w-fit text-dark-text/60" />
-            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize">
-              My Tickets
-            </h1>
-          </button>
-          <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-            <FiSettings className="text-[23px] min-w-fit text-dark-text/60" />
-            <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm capitalize ">
-              Settings
-            </h1>
-          </button>
-          <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
-          <button
-            onClick={logMeOut}
-            className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
-          >
-            <HiOutlineLogout className="text-[23px] text-red-600/70" />
-            <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
-              Log Out
-            </h1>
-          </button>
-        </div>
-      </div>
-      {/* --------- */}
+      {/* Phone navBar */}
+      <MobileBottomNavbar guestEmail={guestEmail} />
 
       <div className="w-full h-fit flex bg-body-color-light ">
         <div className=" w-full min-h-full">
