@@ -159,9 +159,7 @@ function BuyTicket({ guestEmail }) {
               )}
             </div>
             {loading ? (
-              <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium">
-                Fetching..
-              </div>
+              <></>
             ) : (
               <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 max-md:pb-8">
                 You have reached the bottom

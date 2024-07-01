@@ -11,6 +11,7 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { MdLocationOn } from "react-icons/md";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { CgSpinner } from "react-icons/cg";
+import { BiSupport } from "react-icons/bi";
 
 function Navbar({ show, guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -80,12 +81,12 @@ function Navbar({ show, guestEmail }) {
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-3">
-        <Link
-          to={`/`}
-          className="text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg"
+        <button
+          className="text-dark-text flex items-center justify-center gap-2 font-medium tracking-tight text-sm  bg-stone-100 py-2 px-4 rounded-lg"
         >
-          Support Center
-        </Link>
+          <BiSupport className="text-xl" />
+          Support
+        </button>
         <Link
           to={`/search`}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
