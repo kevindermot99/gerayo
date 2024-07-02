@@ -5,6 +5,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Track from "./Pages/Track";
 import Search from "./Pages/Search";
+import Help from "./Pages/Help";
 
 function App() {
   const [visited, setVisited] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           <Route path="/search" element={<Search guestEmail={guestEmail} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/help" element={<Help guestEmail={guestEmail} />} />
           {/* <Route path="/*" element={<PageError />} /> */}
         </Routes>
       </HashRouter>

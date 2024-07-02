@@ -54,6 +54,14 @@ body {
   
 }
 
+.help-header {
+  background-image: url('https://img.freepik.com/premium-vector/white-abstract-background-with-hexagon-pattern-style-seamless-concept_57082-2435.jpg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
+  
+}
+
 select{
   /* Arrow */
   appearance: none;

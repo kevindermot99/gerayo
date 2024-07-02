@@ -81,12 +81,13 @@ function Navbar({ show, guestEmail }) {
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-3">
-        <button
-          className="text-dark-text flex items-center justify-center gap-2 font-medium tracking-tight text-sm  bg-stone-100 py-2 px-4 rounded-lg"
+        <Link
+        to={`/help`}
+          className={`flex items-center justify-center gap-2 font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg text-dark-text  ${location.pathname === '/help' ? ' bg-stone-100' : ''} `}
         >
-          <BiSupport className="text-xl" />
-          Support
-        </button>
+          <FiHelpCircle className="text-xl" />
+          Help
+        </Link>
         <Link
           to={`/search`}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
