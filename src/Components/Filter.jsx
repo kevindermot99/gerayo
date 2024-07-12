@@ -42,6 +42,7 @@ function Filter({ onFilterSubmit }) {
     const value = e.target.value;
     setInputValueFrom(value);
     setInputFrom(value !== "");
+    setInputTo(false);
   };
   const choosenFrom = (bstop) => {
     setInputFrom(false);
@@ -55,6 +56,7 @@ function Filter({ onFilterSubmit }) {
     const value = e.target.value;
     setInputValueTo(value);
     setInputTo(value !== "");
+    setInputFrom(false);
   };
   const choosenTo = (bstop) => {
     setInputTo(false);
@@ -78,10 +80,10 @@ function Filter({ onFilterSubmit }) {
               type="text"
               onChange={checkEmptyFrom}
               value={inputValueFrom}
-              className="bg-stone-100 ring-1 ring-stone-200 h-full w-full capitalize max-w-[240px] rounded-full focus:bg-stone-200 px-5 font-medium tracking-tight text-sm"
+              className="bg-stone-100 ring-1 ring-stone-200 h-full w-full capitalize max-w-[240px] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
-              className={`absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white/90 backdrop-blur-md shadow-xl rounded-md overscroll-contain overflow-auto flex flex-col ${
+              className={`ring-1 ring-border-lines-light absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-stone-100 rounded-md overscroll-contain overflow-auto flex flex-col ${
                 inputFrom ? "visible " : "invisible"
               }`}
             >
@@ -89,7 +91,7 @@ function Filter({ onFilterSubmit }) {
                 <div
                   key={index}
                   onClick={() => choosenFrom(bstop)}
-                  className=" px-4 text-sm py-1 hover:bg-stone-200 rounded-md select-none cursor-pointer"
+                  className=" px-4 text-sm py-1 hover:bg-stone-100 rounded-md select-none cursor-pointer"
                 >
                   {bstop}
                 </div>
@@ -106,10 +108,10 @@ function Filter({ onFilterSubmit }) {
               type="text"
               onChange={checkEmptyTo}
               value={inputValueTo}
-              className="bg-stone-100 ring-1 ring-stone-200 h-full w-full capitalize max-w-[240px] rounded-full focus:bg-stone-200 px-5 font-medium tracking-tight text-sm"
+              className="bg-stone-100 ring-1 ring-stone-200 h-full w-full capitalize max-w-[240px] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
-              className={`absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white/90 backdrop-blur-md shadow-xl rounded-md overscroll-contain overflow-auto flex flex-col ${
+              className={`ring-1 ring-border-lines-light absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overscroll-contain overflow-auto flex flex-col ${
                 inputTo ? "visible " : "invisible"
               }`}
             >
@@ -117,7 +119,7 @@ function Filter({ onFilterSubmit }) {
                 <div
                   key={index}
                   onClick={() => choosenTo(bstop)}
-                  className=" px-4 text-sm py-1 hover:bg-stone-200 rounded-md select-none cursor-pointer"
+                  className=" px-4 text-sm py-1 hover:bg-stone-100 rounded-md select-none cursor-pointer"
                 >
                   {bstop}
                 </div>
