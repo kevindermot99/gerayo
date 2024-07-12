@@ -33,6 +33,8 @@ function Track({ guestEmail }) {
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [showFilteredOnly, setShowFilteredOnly] = useState(false);
+  const [filtered, setFiltered] = useState();
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -65,6 +67,24 @@ function Track({ guestEmail }) {
     document.documentElement.classList.remove("no-scroll");
   };
 
+  const filterBusJourneys = (busJourneys, from, to) => {
+    return busJourneys.filter(
+      (journey) =>
+        (from ? journey.from.toLowerCase() === from.toLowerCase() : true) &&
+        (to ? journey.to.toLowerCase() === to.toLowerCase() : true)
+    );
+  };
+
+  const handleFilterSubmit = (from, to) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    setShowFilteredOnly(true);
+    console.log("Filter submitted:", from, to);
+    setFiltered(filterBusJourneys(KigaliBusJourney, from, to));
+  };
+
   return (
     <div className="bg-stone-100 dark:bg-stone-100 min-h-svh text-dark-text">
       {/* Welcome */}
@@ -89,7 +109,7 @@ function Track({ guestEmail }) {
       {/* pc navBar */}
       <div className="w-full h-fit sticky top-0 z-20 bg-white dark:bg-white max-md:hidden ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        <Filter type={'TrackMyBus'} />
+        <Filter onFilterSubmit={handleFilterSubmit} />
       </div>
 
       {/* phone Topbar */}
@@ -105,25 +125,27 @@ function Track({ guestEmail }) {
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Most known places
             </p>
-            <div className="hidescrollbar w-full h-[75px] py-4 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-3 ">
+            <div className="hidescrollbar w-full h-[70px] py-4 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 ">
               {BusPark.map((park, index) => (
                 <div
                   key={index}
-                  className="h-full w-fit transition duration-150 hover:shadow-lg hover:shadow-stone-200 hover:text-main-color cursor-pointer bg-white text-dark-text/60 text-sm font-bold rounded-full flex items-center justify-center py-3 px-8 whitespace-nowrap"
+                  onClick={() => handleFilterSubmit(park, "")}
+                  className="h-full ring-1 ring-slate-200/40 w-fit transition duration-150 hover:shadow-lg hover:shadow-stone-200 hover:text-main-color cursor-pointer bg-white text-dark-text/60 text-sm font-medium rounded-full flex items-center justify-center py-2 px-6 whitespace-nowrap"
                 >
                   {park}
                 </div>
               ))}
             </div>
             <p className="text-dark-text font-bold tracking-tight text-sm">
-              Showing 132 Buses
+              {showFilteredOnly ? `Showing ${filtered.length} bus(es)` : `Showing ${KigaliBusJourney.length} Bus(es)`}
+              
             </p>
             {/* tabs */}
             <div className="w-full h-fit flex items-center justify-between max-md:justify-start  gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
               <div className="flex items-center justify-start gap-2">
                 <Link
                   to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm bg-white py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium ring-1 ring-slate-200/40 tracking-tight text-sm bg-white py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <TbBusStop className="text-xl" />
                   All Buses
@@ -138,7 +160,6 @@ function Track({ guestEmail }) {
               </div>
             </div>
 
-
             {/* Buses */}
             <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5 h-fit w-full">
               {loading ? (
@@ -149,28 +170,47 @@ function Track({ guestEmail }) {
                 </>
               ) : (
                 <>
-                {KigaliBusJourney.map((journey, index) => (
-                  <Bus
-                  id={journey.id}
-                  plateNumber={journey.plateNumber}
-                  numberOfSeats={journey.numberOfSeats}
-                  from={journey.from}
-                  to={journey.to}
-                  busType={journey.busType}
-                  departureAt={journey.departureAt}
-                  arrivalTime={journey.arrivalTime}
-                  price={journey.price} />
-                ))}
+                  {showFilteredOnly ? (
+                    <>
+                      {filtered.map((journey, index) => (
+                        <Bus
+                          key={index}
+                          id={journey.id}
+                          plateNumber={journey.plateNumber}
+                          numberOfSeats={journey.numberOfSeats}
+                          from={journey.from}
+                          to={journey.to}
+                          busType={journey.busType}
+                          departureAt={journey.departureAt}
+                          arrivalTime={journey.arrivalTime}
+                          price={journey.price}
+                        />
+                      ))}
+                      <div className={`flex items-center justify-center col-span-2 text-sm italic text-dark-text/70 font-medium pt-8 max-md:pb-8 ${filtered.length <= 0 ? 'visible ' : 'hidden'} `}>
+                        Bus not found.
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {KigaliBusJourney.map((journey, index) => (
+                        <Bus
+                          key={index}
+                          id={journey.id}
+                          plateNumber={journey.plateNumber}
+                          numberOfSeats={journey.numberOfSeats}
+                          from={journey.from}
+                          to={journey.to}
+                          busType={journey.busType}
+                          departureAt={journey.departureAt}
+                          arrivalTime={journey.arrivalTime}
+                          price={journey.price}
+                        />
+                      ))}
+                    </>
+                  )}
                 </>
               )}
             </div>
-            {loading ? (
-              <></>
-            ) : (
-              <div className="flex items-center justify-center text-xs italic text-dark-text/30 font-medium pt-8 max-md:pb-8">
-                looks like this is all we've got
-              </div>
-            )}
           </div>
         </div>
       </div>

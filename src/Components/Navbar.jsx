@@ -12,6 +12,9 @@ import { MdLocationOn } from "react-icons/md";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { CgSpinner } from "react-icons/cg";
 import { BiSupport } from "react-icons/bi";
+import { IoIosHelpCircleOutline } from "react-icons/io";
+import { TfiHelpAlt } from "react-icons/tfi";
+import { LuHelpCircle } from "react-icons/lu";
 
 function Navbar({ show, guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -80,27 +83,27 @@ function Navbar({ show, guestEmail }) {
           ></span>
         </Link>
       </div>
-      <div className="w-fit flex items-center justify-end gap-3">
-        <Link
+      <div className="w-fit flex items-center justify-end gap-2">
+        {/* <Link
         to={`/help`}
           className={`flex items-center justify-center gap-2 font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg text-dark-text  ${location.pathname === '/help' ? ' bg-stone-100' : ''} `}
         >
           <FiHelpCircle className="text-xl" />
           Help
-        </Link>
+        </Link> */}
         <Link
-          to={`/search`}
+          to={`/help`}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
-          title="Search"
+          title="help"
         >
-          <BiSearch className="text-2xl text-dark-text group-hover:text-main-color " />
+          <IoIosHelpCircleOutline className="text-2xl text-dark-text group-hover:text-main-color " />
         </Link>
         <button
           onClick={show}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotificationsOutline className="text-2xl text-dark-text group-hover:text-main-color " />
+          <IoNotificationsOutline className="text-[22px] text-dark-text group-hover:text-main-color " />
         </button>
         <div className="flex cursor-pointer select-none relative">
           <div

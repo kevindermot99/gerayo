@@ -22,7 +22,7 @@ function Bus({
   price,
 }) {
   return (
-    <div className="w-full h-fit overflow-clip bg-white mt-4 rounded-xl flex flex-col text-start justify-start p-4 relative">
+    <div className="w-full h-fit overflow-clip bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-4 relative">
       {/* icon */}
       {/* <div className="h-[50px] aspect-square rounded-full absolute top-[-25px] right-8 z-10 bg-white p-2 ">
         <img
@@ -84,11 +84,11 @@ function Bus({
             <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm mb-5 max-md:mb-3">
               Travel Cost
             </p>
-            <button className="h-[40px] w-[160px] max-md:w-full px-2 bg-main-color text-white shadow-md font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <button className="h-[40px] w-[160px] max-md:w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <FaMapLocationDot className="text-xl" />
               Track Bus
             </button>
-            <button className="h-[40px] backdrop-blur-md w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 text-dark-text/60 font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <button className="h-[40px] backdrop-blur-md ring-1 ring-slate-300/50 w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 text-dark-text/60 font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <LuInfo className="text-xl" />
               More info
             </button>
