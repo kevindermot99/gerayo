@@ -86,7 +86,7 @@ function Track({ guestEmail }) {
   };
 
   return (
-    <div className="bg-stone-100 dark:bg-stone-100 min-h-svh text-dark-text">
+    <div className="bg-stone-100 dark:bg-stone-100 min-h-svh max-md:pb-10 text-dark-text">
       {/* Welcome */}
       {!visited && <Welcome />}
 

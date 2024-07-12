@@ -63,7 +63,7 @@ function BuyTicket({ guestEmail }) {
   }
 
   return (
-    <div className="bg-white dark:bg-white min-h-svh text-dark-text">
+    <div className="bg-white dark:bg-white min-h-svh max-md:pb-10 text-dark-text">
       {/* Notification */}
       {showNotification && <Notification hide={hideNotificationPopup} />}
 
