@@ -11,9 +11,9 @@ import { TbRadarFilled } from "react-icons/tb";
 
 function Bus() {
   return (
-    <div className="w-full h-fit bg-stone-100 mt-4 rounded-xl flex flex-col text-start justify-start p-4 relative">
+    <div className="w-full h-fit bg-white mt-4 rounded-xl flex flex-col text-start justify-start p-4 relative">
       {/* icon */}
-      <div className="h-[50px] aspect-square rounded-full absolute top-[-25px] right-8 z-10 bg-stone-100 p-2 ring-8 ring-white shadow-xl ">
+      <div className="h-[50px] aspect-square rounded-full absolute top-[-25px] right-8 z-10 bg-white p-2 ">
         <img
           src="https://img.icons8.com/?size=96&id=WuEAfdVu7ugL&format=png"
           alt=""
@@ -21,23 +21,23 @@ function Bus() {
       </div>
       <div className="flex flex-col items-center justify-start max-md:items-start gap-2 z-10">
         <div className="w-full flex items-center justify-start gap-2 max-md:max-w-[90%] max-md:flex-wrap max-md:items-start ">
-          <div
+          {/* <div
             title="Bus Status"
             className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <TbRadarFilled className="text-base animate-spinSlow " />
             At the station
-          </div>
+          </div> */}
           <div
             title="Bus Plate Number"
-            className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-2 justify-center rounded-lg text-xs font-semibold text-dark-text"
+            className=" py-2 px-4 bg-stone-100 whitespace-nowrap flex items-center gap-2 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <FaRectangleAd className="text-base" />
             RAC435KG
           </div>
           <div
             title="Bus Maximum Passengers"
-            className=" py-2 px-4 bg-stone-200 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
+            className=" py-2 px-4 bg-stone-100 whitespace-nowrap flex items-center gap-1 justify-center rounded-lg text-xs font-semibold text-dark-text"
           >
             <MdEventSeat className="text-base" />
             22 Seats max
@@ -60,9 +60,6 @@ function Bus() {
                   departure time
                 </p>
                 <h1 className="text-dark-text font-bold text-xl ">8:00 am</h1>
-              </div>
-              <div className="px-5 text-sm h-full text-dark-text/30 max-md:hidden">
-                &bull; &bull; &bull; &bull;
               </div>
               <div className="flex flex-col items-end justify-start gap-0">
                 <p className="text-dark-text/70 capitalize font-medium tracking-tight flex items-center justify-start gap-1 text-sm">
@@ -95,14 +92,6 @@ function Bus() {
             <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-xs text-dark-text/60 gap-1 ">
               <MdOutlineErrorOutline className="text-base " />
               Report a Problem
-            </button>
-            <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-xs text-dark-text/60 gap-1 max-md:hidden ">
-              <MdOutlineErrorOutline className="text-base " />
-              Submit Feedback
-            </button>
-            <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-xs text-dark-text/60 gap-1 max-md:hidden ">
-              <MdOutlineErrorOutline className="text-base " />
-              Service Request Form
             </button>
           </div>
         </div>

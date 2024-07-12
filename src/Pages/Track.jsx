@@ -97,7 +97,7 @@ function Track({ guestEmail }) {
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />
 
-      <div className="w-full h-fit flex bg-body-color-light">
+      <div className="w-full h-fit flex bg-stone-100">
         <div className=" w-full min-h-full">
           {/* content */}
           <div className="w-full h-fit py-10 px-20 max-md:px-4 max-sm:py-7 max-md:mb-12">
@@ -147,7 +147,7 @@ function Track({ guestEmail }) {
             </div>
 
             {/* Buses */}
-            <div className="flex flex-col items-start justify-startn h-fit w-full">
+            <div className="grid grid-cols-2 gap-5 h-fit w-full">
               {loading ? (
                 <>
                   <div className="w-full h-fit flex items-start justify-center pt-5 pb-3">
