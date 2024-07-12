@@ -134,7 +134,7 @@ function Filter({ onFilterSubmit }) {
           </button>
           <button
             onClick={clearForm}
-            className={`h-full aspect-square bg-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
+            className={`h-full aspect-square bg-stone-100 ring-1 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
               formEmpty ? "opacity-100" : "opacity-0 pointer-events-none -z-10"
             }`}
           >

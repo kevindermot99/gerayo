@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineErrorOutline } from "react-icons/md";
 import { TiInfoLarge, TiPin } from "react-icons/ti";
@@ -9,6 +9,7 @@ import { FaRectangleAd } from "react-icons/fa6";
 import { TbRadarFilled } from "react-icons/tb";
 import { PiWavesThin } from "react-icons/pi";
 import { GiHeavyRain } from "react-icons/gi";
+import { VscPinned, VscPinnedDirty } from "react-icons/vsc";
 
 function Bus({
   id,
@@ -21,6 +22,36 @@ function Bus({
   arrivalTime,
   price,
 }) {
+  const [pinnedBusIds, setPinnedBusIds] = useState([]);
+
+  useEffect(() => {
+    const storedPinnedBusIds =
+      JSON.parse(localStorage.getItem("PinnedBusIds")) || [];
+    setPinnedBusIds(storedPinnedBusIds);
+  }, []);
+
+  const PinBus = (id) => {
+    let pinnedBuses = JSON.parse(localStorage.getItem("PinnedBusIds")) || [];
+
+    if (!pinnedBuses.includes(id)) {
+      pinnedBuses.push(id);
+      localStorage.setItem("PinnedBusIds", JSON.stringify(pinnedBuses));
+      setPinnedBusIds(JSON.stringify(pinnedBuses));
+    }
+  };
+
+  const UnPinBus = (id) => {
+    let pinnedBuses = JSON.parse(localStorage.getItem("PinnedBusIds")) || [];
+
+    if (pinnedBuses.includes(id)) {
+      pinnedBuses = pinnedBuses.filter((busId) => busId !== id);
+      localStorage.setItem("PinnedBusIds", JSON.stringify(pinnedBuses));
+      setPinnedBusIds(pinnedBuses);
+    }
+  };
+
+  const isPinned = pinnedBusIds.includes(id);
+
   return (
     <div className="w-full h-fit overflow-clip bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-4 relative">
       {/* icon */}
@@ -96,10 +127,27 @@ function Bus({
         </div>
         <div className="w-full pt-3 flex items-center justify-between">
           <div className="w-fit h-full flex items-center justify-start gap-3">
-            <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-sm text-dark-text/60 gap-1 ">
-              <TiPin className="text-lg " />
-              Pin
-            </button>
+            {isPinned ? (
+              <>
+                <button
+                  onClick={() => UnPinBus(id)}
+                  className="h-full rounded-md text-main-color flex items-center justify-center font-medium text-sm text-dark-text/60 gap-1 "
+                >
+                  <VscPinnedDirty className="text-lg " />
+                  Pinned
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => PinBus(id)}
+                  className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-sm text-dark-text/60 gap-1 "
+                >
+                  <VscPinned className="text-lg " />
+                  Pin
+                </button>
+              </>
+            )}
           </div>
           <div className="w-fit h-full flex items-center justify-start gap-3 max-md:flex-wrap ">
             <button className="h-full rounded-md hover:text-main-color flex items-center justify-center font-medium text-xs text-dark-text/60 gap-1 ">
