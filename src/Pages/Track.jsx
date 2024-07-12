@@ -24,6 +24,7 @@ import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 import Filter from "../Components/Filter";
 import Notification from "../Components/Notification";
 import Welcome from "../Components/Welcome";
+import { BusPark, KigaliBusJourney } from "../content/data";
 
 function Track({ guestEmail }) {
   const [visited, setVisited] = useState(false);
@@ -31,7 +32,7 @@ function Track({ guestEmail }) {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
-  const [showNotification, setShowNotification] = useState(false)
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -48,30 +49,30 @@ function Track({ guestEmail }) {
 
   // check if this user has visited before
   useEffect(() => {
-    const visitedBefore = localStorage.getItem('visitedGerayo')
-    if(visitedBefore){
-      setVisited(true)
+    const visitedBefore = localStorage.getItem("visitedGerayo");
+    if (visitedBefore) {
+      setVisited(true);
     }
-  }, [])
+  }, []);
 
   const showNotificationPopup = () => {
-    setShowNotification(true)
-    document.documentElement.classList.add('no-scroll');
-  }
+    setShowNotification(true);
+    document.documentElement.classList.add("no-scroll");
+  };
 
   const hideNotificationPopup = () => {
-    setShowNotification(false)
-    document.documentElement.classList.remove('no-scroll');
-  }
+    setShowNotification(false);
+    document.documentElement.classList.remove("no-scroll");
+  };
 
   return (
-    <div className="bg-white dark:bg-white min-h-svh text-dark-text">
+    <div className="bg-stone-100 dark:bg-stone-100 min-h-svh text-dark-text">
       {/* Welcome */}
-      {!visited &&  <Welcome />}
+      {!visited && <Welcome />}
 
       {/* Notification */}
       {showNotification && <Notification hide={hideNotificationPopup} />}
-      
+
       {/* Helmet */}
       <Helmet>
         <title>Find my bus | gerayo.</title>
@@ -88,11 +89,11 @@ function Track({ guestEmail }) {
       {/* pc navBar */}
       <div className="w-full h-fit sticky top-0 z-20 bg-white dark:bg-white max-md:hidden ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        <Filter />
+        <Filter type={'TrackMyBus'} />
       </div>
 
       {/* phone Topbar */}
-      <MobileTopBar title={'Find my bus'} show={showNotificationPopup} />
+      <MobileTopBar title={"Find my bus"} show={showNotificationPopup} />
 
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />
@@ -100,7 +101,20 @@ function Track({ guestEmail }) {
       <div className="w-full h-fit flex bg-stone-100">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full h-fit py-10 px-20 max-md:px-4 max-sm:py-7 max-md:mb-12">
+          <div className="w-full h-fit py-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
+            <p className="text-dark-text font-bold tracking-tight text-sm">
+              Most known places
+            </p>
+            <div className="hidescrollbar w-full h-[75px] py-4 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-3 ">
+              {BusPark.map((park, index) => (
+                <div
+                  key={index}
+                  className="h-full w-fit transition duration-150 hover:shadow-lg hover:shadow-stone-200 hover:text-main-color cursor-pointer bg-white text-dark-text/60 text-sm font-bold rounded-full flex items-center justify-center py-3 px-8 whitespace-nowrap"
+                >
+                  {park}
+                </div>
+              ))}
+            </div>
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Showing 132 Buses
             </p>
@@ -109,30 +123,14 @@ function Track({ guestEmail }) {
               <div className="flex items-center justify-start gap-2">
                 <Link
                   to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm bg-white py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <TbBusStop className="text-xl" />
                   All Buses
                 </Link>
                 <Link
                   to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
-                >
-                  <RiRouteFill className="text-xl" />
-                  On Route
-                </Link>
-                <Link
-                  to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-4 rounded-lg flex items-center justify-center gap-1"
-                >
-                  <MdMyLocation className="text-xl" />
-                  Near Me
-                </Link>
-              </div>
-              <div className="flex items-center justify-start">
-                <Link
-                  to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-stone-100 text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                  className="text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-white text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
                 >
                   <TiPin className="text-xl" />
                   Pinned (0)
@@ -140,34 +138,37 @@ function Track({ guestEmail }) {
               </div>
             </div>
 
-            {/* warning */}
-            <div className="h-[40px] w-fit rounded-lg bg-main-color/5 ring-1 ring-main-color/30 text-main-color font-bold flex items-center justify-start px-4 text-xs gap-2 my-1 max-md:mb-8 ">
-              <PiSealWarningBold className="text-xl" />
-              This information might take a minute or two to update.
-            </div>
 
             {/* Buses */}
-            <div className="grid grid-cols-2 gap-5 h-fit w-full">
+            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5 h-fit w-full">
               {loading ? (
                 <>
-                  <div className="w-full h-fit flex items-start justify-center pt-5 pb-3">
+                  <div className="w-full h-fit col-span-2 flex items-start justify-center pt-16 pb-3">
                     <CgSpinner className="animate-spinLoader text-3xl text-dark-text/40 " />
                   </div>
                 </>
               ) : (
                 <>
-                  <Bus />
-                  <Bus />
-                  <Bus />
-                  <Bus />
+                {KigaliBusJourney.map((journey, index) => (
+                  <Bus
+                  id={journey.id}
+                  plateNumber={journey.plateNumber}
+                  numberOfSeats={journey.numberOfSeats}
+                  from={journey.from}
+                  to={journey.to}
+                  busType={journey.busType}
+                  departureAt={journey.departureAt}
+                  arrivalTime={journey.arrivalTime}
+                  price={journey.price} />
+                ))}
                 </>
               )}
             </div>
             {loading ? (
               <></>
             ) : (
-              <div className="flex items-center justify-center text-sm text-dark-text/70 font-medium pt-8 max-md:pb-8">
-                You have reached the bottom
+              <div className="flex items-center justify-center text-xs italic text-dark-text/30 font-medium pt-8 max-md:pb-8">
+                looks like this is all we've got
               </div>
             )}
           </div>
