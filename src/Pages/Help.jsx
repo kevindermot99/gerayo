@@ -10,12 +10,19 @@ import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 import Notification from "../Components/Notification";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosCall } from "react-icons/io";
+import { FaCaretDown } from "react-icons/fa6";
+import { Faqs } from "../Content/Content";
 
 function Help({ guestEmail }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAnswer = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -84,6 +91,44 @@ function Help({ guestEmail }) {
             <IoIosCall className="text-xl text-main-color" />
             <span> +250785614800</span>
           </p>
+        </div>
+        <div className="w-full h-fit flex items-start justify-center p-8 bg-white">
+          {/* Faqs */}
+          <div className="w-full h-full bg-stone-100 px-10 py-16 flex flex-col items-center justify-start ">
+            <span className="flex items-center w-fit justify-start font-medium capitalize text-project-green text-sm bg-project-green/10 px-5 py-1 rounded-full ">
+              Frequently asked questions
+            </span>
+            <h1 className="text-[35px] leading-[65px] capitalize text-dark-body-color font-bold tracking-tight">
+              Got questions? We've got answers!
+            </h1>
+            <div className="w-full h-fit flex flex-col items-center justify-start my-2 max-w-[900px]">
+              {Faqs.map((item, index) => (
+                <div
+                  key={item.index}
+                  className=" py-4 px-5 bg-white text-dark-body-color rounded-xl w-full mb-2 flex justify-between items-start gap-5"
+                >
+                  <div className="flex flex-col items-start justify-start">
+                    <h1 className="font-medium tracking-tight text-base leading-5 min-h-[30px] w-full flex items-center justify-start">
+                      {item.question}
+                    </h1>
+                    <p
+                      className={`text-sm leading-5 font-medium text-dark-body-color/70 transition-all duration-500 ease-in-out overflow-hidden ${
+                        activeIndex === index ? "max-h-96" : "max-h-0"
+                      }`}
+                    >
+                      {item.answer}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => toggleAnswer(index)}
+                    className=" h-[30px] aspect-square rounded-full transition duration-150 active:scale-90 text-dark-body-color/30 hover:bg-stone-200 flex items-center justify-center   "
+                  >
+                    <FaCaretDown className="text-[20px]" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
