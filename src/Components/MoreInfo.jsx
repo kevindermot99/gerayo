@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { IoArrowBackOutline, IoBusOutline } from "react-icons/io5";
 import { IoNotificationsOffOutline } from "react-icons/io5";
 import { KigaliBusJourney, busStopsImages } from "../content/data";
@@ -14,20 +14,25 @@ function MoreInfo({ hide, id }) {
     setAnimate(true);
   }, []);
 
-  const hideNotificationPopup = () => {
+  const hideNotificationPopup = useCallback(() => {
     setAnimate(false);
     setTimeout(() => {
       hide();
     }, 200);
-  };
+  }, [hide]);
 
-  const openedJourney = KigaliBusJourney.find((journey) => journey.id === id);
-
-  const imageFrom = busStopsImages.find(
-    (image) => image.location === openedJourney.from
+  const openedJourney = useMemo(
+    () => KigaliBusJourney.find((journey) => journey.id === id),
+    [id]
   );
-  const imageTo = busStopsImages.find(
-    (image) => image.location === openedJourney.to
+
+  const imageFrom = useMemo(
+    () => busStopsImages.find((image) => image.location === openedJourney.from),
+    [openedJourney]
+  );
+  const imageTo = useMemo(
+    () => busStopsImages.find((image) => image.location === openedJourney.to),
+    [openedJourney]
   );
 
   return (
@@ -56,7 +61,7 @@ function MoreInfo({ hide, id }) {
         </div>
 
         {/* no notification */}
-        <div className="h-full w-full max-w-[500px] flex flex-col gap-5 px-7 pt-8 pb-14 overflow-y-auto">
+        <div className="h-full w-full max-w-[500px] flex flex-col gap-5 max-md:px-3 px-7 pt-8 pb-14 max-md:pb-32 overflow-y-auto">
           <div className="w-full h-fit flex items-start justify-start gap-5">
             <div className="h-full w-[50%] relative">
               <h1 className="text-sm capitalize min-h-fit mb-2">
