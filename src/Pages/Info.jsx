@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Info() {
   return (
-    <div className="w-full min-h-svh flex items-center justify-center flex-col text-dark-text">
+    <div className="help-header w-full min-h-svh flex items-center justify-center flex-col text-dark-text">
       <div className="fixed top-0 left-0 w-full p-10 max-md:p-4">
         <Link to={"/"}>
           <IoArrowBackOutline className="text-2xl" />
