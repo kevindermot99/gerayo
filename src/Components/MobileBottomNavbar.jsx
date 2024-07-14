@@ -49,7 +49,7 @@ function MobileBottomNavbar({ guestEmail }) {
             : "hidden"
         }`}
       ></div>
-      <div className="h-[90px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
+      <div className="h-[75px] w-full border-t-[1px] border-border-lines-light hidden max-md:grid grid-cols-4 px-20 max-md:px-2 fixed bottom-0 left-0 z-50 bg-white">
         <Link
           to={`/`}
           className="flex flex-col items-center justify-center gap-[2px]"
