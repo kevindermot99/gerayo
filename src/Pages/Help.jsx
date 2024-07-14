@@ -94,11 +94,11 @@ function Help({ guestEmail }) {
         </div>
         <div className="w-full h-fit flex items-start justify-center bg-white">
           {/* Faqs */}
-          <div className="w-full h-full bg-stone-100 px-10 py-16 flex flex-col items-center justify-start text-dark-text ">
+          <div className="w-full h-full bg-stone-100 px-10 max-md:px-3 py-16 flex flex-col items-center justify-start text-dark-text ">
             <span className="flex items-center w-fit justify-start font-medium capitalize text-project-green text-sm bg-project-green/10 px-5 py-1 rounded-full ">
               Frequently asked questions
             </span>
-            <h1 className="text-[35px] leading-[65px] capitalize text-dark-body-color font-bold tracking-tight">
+            <h1 className="text-[35px] leading-[45px] max-md:text-center max-md:mb-5 capitalize text-dark-body-color font-bold tracking-tight">
               Got questions? We've got answers!
             </h1>
             <div className="w-full h-fit flex flex-col items-center justify-start my-2 max-w-[900px]">
