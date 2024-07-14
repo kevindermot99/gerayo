@@ -65,7 +65,7 @@ function Help({ guestEmail }) {
             : "hidden"
         }`}
       ></div>
-      <div className="w-full h-fit sticky top-0 z-20 bg-white max-md:hidden ">
+      <div className="w-full h-fit sticky top-0 z-20 backdrop-blur-md bg-white/80 dark:bg-white/80 max-md:hidden ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
       </div>
 

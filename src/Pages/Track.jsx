@@ -107,7 +107,7 @@ function Track({ guestEmail }) {
         }`}
       ></div>
       {/* pc navBar */}
-      <div className="w-full h-fit sticky top-0 z-20 bg-white dark:bg-white max-md:hidden ">
+      <div className="w-full h-fit sticky top-0 z-20 backdrop-blur-md bg-white/80 dark:bg-white/80 max-md:hidden ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
         <Filter onFilterSubmit={handleFilterSubmit} />
       </div>
@@ -161,7 +161,7 @@ function Track({ guestEmail }) {
             </div>
 
             {/* Buses */}
-            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5 h-fit w-full">
+            <div className="grid grid-cols-2 2xl:grid-cols-3 max-lg:grid-cols-1 gap-5 h-fit w-full">
               {loading ? (
                 <>
                   <div className="w-full h-fit col-span-2 flex items-start justify-center pt-16 pb-3">

@@ -14,7 +14,8 @@ import { CgSpinner } from "react-icons/cg";
 import { BiSupport } from "react-icons/bi";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { TfiHelpAlt } from "react-icons/tfi";
-import { LuHelpCircle } from "react-icons/lu";
+import { LuHelpCircle, LuInfo } from "react-icons/lu";
+import { BsInfoCircle } from "react-icons/bs";
 
 function Navbar({ show, guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -35,11 +36,11 @@ function Navbar({ show, guestEmail }) {
   };
 
   return (
-    <div className="h-[60px] px-10 max-md:px-4 border-b-[1px] border-border-lines-light flex items-center justify-between bg-white">
+    <div className="h-[60px] px-10 max-md:px-4 border-b-[1px] border-border-lines-light flex items-center justify-between">
       {/* Profile Menu overlay */}
       <div
         onClick={() => setProfileMenu(false)}
-        className={`bg-transparent fixed top-0 left-0 w-full h-full ${
+        className={` fixed top-0 left-0 w-full h-full min-h-svh ${
           profileMenu
             ? "transition ease-in-out duration-200 opacity-100  z-30"
             : "hidden"
@@ -52,7 +53,7 @@ function Navbar({ show, guestEmail }) {
         <div className="w-fit h-fit flex items-center justify-start">
           <MdLocationOn className="text-[30px] text-main-color translate-y-[1px] translate-x-[3px]" />
           <h1 className=" font-bold text-[26px] tracking-tighter text-main-color pr-8 pointer-events-none select-none ">
-            gerayo.
+            gerayo
           </h1>
         </div>
 
@@ -108,7 +109,7 @@ function Navbar({ show, guestEmail }) {
         <div className="flex cursor-pointer select-none relative">
           <div
             onClick={showMenu}
-            className={`h-8 active:scale-95 aspect-square rounded-full flex items-center justify-center ${
+            className={`h-7 active:scale-95 aspect-square rounded-full flex items-center justify-center ${
               profileMenu ? "z-30" : ""
             }`}
             title={`Guest${guestEmail}`}
@@ -122,35 +123,41 @@ function Navbar({ show, guestEmail }) {
 
           {/* dropdown */}
           <div
-            className={`bg-white min-h-[180px] w-[230px] absolute top-[40px] rounded-xl right-0 overflow-clip whitespace-nowrap border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right transition-all duration-200 ease-in-out ${
+            className={`bg-white min-h-[180px] w-[230px] absolute top-[35px] rounded-xl right-0 overflow-clip whitespace-nowrap border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right transition-all duration-200 ease-in-out ${
               profileMenu
                 ? "opacity-100 visible z-30 translate-y-0"
                 : "opacity-0 invisible -z-10 -translate-y-1"
             }`}
           >
             <div className="h-[43px] min-h-[43px] w-full rounded-lg cursor-default flex items-center justify-start px-3 gap-3">
-              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
+              <h1 className="text-dark-text font-normal tracking-tight whitespace-nowrap overflow-clip text-xs ">
                 guest{guestEmail}@gmail.com
               </h1>
             </div>
             <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
               <VscAccount className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize ">
+              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
                 Profile
               </h1>
             </button>
             <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
               <HiOutlineTicket className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize">
+              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize">
                 My Tickets
               </h1>
             </button>
             <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
               <FiSettings className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize ">
+              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
                 Settings
               </h1>
             </button>
+            <Link to={`/info`}  className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <LuInfo className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
+                About
+              </h1>
+            </Link>
             <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
             <button
               onClick={logMeOut}
@@ -159,14 +166,14 @@ function Navbar({ show, guestEmail }) {
               {loggingOut ? (
                 <>
                   <CgSpinner className="animate-spinLoader text-[23px] text-red-600/70" />
-                  <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                  <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize group-hover:text-main-color ">
                     Logging out..
                   </h1>
                 </>
               ) : (
                 <>
                   <HiOutlineLogout className="text-[23px] text-red-600/70" />
-                  <h1 className="text-dark-text font-medium tracking-tight text-sm capitalize group-hover:text-main-color ">
+                  <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize group-hover:text-main-color ">
                     Log Out
                   </h1>
                 </>
