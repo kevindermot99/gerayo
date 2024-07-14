@@ -6,12 +6,13 @@ import { BusStops } from "../content/data";
 import { CgSpinner } from "react-icons/cg";
 import { HiOutlineTrash } from "react-icons/hi";
 
-function Filter({ onFilterSubmit }) {
+function Filter({ onFilterSubmit, mobileSearch }) {
   const [inputFrom, setInputFrom] = useState(false);
   const [inputValueFrom, setInputValueFrom] = useState("");
   const [inputTo, setInputTo] = useState(false);
   const [inputValueTo, setInputValueTo] = useState("");
   const [formEmpty, setFormEmpty] = useState(false);
+  const [animateShow, setAnimateShow] = useState(false)
 
   // submiting
   const submit = (e) => {
@@ -66,24 +67,33 @@ function Filter({ onFilterSubmit }) {
     bstop.toLowerCase().includes(inputValueTo.toLowerCase())
   );
 
+  useEffect(() => {
+    if(mobileSearch === true){
+    setAnimateShow(true)
+    }
+    else{
+      setAnimateShow(false)
+    }
+  },[mobileSearch])
+
   return (
     <>
-      <div className="h-[55px] w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-10 max-md:px-4">
+      <div className={`h-[55px] max-md:h-fit max-md:absolute w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-10 max-md:px-4 ${animateShow ? 'max-md:opacity-100 max-md:relative ' : 'max-md:opacity-0 max-md:-translate-y-full'}`}>
         <form
           onSubmit={submit}
-          className="h-full w-full flex items-center justify-start py-2 gap-0 relative"
+          className="h-full w-full flex items-center justify-start max-md:flex-col max-md:gap-4 py-2 max-md:py-4 gap-0 relative"
         >
           {/* from */}
-          <div className="h-full w-fil relative">
+          <div className="h-full w-fit max-md:w-full relative">
             <input
               placeholder="From"
               type="text"
               onChange={checkEmptyFrom}
               value={inputValueFrom}
-              className="bg-stone-100 ring-1 ring-stone-200 h-full w-full capitalize max-w-[240px] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-stone-100 ring-1 ring-stone-200 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
-              className={`ring-1 ring-border-lines-light absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-stone-100 rounded-md overscroll-contain overflow-auto flex flex-col ${
+              className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5 rounded-md overscroll-contain overflow-auto flex flex-col ${
                 inputFrom ? "visible " : "invisible"
               }`}
             >
@@ -98,20 +108,20 @@ function Filter({ onFilterSubmit }) {
               ))}
             </div>
           </div>
-          <div className="bg-transparent  text-dark-text/40 h-full flex items-center justify-center aspect-square rounded-full z-10 ">
+          <div className="bg-transparent max-md:hidden text-dark-text/40 h-full flex items-center justify-center aspect-square rounded-full z-10 ">
             <FaArrowRightArrowLeft className="text-md" />
           </div>
           {/* to */}
-          <div className="h-full w-fil relative">
+          <div className="h-full w-fit max-md:w-full relative">
             <input
               placeholder="To"
               type="text"
               onChange={checkEmptyTo}
               value={inputValueTo}
-              className="bg-stone-100 ring-1 ring-stone-200 h-full w-full capitalize max-w-[240px] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-stone-100 ring-1 ring-stone-200 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
-              className={`ring-1 ring-border-lines-light absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overscroll-contain overflow-auto flex flex-col ${
+              className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overscroll-contain overflow-auto flex flex-col ${
                 inputTo ? "visible " : "invisible"
               }`}
             >
@@ -126,20 +136,24 @@ function Filter({ onFilterSubmit }) {
               ))}
             </div>
           </div>
-          <button
-            type="submit"
-            className="h-full aspect-square bg-main-color ml-2 rounded-full flex items-center justify-center text-white font-semibold text-sm tracking-tight transition active:scale-90 whitespace-nowrap gap-1"
-          >
-            <RiSearchLine className="text-base" />
-          </button>
-          <button
-            onClick={clearForm}
-            className={`h-full aspect-square bg-stone-100 ring-1 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
-              formEmpty ? "opacity-100" : "opacity-0 pointer-events-none -z-10"
-            }`}
-          >
-            <HiOutlineTrash className="text-lg" />
-          </button>
+          <div className="flex h-[40px] items-center justify-center max-md:w-full">
+            <button
+              type="submit"
+              className="h-full max-md:h-[40px] max-md:w-full aspect-square bg-main-color ml-2 max-md:ml-0 rounded-full flex items-center justify-center text-white font-semibold text-sm tracking-tight transition active:scale-90 whitespace-nowrap gap-1"
+            >
+              <RiSearchLine className="text-base max-md:text-xl" />
+            </button>
+            <button
+              onClick={clearForm}
+              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-stone-100 ring-1 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
+                formEmpty
+                  ? "opacity-100"
+                  : "md:opacity-0 md:pointer-events-none md:-z-10"
+              }`}
+            >
+              <HiOutlineTrash className="text-lg max-md:text-xl" />
+            </button>
+          </div>
         </form>
       </div>
     </>

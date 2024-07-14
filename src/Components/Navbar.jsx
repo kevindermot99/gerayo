@@ -36,7 +36,7 @@ function Navbar({ show, guestEmail }) {
   };
 
   return (
-    <div className="h-[60px] px-10 max-md:px-4 border-b-[1px] border-border-lines-light flex items-center justify-between">
+    <div className="h-[60px] px-10 max-md:px-4 border-b-[1px] border-border-lines-light flex items-center justify-between max-md:hidden">
       {/* Profile Menu overlay */}
       <div
         onClick={() => setProfileMenu(false)}

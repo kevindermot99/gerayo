@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { LuSearch } from "react-icons/lu";
+import { LuListFilter, LuSearch } from "react-icons/lu";
 import { BiSearch } from "react-icons/bi";
 import { RiRouteFill } from "react-icons/ri";
 import { MdMyLocation } from "react-icons/md";
@@ -37,7 +37,8 @@ function Track({ guestEmail }) {
   const [showMoreInfo, setMoreInfo] = useState(false);
   const [showFilteredOnly, setShowFilteredOnly] = useState(false);
   const [filtered, setFiltered] = useState();
-  const [moreInfoId, setMoreInfoId] = useState('0')
+  const [moreInfoId, setMoreInfoId] = useState("0");
+  const [mobileSearch, setMobileSearch] = useState(false)
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -73,7 +74,7 @@ function Track({ guestEmail }) {
   // more info
   const showMoreInfoPopup = (id) => {
     setMoreInfo(true);
-    setMoreInfoId(id)
+    setMoreInfoId(id);
     document.documentElement.classList.add("no-scroll");
   };
 
@@ -100,6 +101,10 @@ function Track({ guestEmail }) {
     setFiltered(filterBusJourneys(KigaliBusJourney, from, to));
   };
 
+  const showSearch = () => {
+    setMobileSearch(!mobileSearch)
+  }
+
   return (
     <div className="bg-stone-100 dark:bg-stone-100 min-h-svh max-md:pb-10 text-dark-text">
       {/* Welcome */}
@@ -124,11 +129,6 @@ function Track({ guestEmail }) {
             : "hidden"
         }`}
       ></div>
-      {/* pc navBar */}
-      <div className="w-full h-fit sticky top-0 z-20 backdrop-blur-md bg-white/80 dark:bg-white/80 max-md:hidden ">
-        <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        <Filter onFilterSubmit={handleFilterSubmit} />
-      </div>
 
       {/* phone Topbar */}
       <MobileTopBar title={"Find my bus"} show={showNotificationPopup} />
@@ -136,10 +136,21 @@ function Track({ guestEmail }) {
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />
 
+      {/* pc navBar */}
+      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-white/80 dark:bg-white/80 ">
+        <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
+        <Filter mobileSearch={mobileSearch} onFilterSubmit={handleFilterSubmit} />
+      </div>
+
       <div className="w-full h-fit flex bg-stone-100">
         <div className=" w-full min-h-full">
           {/* content */}
           <div className="w-full h-fit py-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
+            <div className="w-full h-fi flex items-center justify-end md:hidden">
+              <button onClick={showSearch} className=" text-3xl transition active:scale-90  ">
+                <LuListFilter />
+              </button>
+            </div>
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Most known places
             </p>

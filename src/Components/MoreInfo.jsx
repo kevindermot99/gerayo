@@ -47,12 +47,12 @@ function MoreInfo({ hide, id }) {
     <>
       <div
         onClick={hideNotificationPopup}
-        className={`w-full h-full fixed top-0 left-0 bg-stone-600/10 z-30 transition-all ease-in-out duration-300 ${
+        className={`w-full h-full fixed top-0 left-0 bg-stone-600/10 z-40 transition-all ease-in-out duration-300 ${
           animate ? "opacity-100" : "opacity-0"
         } `}
       ></div>
       <div
-        className={`fixed top-0 right-0 bg-white text-dark-text w-full max-w-[500px] h-full z-30 p-4 transition-all ease-in-out duration-200  ${
+        className={`fixed top-0 right-0 bg-white text-dark-text w-full max-w-[500px] h-full z-40 p-4 transition-all ease-in-out duration-200  ${
           animate
             ? " translate-x-0 opacity-100"
             : " translate-x-full opacity-0 "
