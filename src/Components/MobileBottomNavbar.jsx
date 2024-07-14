@@ -19,6 +19,7 @@ import { FiHelpCircle } from "react-icons/fi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { Helmet } from "react-helmet";
 import { HiOutlineTicket } from "react-icons/hi2";
+import { IoIosHelpCircleOutline, IoMdHelpCircleOutline } from "react-icons/io";
 
 function MobileBottomNavbar({ guestEmail }) {
   const location = useLocation();
@@ -156,7 +157,16 @@ function MobileBottomNavbar({ guestEmail }) {
               Settings
             </h1>
           </button>
-          <Link to={`/info`}  className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+          <Link to={`/help`}  className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <FiHelpCircle className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
+                Help
+              </h1>
+            </Link>
+            <Link
+              to={`/info`}
+              className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
+            >
               <LuInfo className="text-[23px] text-dark-text/60" />
               <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
                 About
