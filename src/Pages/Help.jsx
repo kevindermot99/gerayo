@@ -98,7 +98,7 @@ function Help({ guestEmail }) {
             <span className="flex items-center w-fit justify-start font-medium capitalize text-project-green text-sm bg-project-green/10 px-5 py-1 rounded-full ">
               Frequently asked questions
             </span>
-            <h1 className="text-[35px] leading-[45px] max-md:text-center max-md:mb-5 capitalize text-dark-body-color font-bold tracking-tight">
+            <h1 className="text-[35px] leading-[45px] max-md:text-center mb-12 capitalize text-dark-body-color font-bold tracking-tight">
               Got questions? We've got answers!
             </h1>
             <div className="w-full h-fit flex flex-col items-center justify-start my-2 max-w-[900px]">
