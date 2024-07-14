@@ -111,13 +111,14 @@ function MoreInfo({ hide, id }) {
             <div className="flex flex-col items-start justify-start gap-4">
               {openedJourney.stops.map((stopName, index) => (
                 <p key={index} className="text-sm capitalize font-medium">
-                  {index + 1}. {stopName}
+                  {index + 1}.{" "}{stopName}
                 </p>
               ))}
             </div>
           </div>
           <h1 className="text-sm capitalize min-h-fit">
-            Route ID: <span className="font-bold">{openedJourney.RouteId}</span>
+            Route ID:{" "}
+            <span className="font-bold">{openedJourney.RouteId}</span>
           </h1>
           <h1 className="text-sm capitalize min-h-fit">
             Plate No:{" "}
