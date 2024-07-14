@@ -10,6 +10,7 @@ import { TbRadarFilled } from "react-icons/tb";
 import { PiWavesThin } from "react-icons/pi";
 import { GiHeavyRain } from "react-icons/gi";
 import { VscPinned, VscPinnedDirty } from "react-icons/vsc";
+import MoreInfo from "./MoreInfo";
 
 function Bus({
   id,
@@ -21,6 +22,7 @@ function Bus({
   departureAt,
   arrivalTime,
   price,
+  moreInfo
 }) {
   const [pinnedBusIds, setPinnedBusIds] = useState([]);
 
@@ -51,6 +53,10 @@ function Bus({
   };
 
   const isPinned = pinnedBusIds.includes(id);
+
+  const showMoreInfo = (id) => {
+    moreInfo(id)
+  } 
 
   return (
     <div className="w-full h-fit overflow-clip bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-4 relative">
@@ -119,7 +125,7 @@ function Bus({
               <FaMapLocationDot className="text-xl" />
               Track Bus
             </button>
-            <button className="h-[40px] backdrop-blur-md ring-1 ring-slate-300/50 w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 text-dark-text/60 font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <button onClick={() => showMoreInfo(id)} className="h-[40px] backdrop-blur-md w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 text-dark-text/60 font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <LuInfo className="text-xl" />
               More info
             </button>

@@ -25,6 +25,7 @@ import Filter from "../Components/Filter";
 import Notification from "../Components/Notification";
 import Welcome from "../Components/Welcome";
 import { BusPark, KigaliBusJourney } from "../content/data";
+import MoreInfo from "../Components/MoreInfo";
 
 function Track({ guestEmail }) {
   const [visited, setVisited] = useState(false);
@@ -33,8 +34,10 @@ function Track({ guestEmail }) {
   const [loading, setLoading] = useState(true);
   const [profileMenu, setProfileMenu] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [showMoreInfo, setMoreInfo] = useState(false);
   const [showFilteredOnly, setShowFilteredOnly] = useState(false);
   const [filtered, setFiltered] = useState();
+  const [moreInfoId, setMoreInfoId] = useState('0')
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -56,7 +59,7 @@ function Track({ guestEmail }) {
       setVisited(true);
     }
   }, []);
-
+  // notification
   const showNotificationPopup = () => {
     setShowNotification(true);
     document.documentElement.classList.add("no-scroll");
@@ -64,6 +67,18 @@ function Track({ guestEmail }) {
 
   const hideNotificationPopup = () => {
     setShowNotification(false);
+    document.documentElement.classList.remove("no-scroll");
+  };
+
+  // more info
+  const showMoreInfoPopup = (id) => {
+    setMoreInfo(true);
+    setMoreInfoId(id)
+    document.documentElement.classList.add("no-scroll");
+  };
+
+  const hideMoreInfoPopup = () => {
+    setMoreInfo(false);
     document.documentElement.classList.remove("no-scroll");
   };
 
@@ -92,6 +107,9 @@ function Track({ guestEmail }) {
 
       {/* Notification */}
       {showNotification && <Notification hide={hideNotificationPopup} />}
+
+      {/* MoreInfo */}
+      {showMoreInfo && <MoreInfo id={moreInfoId} hide={hideMoreInfoPopup} />}
 
       {/* Helmet */}
       <Helmet>
@@ -137,8 +155,9 @@ function Track({ guestEmail }) {
               ))}
             </div>
             <p className="text-dark-text font-bold tracking-tight text-sm">
-              {showFilteredOnly ? `Showing ${filtered.length} bus(es)` : `Showing ${KigaliBusJourney.length} Bus(es)`}
-              
+              {showFilteredOnly
+                ? `Showing ${filtered.length} bus(es)`
+                : `Showing ${KigaliBusJourney.length} Bus(es)`}
             </p>
             {/* tabs */}
             <div className="w-full h-fit flex items-center justify-between max-md:justify-start  gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
@@ -174,6 +193,7 @@ function Track({ guestEmail }) {
                     <>
                       {filtered.map((journey, index) => (
                         <Bus
+                          moreInfo={showMoreInfoPopup}
                           key={index}
                           id={journey.id}
                           plateNumber={journey.plateNumber}
@@ -186,7 +206,11 @@ function Track({ guestEmail }) {
                           price={journey.price}
                         />
                       ))}
-                      <div className={`flex items-center justify-center col-span-2 text-sm italic text-dark-text/70 font-medium pt-8 max-md:pb-8 ${filtered.length <= 0 ? 'visible ' : 'hidden'} `}>
+                      <div
+                        className={`flex items-center justify-center col-span-2 text-sm italic text-dark-text/70 font-medium pt-8 max-md:pb-8 ${
+                          filtered.length <= 0 ? "visible " : "hidden"
+                        } `}
+                      >
                         Bus not found.
                       </div>
                     </>
@@ -194,6 +218,7 @@ function Track({ guestEmail }) {
                     <>
                       {KigaliBusJourney.map((journey, index) => (
                         <Bus
+                          moreInfo={showMoreInfoPopup}
                           key={index}
                           id={journey.id}
                           plateNumber={journey.plateNumber}
