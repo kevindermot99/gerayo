@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { LuSearch } from "react-icons/lu";
+import { LuInfo, LuSearch } from "react-icons/lu";
 import { BiSearch } from "react-icons/bi";
 import { RiRouteFill } from "react-icons/ri";
 import { MdMyLocation } from "react-icons/md";
@@ -156,6 +156,12 @@ function MobileBottomNavbar({ guestEmail }) {
               Settings
             </h1>
           </button>
+          <Link to={`/info`}  className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+              <LuInfo className="text-[23px] text-dark-text/60" />
+              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
+                About
+              </h1>
+            </Link>
           <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
           <button
             onClick={logMeOut}

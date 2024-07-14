@@ -130,7 +130,7 @@ function Navbar({ show, guestEmail }) {
             }`}
           >
             <div className="h-[43px] min-h-[43px] w-full rounded-lg cursor-default flex items-center justify-start px-3 gap-3">
-              <h1 className="text-dark-text font-normal tracking-tight whitespace-nowrap overflow-clip text-xs ">
+              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
                 guest{guestEmail}@gmail.com
               </h1>
             </div>
@@ -152,7 +152,10 @@ function Navbar({ show, guestEmail }) {
                 Settings
               </h1>
             </button>
-            <Link to={`/info`}  className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
+            <Link
+              to={`/info`}
+              className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
+            >
               <LuInfo className="text-[23px] text-dark-text/60" />
               <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
                 About
