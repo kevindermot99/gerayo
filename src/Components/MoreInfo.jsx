@@ -55,8 +55,8 @@ function MoreInfo({ hide, id }) {
           </div>
           <span className="border-b-[1px] border-border-lines-light mt-2 w-full max-w-[70%] mx-auto h-[1px]" ></span>
           <h1 className="text-sm capitalize min-h-fit">Bus Stops</h1>
-          <div className="flex flex-col items-start justify-start gap-2">
-            <p className="text-sm font-medium">&bull; lorem</p>
+          <div className="flex flex-col items-start justify-start gap-2 px-4">
+            <p className="text-sm font-medium">&bull; </p>
           </div>
         </div>
       </div>
