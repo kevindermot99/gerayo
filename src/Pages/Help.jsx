@@ -11,7 +11,7 @@ import Notification from "../Components/Notification";
 import { MdLocationOn } from "react-icons/md";
 import { IoIosCall } from "react-icons/io";
 import { FaCaretDown } from "react-icons/fa6";
-import { Faqs } from "../Content/Content";
+import { Faqs } from "../content/data";
 
 function Help({ guestEmail }) {
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ function Help({ guestEmail }) {
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />
 
-      <div className="w-full h-fit flex items-start justify-start max-lg:flex-col max-lg:items-center bg-body-color-light gap-10 max-md:gap-5  ">
+      <div className="w-full h-fit flex items-start justify-start flex-col max-lg:flex-col max-lg:items-center bg-body-color-light ">
         {/* header */}
         <div className="help-header flex justify-center items-center flex-col gap-1 min-h-[250px] w-full bg-stone-100 relative">
           <div className="w-fit h-fit flex items-center justify-start">
@@ -92,9 +92,9 @@ function Help({ guestEmail }) {
             <span> +250785614800</span>
           </p>
         </div>
-        <div className="w-full h-fit flex items-start justify-center p-8 bg-white">
+        <div className="w-full h-fit flex items-start justify-center bg-white">
           {/* Faqs */}
-          <div className="w-full h-full bg-stone-100 px-10 py-16 flex flex-col items-center justify-start ">
+          <div className="w-full h-full bg-stone-100 px-10 py-16 flex flex-col items-center justify-start text-dark-text ">
             <span className="flex items-center w-fit justify-start font-medium capitalize text-project-green text-sm bg-project-green/10 px-5 py-1 rounded-full ">
               Frequently asked questions
             </span>
@@ -112,7 +112,7 @@ function Help({ guestEmail }) {
                       {item.question}
                     </h1>
                     <p
-                      className={`text-sm leading-5 font-medium text-dark-body-color/70 transition-all duration-500 ease-in-out overflow-hidden ${
+                      className={`text-sm leading-5 font-medium text-dark-text/70 text-dark-body-color/70 transition-all duration-500 ease-in-out overflow-hidden ${
                         activeIndex === index ? "max-h-96" : "max-h-0"
                       }`}
                     >
@@ -123,7 +123,7 @@ function Help({ guestEmail }) {
                     onClick={() => toggleAnswer(index)}
                     className=" h-[30px] aspect-square rounded-full transition duration-150 active:scale-90 text-dark-body-color/30 hover:bg-stone-200 flex items-center justify-center   "
                   >
-                    <FaCaretDown className="text-[20px]" />
+                    <FaCaretDown className="text-[20px] opacity-45" />
                   </button>
                 </div>
               ))}
