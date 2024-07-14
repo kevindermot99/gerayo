@@ -94,14 +94,11 @@ function Help({ guestEmail }) {
         </div>
         <div className="w-full h-fit flex items-start justify-center bg-white">
           {/* Faqs */}
-          <div className="w-full h-full bg-stone-100 px-10 max-md:px-3 py-16 flex flex-col items-center justify-start text-dark-text ">
-            <span className="flex items-center w-fit justify-start font-medium capitalize text-project-green text-sm bg-project-green/10 px-5 py-1 rounded-full ">
-              Frequently asked questions
+          <div className="w-full h-full bg-stone-100 px-10 max-md:px-3 pb-16 flex flex-col items-center justify-start text-dark-text ">
+            <span className="flex items-center w-full max-w-[900px] justify-start my-5 font-medium capitalize text-project-green text-sm bg-project-green/10 px-1 ">
+              Frequently asked questions (FAQs)
             </span>
-            <h1 className="text-[35px] leading-[45px] max-md:text-center mb-12 capitalize text-dark-body-color font-bold tracking-tight">
-              Got questions? We've got answers!
-            </h1>
-            <div className="w-full h-fit flex flex-col items-center justify-start my-2 max-w-[900px]">
+            <div className="w-full h-fit flex flex-col items-center justify-start mb-3 max-w-[900px]">
               {Faqs.map((item, index) => (
                 <div
                   key={item.index}
