@@ -131,7 +131,7 @@ function Track({ guestEmail }) {
       ></div>
 
       {/* phone Topbar */}
-      <MobileTopBar title={"Find my bus"} show={showNotificationPopup} />
+      <MobileTopBar showSearch={showSearch} title={"Find my bus"} show={showNotificationPopup} />
 
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />
@@ -146,11 +146,6 @@ function Track({ guestEmail }) {
         <div className=" w-full min-h-full">
           {/* content */}
           <div className="w-full h-fit py-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
-            <div className="w-full h-fi flex items-center justify-end md:hidden">
-              <button onClick={showSearch} className=" text-3xl transition active:scale-90  ">
-                <LuListFilter />
-              </button>
-            </div>
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Most known places
             </p>
