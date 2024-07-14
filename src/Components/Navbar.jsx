@@ -95,7 +95,7 @@ function Navbar({ show, guestEmail }) {
         <Link
           to={`/help`}
           className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
-          title="help"
+          title="help center"
         >
           <IoIosHelpCircleOutline className="text-2xl text-dark-text group-hover:text-main-color " />
         </Link>

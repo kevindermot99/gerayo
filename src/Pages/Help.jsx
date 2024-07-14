@@ -70,7 +70,7 @@ function Help({ guestEmail }) {
       </div>
 
       {/* phone Topbar */}
-      <MobileTopBar show={showNotificationPopup} title={"Search"} />
+      <MobileTopBar show={showNotificationPopup} title={"Help center"} />
 
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />

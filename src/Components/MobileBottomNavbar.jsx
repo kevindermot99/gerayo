@@ -160,7 +160,7 @@ function MobileBottomNavbar({ guestEmail }) {
           <Link to={`/help`}  className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
               <FiHelpCircle className="text-[23px] text-dark-text/60" />
               <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
-                Help
+                Help Center
               </h1>
             </Link>
             <Link
