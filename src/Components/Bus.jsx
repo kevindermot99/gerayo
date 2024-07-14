@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowRightArrowLeft, FaMapLocationDot } from "react-icons/fa6";
+import { FaArrowRightArrowLeft, FaArrowRightLong, FaMapLocationDot } from "react-icons/fa6";
 import { MdOutlineErrorOutline } from "react-icons/md";
 import { TiInfoLarge, TiPin } from "react-icons/ti";
 import { MdLocationOn } from "react-icons/md";
@@ -89,7 +89,7 @@ function Bus({
           <div className="w-full h-full flex flex-col justify-start items-start">
             <h1 className="text-dark-text font-bold text-xl capitalize pt-2 flex items-center gap-0">
               <MdLocationOn className="text-[26px] text-main-color pb-[2px] " />
-              {from} <FaArrowRightArrowLeft className="text-sm mx-3 text-dark-text/60" /> {to}
+              {from} <FaArrowRightLong className="text-lg mx-3 text-dark-text/60" /> {to}
             </h1>
             <p className="text-dark-text/50 capitalize font-medium tracking-tight text-sm pb-2">
               {busType}
