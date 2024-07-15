@@ -38,7 +38,11 @@ function Track({ guestEmail }) {
   const [showFilteredOnly, setShowFilteredOnly] = useState(false);
   const [filtered, setFiltered] = useState();
   const [moreInfoId, setMoreInfoId] = useState("0");
-  const [mobileSearch, setMobileSearch] = useState(false)
+  const [mobileSearch, setMobileSearch] = useState(false);
+  const [pinnedBuses, setPinnedBuses] = useState(false);
+  const [pinnedBusIds, setPinnedBusIds] = useState([]);
+  const [pinnedJourneys, setPinnedJourneys] = useState([]);
+  const [watchPinned, setWatchPinned] = useState("");
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -102,8 +106,42 @@ function Track({ guestEmail }) {
   };
 
   const showSearch = () => {
-    setMobileSearch(!mobileSearch)
-  }
+    setMobileSearch(!mobileSearch);
+  };
+
+  const watchPinnedChange = (id) => {
+    setWatchPinned(id);
+  };
+
+  useEffect(() => {
+    const storedPinnedBusIds = JSON.parse(localStorage.getItem("PinnedBusIds"));
+    if (storedPinnedBusIds) {
+      setPinnedBusIds(storedPinnedBusIds);
+    }
+  }, [watchPinned]);
+
+  useEffect(() => {
+    const filteredJourneys = KigaliBusJourney.filter((journey) =>
+      pinnedBusIds.includes(journey.id)
+    );
+    setPinnedJourneys(filteredJourneys);
+  }, [pinnedBusIds]);
+
+  const showPinned = () => {
+    setPinnedBuses(true);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  };
+
+  const hidePinned = () => {
+    setPinnedBuses(false);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  };
 
   return (
     <div className="bg-stone-100 dark:bg-stone-100 min-h-svh max-md:pb-10 text-dark-text">
@@ -131,7 +169,11 @@ function Track({ guestEmail }) {
       ></div>
 
       {/* phone Topbar */}
-      <MobileTopBar showSearch={showSearch} title={"Find my bus"} show={showNotificationPopup} />
+      <MobileTopBar
+        showSearch={showSearch}
+        title={"Find my bus"}
+        show={showNotificationPopup}
+      />
 
       {/* Phone navBar */}
       <MobileBottomNavbar guestEmail={guestEmail} />
@@ -139,7 +181,10 @@ function Track({ guestEmail }) {
       {/* pc navBar */}
       <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-white/80 dark:bg-white/80 ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        <Filter mobileSearch={mobileSearch} onFilterSubmit={handleFilterSubmit} />
+        <Filter
+          mobileSearch={mobileSearch}
+          onFilterSubmit={handleFilterSubmit}
+        />
       </div>
 
       <div className="w-full h-fit flex bg-stone-100">
@@ -160,30 +205,42 @@ function Track({ guestEmail }) {
                 </div>
               ))}
             </div>
-            <p className="text-dark-text font-bold tracking-tight text-sm mt-5">
-              {showFilteredOnly
-                ? `Showing ${filtered.length} bus(es)`
-                : `Showing ${KigaliBusJourney.length} bus(es)`}
-            </p>
+            
             {/* tabs */}
-            <div className="w-full h-fit flex items-center justify-between max-md:justify-start  gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
+            <div className="w-full h-fit flex items-center justify-between max-md:justify-start mt-4 gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
               <div className="flex items-center justify-start gap-2">
-                <Link
-                  to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium ring-1 ring-slate-200/40 tracking-tight text-sm bg-white py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                <button
+                  onClick={hidePinned}
+                  className={`text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-white text-sm py-2 px-4 rounded-full flex items-center justify-center cursor-pointer gap-1 ${
+                    pinnedBuses ? "" : "bg-white ring-1 ring-slate-200/40"
+                  } `}
                 >
                   <TbBusStop className="text-xl" />
                   All Buses
-                </Link>
-                <Link
-                  to={`/`}
-                  className="text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-white text-sm py-2 px-4 rounded-lg flex items-center justify-center gap-1"
+                </button>
+                <button
+                  onClick={showPinned}
+                  className={`text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-white text-sm py-2 px-4 rounded-full flex items-center cursor-pointer justify-center gap-1 ${
+                    pinnedBuses ? "bg-white ring-1 ring-slate-200/40" : ""
+                  }`}
                 >
                   <TiPin className="text-xl" />
-                  Pinned (0)
-                </Link>
+                  Pinned {`(${pinnedBusIds.length > 0 ? (pinnedBusIds.length) : ('0') })`}
+                </button>
               </div>
             </div>
+
+            <p className="text-dark-text font-bold tracking-tight text-sm mt-2 mb-5">
+              {pinnedBuses ? (
+                `Showing ${pinnedBusIds.length > 0 ? (pinnedBusIds.length) : ('0') } bus(es)`
+              ) : (
+                <>
+                  {showFilteredOnly
+                    ? `Showing ${filtered.length} bus(es)`
+                    : `Showing ${KigaliBusJourney.length} bus(es)`}
+                </>
+              )}
+            </p>
 
             {/* Buses */}
             <div className="grid grid-cols-2 2xl:grid-cols-3 max-lg:grid-cols-1 gap-5 h-fit w-full">
@@ -200,6 +257,7 @@ function Track({ guestEmail }) {
                       {filtered.map((journey, index) => (
                         <Bus
                           moreInfo={showMoreInfoPopup}
+                          watchPinnedChange={watchPinnedChange}
                           key={index}
                           id={journey.id}
                           plateNumber={journey.plateNumber}
@@ -222,21 +280,55 @@ function Track({ guestEmail }) {
                     </>
                   ) : (
                     <>
-                      {KigaliBusJourney.map((journey, index) => (
-                        <Bus
-                          moreInfo={showMoreInfoPopup}
-                          key={index}
-                          id={journey.id}
-                          plateNumber={journey.plateNumber}
-                          numberOfSeats={journey.numberOfSeats}
-                          from={journey.from}
-                          to={journey.to}
-                          busType={journey.busType}
-                          departureAt={journey.departureAt}
-                          arrivalTime={journey.arrivalTime}
-                          price={journey.price}
-                        />
-                      ))}
+                      {pinnedBuses ? (
+                        <>
+                          {loading ? (
+                            <>
+                              <div className="w-full h-fit col-span-2 flex items-start justify-center pt-16 pb-3">
+                                <CgSpinner className="animate-spinLoader text-3xl text-dark-text/40 " />
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              {pinnedJourneys.map((journey, index) => (
+                                <Bus
+                                  moreInfo={showMoreInfoPopup}
+                                  watchPinnedChange={watchPinnedChange}
+                                  key={index}
+                                  id={journey.id}
+                                  plateNumber={journey.plateNumber}
+                                  numberOfSeats={journey.numberOfSeats}
+                                  from={journey.from}
+                                  to={journey.to}
+                                  busType={journey.busType}
+                                  departureAt={journey.departureAt}
+                                  arrivalTime={journey.arrivalTime}
+                                  price={journey.price}
+                                />
+                              ))}
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          {KigaliBusJourney.map((journey, index) => (
+                            <Bus
+                              moreInfo={showMoreInfoPopup}
+                              watchPinnedChange={watchPinnedChange}
+                              key={index}
+                              id={journey.id}
+                              plateNumber={journey.plateNumber}
+                              numberOfSeats={journey.numberOfSeats}
+                              from={journey.from}
+                              to={journey.to}
+                              busType={journey.busType}
+                              departureAt={journey.departureAt}
+                              arrivalTime={journey.arrivalTime}
+                              price={journey.price}
+                            />
+                          ))}
+                        </>
+                      )}
                     </>
                   )}
                 </>

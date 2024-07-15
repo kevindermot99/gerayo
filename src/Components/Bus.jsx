@@ -22,7 +22,8 @@ function Bus({
   departureAt,
   arrivalTime,
   price,
-  moreInfo
+  moreInfo,
+  watchPinnedChange
 }) {
   const [pinnedBusIds, setPinnedBusIds] = useState([]);
 
@@ -32,7 +33,12 @@ function Bus({
     setPinnedBusIds(storedPinnedBusIds);
   }, []);
 
+
   const PinBus = (id) => {
+    if(watchPinnedChange){
+      const randomToken = () => Math.floor(Math.random() * 10) +1;
+      watchPinnedChange(randomToken)
+    }
     let pinnedBuses = JSON.parse(localStorage.getItem("PinnedBusIds")) || [];
 
     if (!pinnedBuses.includes(id)) {
@@ -43,6 +49,10 @@ function Bus({
   };
 
   const UnPinBus = (id) => {
+    if(watchPinnedChange){
+      const randomToken = () => Math.floor(Math.random() * 20) +1;
+      watchPinnedChange(randomToken)
+    }
     let pinnedBuses = JSON.parse(localStorage.getItem("PinnedBusIds")) || [];
 
     if (pinnedBuses.includes(id)) {
