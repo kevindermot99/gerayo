@@ -11,6 +11,8 @@ import { CgSpinner } from "react-icons/cg";
 function MoreInfo({ hide, id }) {
   const [animate, setAnimate] = useState(false);
   const [load, setLoad] = useState(true);
+  const [image, setImage] = useState("");
+  const [showImageFull, setShowImageFull] = useState(false);
 
   useEffect(() => {
     setAnimate(true);
@@ -43,8 +45,32 @@ function MoreInfo({ hide, id }) {
     [openedJourney]
   );
 
+  const showImage = (url) => {
+    setImage(url);
+    setShowImageFull(true);
+  };
+
   return (
     <>
+    {/* full screen image */}
+    <div
+          className={`fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center ${
+            showImageFull ? "visible " : "invisible "
+          }`}
+        >
+          <div
+            onClick={() => setShowImageFull(false)}
+            className={`absolute top-0 left-0 bg-black/10 w-full h-full backdrop-blur-sm transition-all ease-out ${
+              showImageFull ? "opacity-100 " : "opacity-0 "
+            } `}
+          ></div>
+          <img
+            src={image}
+            className={` max-h-[70%] h-[220px] brightness-[110%] min-w-[300px] max-w-[80%] object-cover shadow rounded-xl z-10 select-none transition-all ease-in ${
+              showImageFull ? "opacity-100 " : "opacity-0 scale-95  "
+            }`}
+          />
+        </div>
       <div
         onClick={hideNotificationPopup}
         className={`w-full h-full fixed top-0 left-0 bg-stone-600/10 z-40 transition-all ease-in-out duration-300 ${
@@ -52,13 +78,13 @@ function MoreInfo({ hide, id }) {
         } `}
       ></div>
       <div
-        className={`fixed top-0 right-0 bg-white text-dark-text w-full max-w-[500px] h-full z-40 p-4 transition-all ease-in-out duration-200  ${
+        className={`fixed top-0 right-0 bg-white text-dark-text w-full max-w-[500px] h-full z-40 p-4 flex flex-col transition-all ease-in-out duration-200  ${
           animate
             ? " translate-x-0 opacity-100"
             : " translate-x-full opacity-0 "
         }`}
       >
-        <div className="flex items-center justify-start gap-4">
+        <div className="flex h-fit items-center justify-start gap-4">
           <button
             onClick={hideNotificationPopup}
             className="active:scale-75 transition flex items-center justify-center "
@@ -72,7 +98,7 @@ function MoreInfo({ hide, id }) {
 
         {/* no notification */}
         {load ? (
-          <div className="w-full h-full flex items-center justify-center pb-20">
+          <div className="w-full h-full flex items-center justify-center pb-0">
           <CgSpinner className="animate-spinLoader text-2xl text-dark-text/50" />
           </div>
         ) : (
@@ -83,8 +109,9 @@ function MoreInfo({ hide, id }) {
                   From: {openedJourney.from}
                 </h1>
                 <img
+                onClick={() => showImage(imageFrom.image)}
                   src={imageFrom.image}
-                  className="w-full h-[130px] bg-stone-100 rounded-xl shadow-md object-cover object-bottom"
+                  className="w-full h-[130px] cursor-pointer bg-stone-100 rounded-xl shadow-md object-cover object-bottom"
                 />
                 <a
                   href={`https://www.google.com/maps/place/${openedJourney.from}`}
@@ -99,8 +126,9 @@ function MoreInfo({ hide, id }) {
                   to: {openedJourney.to}
                 </h1>
                 <img
+                  onClick={() => showImage(imageTo.image)}
                   src={imageTo.image}
-                  className="w-full h-[130px] bg-stone-100 rounded-xl shadow-md object-cover object-bottom"
+                  className="w-full h-[130px] cursor-pointer bg-stone-100 rounded-xl shadow-md object-cover object-bottom"
                 />
                 <a
                   href={`https://www.google.com/maps/place/${openedJourney.to}`}

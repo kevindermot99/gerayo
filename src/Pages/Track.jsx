@@ -160,10 +160,10 @@ function Track({ guestEmail }) {
                 </div>
               ))}
             </div>
-            <p className="text-dark-text font-bold tracking-tight text-sm">
+            <p className="text-dark-text font-bold tracking-tight text-sm mt-5">
               {showFilteredOnly
                 ? `Showing ${filtered.length} bus(es)`
-                : `Showing ${KigaliBusJourney.length} Bus(es)`}
+                : `Showing ${KigaliBusJourney.length} bus(es)`}
             </p>
             {/* tabs */}
             <div className="w-full h-fit flex items-center justify-between max-md:justify-start  gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
