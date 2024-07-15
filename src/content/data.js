@@ -86,7 +86,7 @@ export const busStopsImages = [
   {location: 'Gisozi', image: "https://lh5.googleusercontent.com/p/AF1QipNfsGM3-1d_pwggvIGOvKp5SEA5rTbW2eUXVJTN=w408-h306-k-no"},
   {location: 'Kimironko', image: "https://live.staticflickr.com/675/21427387333_8449e95134_b.jpg"},
   {location: 'Nyabugogo', image: "https://lh5.googleusercontent.com/p/AF1QipOyBjBbEsPO01Ki3Nc0My5U1FdQ5mGe3Et33jTj=w408-h306-k-no"},
-  {location: 'Masaka', image: "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=n19GvZoUtqejUfrssSvPJg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=121.092285&pitch=0&thumbfov=100"},
+  {location: 'Masaka', image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/94413796.webp?k=b6aa3a8338b15bf08f772fd90a0d6bec1444c5e4002ec6eb719686f9ec4945ca&o="},
   {location: 'Remera', image: "https://lh5.googleusercontent.com/p/AF1QipOmFvYWNkLZqRbL1W80pi9USHzJuINWIQgVCB_9=w408-h302-k-no"},
   {location: 'Ruyenzi', image: "https://lh5.googleusercontent.com/p/AF1QipMsW9FnkwUnYRlcDa8uccY3fsbNIzF36wZp8PsL=w408-h884-k-no"},
   {location: 'Nyamirambo', image: "https://lh5.googleusercontent.com/p/AF1QipMLjn4wPiJuX8wPDYKyJQW0WPytRYgfHQ4aMD-P=w408-h278-k-no"},
@@ -131,7 +131,7 @@ export const KigaliBusJourney = [
     departureAt: "9:30 am",
     arrivalTime: "10:00 am",
     price: "300",
-    stops: ["Stadium","chez lando","Kimihurura","Convetion center","Kigali City Tower"],
+    stops: ["Kimironko Taxi Park","Stadium","chez lando","Kimihurura","Convetion center","Kigali City Tower"],
     RouteId: "307",
   },
   {
