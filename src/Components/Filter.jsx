@@ -76,6 +76,12 @@ function Filter({ onFilterSubmit, mobileSearch }) {
     }
   },[mobileSearch])
 
+  const swapFields = () => {
+    const temp = inputValueFrom
+    setInputValueFrom(inputValueTo)
+    setInputValueTo(temp)
+  }
+
   return (
     <>
       <div className={`h-[55px] max-md:h-fit max-md:absolute w-full border-b-[1px] border-border-lines-light flex items-center justify-start px-10 max-md:px-4 ${animateShow ? 'max-md:opacity-100 max-md:relative ' : 'max-md:opacity-0 max-md:-translate-y-full'}`}>
@@ -108,7 +114,7 @@ function Filter({ onFilterSubmit, mobileSearch }) {
               ))}
             </div>
           </div>
-          <div className="bg-transparent max-md:hidden text-dark-text/40 h-full flex items-center justify-center aspect-square rounded-full z-10 ">
+          <div onClick={swapFields} title="Swap fields" className="cursor-pointer transition active:scale-90 hover:text-main-color bg-transparent max-md:hidden text-dark-text/40 h-full flex items-center justify-center aspect-square rounded-full z-10 ">
             <FaArrowRightArrowLeft className="text-md" />
           </div>
           {/* to */}
