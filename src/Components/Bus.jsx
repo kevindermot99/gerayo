@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowRightArrowLeft, FaArrowRightLong, FaMapLocationDot } from "react-icons/fa6";
+import {
+  FaArrowRightArrowLeft,
+  FaArrowRightLong,
+  FaMapLocationDot,
+} from "react-icons/fa6";
 import { MdOutlineErrorOutline } from "react-icons/md";
 import { TiInfoLarge, TiPin } from "react-icons/ti";
 import { MdLocationOn } from "react-icons/md";
@@ -11,6 +15,7 @@ import { PiWavesThin } from "react-icons/pi";
 import { GiHeavyRain } from "react-icons/gi";
 import { VscPinned, VscPinnedDirty } from "react-icons/vsc";
 import MoreInfo from "./MoreInfo";
+import { Link } from "react-router-dom";
 
 function Bus({
   id,
@@ -23,7 +28,7 @@ function Bus({
   arrivalTime,
   price,
   moreInfo,
-  watchPinnedChange
+  watchPinnedChange,
 }) {
   const [pinnedBusIds, setPinnedBusIds] = useState([]);
 
@@ -33,11 +38,20 @@ function Bus({
     setPinnedBusIds(storedPinnedBusIds);
   }, []);
 
-
   const PinBus = (id) => {
-    if(watchPinnedChange){
-      const randomToken = () => Math.floor(Math.random() * 10) +1;
-      watchPinnedChange(randomToken)
+    if (watchPinnedChange) {
+      const getRandomString = (length) => {
+        const characters = "ABCDEFGHIJKLMabcdefghijklm";
+        let result = "";
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(
+            Math.floor(Math.random() * characters.length)
+          );
+        }
+        return result;
+      };
+      const randomToken = () => Math.floor(Math.random() * 10) + 1;
+      watchPinnedChange(randomToken + getRandomString(5));
     }
     let pinnedBuses = JSON.parse(localStorage.getItem("PinnedBusIds")) || [];
 
@@ -49,9 +63,19 @@ function Bus({
   };
 
   const UnPinBus = (id) => {
-    if(watchPinnedChange){
-      const randomToken = () => Math.floor(Math.random() * 20) +1;
-      watchPinnedChange(randomToken)
+    if (watchPinnedChange) {
+      const getRandomString = (length) => {
+        const characters = "NOPQRSTUVWXYZnopqrstuvwxyz";
+        let result = "";
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(
+            Math.floor(Math.random() * characters.length)
+          );
+        }
+        return result;
+      };
+      const randomToken = () => Math.floor(Math.random() * 20) + 1;
+      watchPinnedChange(randomToken + getRandomString(5));
     }
     let pinnedBuses = JSON.parse(localStorage.getItem("PinnedBusIds")) || [];
 
@@ -65,8 +89,8 @@ function Bus({
   const isPinned = pinnedBusIds.includes(id);
 
   const showMoreInfo = (id) => {
-    moreInfo(id)
-  } 
+    moreInfo(id);
+  };
 
   return (
     <div className="w-full h-fit overflow-clip bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-4 relative">
@@ -99,7 +123,9 @@ function Bus({
           <div className="w-full h-full flex flex-col justify-start items-start">
             <h1 className="text-dark-text font-bold text-xl capitalize pt-2 flex items-center gap-0">
               <MdLocationOn className="text-[26px] text-main-color pb-[2px] " />
-              {from} <FaArrowRightLong className="text-lg mx-3 text-dark-text/60" /> {to}
+              {from}{" "}
+              <FaArrowRightLong className="text-lg mx-3 text-dark-text/60" />{" "}
+              {to}
             </h1>
             <p className="text-dark-text/50 capitalize font-medium tracking-tight text-sm pb-2">
               {busType}
@@ -131,11 +157,14 @@ function Bus({
             <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm mb-5 max-md:mb-3">
               Travel Cost
             </p>
-            <button className="h-[40px] w-[160px] max-md:w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <Link to={`/map`} className="h-[40px] w-[160px] max-md:w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <FaMapLocationDot className="text-xl" />
               Track Bus
-            </button>
-            <button onClick={() => showMoreInfo(id)} className="h-[40px] backdrop-blur-md w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 text-dark-text/60 font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            </Link>
+            <button
+              onClick={() => showMoreInfo(id)}
+              className="h-[40px] backdrop-blur-md w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 text-dark-text/60 font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 "
+            >
               <LuInfo className="text-xl" />
               More info
             </button>

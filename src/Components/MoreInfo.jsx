@@ -7,12 +7,14 @@ import { BsFillBusFrontFill } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
 import { PiBus } from "react-icons/pi";
 import { CgSpinner } from "react-icons/cg";
+import { Link, useLocation } from "react-router-dom";
 
 function MoreInfo({ hide, id }) {
   const [animate, setAnimate] = useState(false);
   const [load, setLoad] = useState(true);
   const [image, setImage] = useState("");
   const [showImageFull, setShowImageFull] = useState(false);
+  const pathname = useLocation()
 
   useEffect(() => {
     setAnimate(true);
@@ -49,6 +51,10 @@ function MoreInfo({ hide, id }) {
     setImage(url);
     setShowImageFull(true);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
@@ -174,10 +180,10 @@ function MoreInfo({ hide, id }) {
             <h1 className="text-sm capitalize min-h-fit">
               Price: <span className="font-bold">{openedJourney.price} rwf</span>
             </h1>
-            <button className="min-h-[40px] w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <Link to={`/map`} className="min-h-[40px] w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <FaMapLocationDot className="text-xl" />
               Track Bus
-            </button>
+            </Link>
           </div>
         )}
       </div>
