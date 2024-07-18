@@ -330,3 +330,60 @@ export const KigaliBusJourney = [
     RouteId: "314",
   },
 ]
+
+export const BusStations = [
+  "Nyabugogo",
+  "Huye",
+  "Musanze",
+  "Nyanza"
+];
+
+export const BusStationsImages = [
+  {location: 'Nyabugogo', image: "https://lh5.googleusercontent.com/p/AF1QipPw_XoLpIJMT5BLSZTUKrpBKyaxX9fjF17KdvHT=w493-h240-k-no"},
+  {location: 'Huye', image: "https://c1.staticflickr.com/2/1712/25836586392_a2372e9e95_b.jpg"},
+  {location: 'Musanze', image: "https://media.istockphoto.com/id/1471123952/photo/a-man-who-works-for-musanze-bus-station.jpg?s=612x612&w=0&k=20&c=aOn8NJditzTGaRbRhS_lOQQyW8YCym3-JDAJCaziSxk="},
+  {location: 'Nyanza', image: "https://www.nyungweforestnationalpark.org/wp-content/uploads/2022/05/Kings-Palace-Nyanza.jpg"},
+
+];
+
+export const ProvinceJourney = [
+  {
+    id: "JF937H950-248802-DNDIIF",
+    plateNumber: "RAC843KG",
+    numberOfSeats: 29,
+    from: "Nyabugogo",
+    to: "Huye",
+    busType: "Volcano",
+    departureAt: "8:00 am",
+    arrivalTime: "12:00 am",
+    price: "2,800",
+    districts: ["Kigali", "Kamonyi", "Muhanga","Ruhango","Nyanza","Huye"],
+    seatsLeft: ["20"],
+  },
+  {
+    id: "JF937H950-248802-DND2EOF",
+    plateNumber: "RAC843KG",
+    numberOfSeats: 29,
+    from: "Nyabugogo",
+    to: "Nyanza",
+    busType: "Horizon",
+    departureAt: "8:00 am",
+    arrivalTime: "11:30 am",
+    price: "2,200",
+    districts: ["Kigali", "Kamonyi", "Muhanga","Ruhango","Nyanza",],
+    seatsLeft: ["23"],
+  },
+  {
+    id: "JF937H950-248802-DNDIIF",
+    plateNumber: "RAC843KG",
+    numberOfSeats: 29,
+    from: "Nyabugogo",
+    to: "Musanze",
+    busType: "Volcano",
+    departureAt: "8:00 am",
+    arrivalTime: "12:00 am",
+    price: "3,300",
+    districts: ["Kigali", "Rulindo", "Gakenke","Musanze"],
+    seatsLeft: ["3"],
+  },
+]

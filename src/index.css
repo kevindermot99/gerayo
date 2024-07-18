@@ -50,7 +50,7 @@ body {
   .gridRespo {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
+
 }
 
 .help-header {
@@ -58,7 +58,7 @@ body {
   background-repeat: repeat;
   background-position: center;
   background-size: contain;
-  
+
 }
 
 .info-header {
@@ -67,7 +67,7 @@ body {
   background-position: center;
   background-size: contain;
   background-size: 40%;
-  
+
 }
 
 select{

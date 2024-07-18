@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import { HiOutlineTicket } from "react-icons/hi2";
 import MobileTopBar from "../Components/MobileTopBar";
 import MobileBottomNavbar from "../Components/MobileBottomNavbar";
@@ -10,6 +9,7 @@ import Notification from "../Components/Notification";
 import Welcome from "../Components/Welcome";
 import { BusPark, KigaliBusJourney } from "../content/data";
 import { CgSpinner } from "react-icons/cg";
+import { Helmet } from "react-helmet";
 
 function TrackMap({ guestEmail }) {
   const [visited, setVisited] = useState(false);
