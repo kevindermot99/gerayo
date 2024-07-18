@@ -177,7 +177,7 @@ function MoreInfoTickets({ hide, id }) {
               Price: <span className="font-bold">{openedJourney.price} rwf</span>
             </h1>
             <h1 className="text-sm capitalize min-h-fit">
-              Seats Left: <span className="font-bold">{openedJourney.seatsLeft} rwf</span>
+              Seats Left: <span className="font-bold">{openedJourney.seatsLeft}</span>
             </h1>
             <button className="min-h-[40px] w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <BsCart3 className="text-xl" />
