@@ -121,7 +121,7 @@ function Bus({
         </div>
         <div className="w-full h-full flex justify-between items-start gap-0 max-md:flex-col ">
           <div className="w-full h-full flex flex-col justify-start items-start">
-            <h1 className="text-dark-text font-bold text-xl capitalize pt-2 flex items-center gap-0">
+            <h1 className="text-dark-text font-semibold text-xl capitalize pt-2 flex items-center gap-0">
               <MdLocationOn className="text-[26px] text-main-color pb-[2px] " />
               {from}{" "}
               <FaArrowRightLong className="text-lg mx-3 text-dark-text/60" />{" "}
@@ -137,7 +137,7 @@ function Bus({
                   <LuAlarmClock className="text-base pb-[2px] text-dark-text/50 " />
                   departure time
                 </p>
-                <h1 className="text-dark-text font-bold text-base ">
+                <h1 className="text-dark-text font-medium text-base ">
                   {departureAt}
                 </h1>
               </div>
@@ -146,7 +146,7 @@ function Bus({
                   <LuAlarmClock className="text-base pb-[2px] text-dark-text/50 " />
                   Estimated Arrival Time
                 </p>
-                <h1 className="text-dark-text font-bold text-base ">
+                <h1 className="text-dark-text font-medium text-base ">
                   {arrivalTime}
                 </h1>
               </div>
