@@ -144,7 +144,7 @@ function Bus({
               <div className="flex flex-col items-end justify-start gap-0">
                 <p className="text-dark-text/50 capitalize font-medium tracking-tight flex items-center justify-start gap-1 text-sm">
                   <LuAlarmClock className="text-base pb-[2px] text-dark-text/50 " />
-                  Estimated Arrival Time
+                  Arrival Time
                 </p>
                 <h1 className="text-dark-text font-medium text-base ">
                   {arrivalTime}
