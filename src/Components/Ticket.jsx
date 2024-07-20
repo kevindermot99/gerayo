@@ -10,7 +10,7 @@ import { MdLocationOn } from "react-icons/md";
 import { LuAlarmClock, LuInfo } from "react-icons/lu";
 import { MdEventSeat } from "react-icons/md";
 import { FaRectangleAd } from "react-icons/fa6";
-import { TbRadarFilled } from "react-icons/tb";
+import { TbCreditCardPay, TbRadarFilled } from "react-icons/tb";
 import { PiWavesThin } from "react-icons/pi";
 import { GiHeavyRain } from "react-icons/gi";
 import { VscPinned, VscPinnedDirty } from "react-icons/vsc";
@@ -93,7 +93,11 @@ function Ticket({
   };
 
   return (
-    <div className="w-full h-fit overflow-clip bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-4 relative">
+    <div className="w-full h-fit bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-6 relative">
+
+      {/* sides Wraps */}
+      <div className="absolute top-0 bottom-0 my-auto left-[-20px] h-[35px] w-auto aspect-square rounded-[45%] bg-stone-100 "></div>
+      <div className="absolute top-0 bottom-0 my-auto right-[-20px] h-[35px] w-auto aspect-square rounded-[45%] bg-stone-100 "></div>
       {/* icon */}
       {/* <div className="h-[50px] aspect-square rounded-full absolute top-[-25px] right-8 z-10 bg-white p-2 ">
         <img
@@ -121,11 +125,11 @@ function Ticket({
         </div>
         <div className="w-full h-full flex justify-between items-start gap-0 max-md:flex-col ">
           <div className="w-full h-full flex flex-col justify-start items-start">
-            <h1 className="text-dark-text font-semibold text-lg capitalize pt-2 flex items-center gap-0">
+            <h1 className="text-dark-text truncate font-semibold text-lg capitalize pt-2 flex items-center gap-0">
               <MdLocationOn className="text-[26px] text-main-color pb-[2px] " />
-              {from}{" "}
+              <span className="truncate max-md:max-w-[150px] md:max-w-[120px]">{from}</span>
               <FaArrowRightLong className="text-lg mx-3 text-dark-text/60" />{" "}
-              {to}
+              <span className="truncate max-md:max-w-[150px] md:max-w-[120px]">{to}</span>
             </h1>
             <p className="text-dark-text/50 capitalize font-medium tracking-tight text-sm pb-2">
               {busType}
@@ -152,14 +156,14 @@ function Ticket({
               </div>
             </div>
           </div>
-          <div className="min-w-fit w-fit min-h-full max-md:pt-10 max-md:w-full border-border-lines-light pl-4 pb-2 max-md:pl-0  flex flex-col justify-end items-center">
+          <div className="min-w-fit w-fit min-h-full max-md:pt-10 max-md:w-full pl-4 pb-2 max-md:pl-0  flex flex-col justify-end items-center">
             <h1 className="text-dark-text font-bold text-base ">{price} rwf</h1>
             <p className="text-dark-text/70 capitalize font-medium tracking-tight text-sm mb-5 max-md:mb-3">
               Travel Cost
             </p>
             <Link to={`/map`} className="h-[40px] w-[160px] max-md:w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
-              <FaMapLocationDot className="text-xl" />
-              Track Bus
+              <TbCreditCardPay className="text-xl" />
+              Buy Ticket
             </Link>
             <button
               onClick={() => showMoreInfo(id)}

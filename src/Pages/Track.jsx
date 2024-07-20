@@ -179,19 +179,21 @@ function Track({ guestEmail }) {
       <MobileBottomNavbar guestEmail={guestEmail} />
 
       {/* pc navBar */}
-      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-white/80 dark:bg-white/80 ">
+      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        <Filter
+        
+      </div>
+      <Filter
           mobileSearch={mobileSearch}
           onFilterSubmit={handleFilterSubmit}
         />
-      </div>
 
       <div className="w-full h-fit flex bg-stone-100">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full h-fit py-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
-            <p className="text-dark-text font-bold tracking-tight text-sm">
+          <div className="w-full mx-auto max-w-[1400px] h-fit pb-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
+            
+          <p className="text-dark-text font-bold tracking-tight text-sm">
               Most known places
             </p>
             <div className="hidescrollbar w-full h-[70px] py-4 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 ">
@@ -207,7 +209,7 @@ function Track({ guestEmail }) {
             </div>
             
             {/* tabs */}
-            <div className="w-full h-fit flex items-center justify-between max-md:justify-start mt-4 gap-2 py-3 max-md:overflow-x-auto hidescrollbar">
+            <div className="w-full h-fit flex items-center justify-between max-md:justify-start gap-2 py-3 mt-4 max-md:overflow-x-auto hidescrollbar">
               <div className="flex items-center justify-start gap-2">
                 <button
                   onClick={hidePinned}
@@ -243,7 +245,7 @@ function Track({ guestEmail }) {
             </p>
 
             {/* Buses */}
-            <div className="grid grid-cols-2 2xl:grid-cols-3 max-lg:grid-cols-1 gap-5 h-fit w-full">
+            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5 h-fit w-full">
               {loading ? (
                 <>
                   <div className="w-full h-fit col-span-2 flex items-start justify-center pt-16 pb-3">

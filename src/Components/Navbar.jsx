@@ -36,7 +36,7 @@ function Navbar({ show, guestEmail }) {
   };
 
   return (
-    <div className="h-[60px] px-10 max-md:px-4 border-b-[1px] border-border-lines-light flex items-center justify-between max-md:hidden">
+    <div className="h-[70px] px-10 max-md:px-4 border-b-[0px] flex items-center justify-between max-md:hidden">
       {/* Profile Menu overlay */}
       <div
         onClick={() => setProfileMenu(false)}
@@ -59,29 +59,29 @@ function Navbar({ show, guestEmail }) {
 
         <Link
           to={`/`}
-          className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-5 rounded-full relative ${
-            location.pathname === "/" ? "bg-stone-100 " : ""
+          className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-white py-2 px-5 rounded-full relative ${
+            location.pathname === "/" ? "bg-white ring-1 ring-slate-200/40 " : ""
           }`}
         >
           Find my bus
-          <span
+          {/* <span
             className={`h-[6px] w-[20px] bg-main-color rounded-full ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${
               location.pathname === "/" ? "flex" : "hidden"
             }`}
-          ></span>
+          ></span> */}
         </Link>
         <Link
           to={`/ticket`}
-          className={`text-dark-text font-medium tracking-tight text-sm hover:bg-stone-100 py-2 px-5 rounded-full relative ${
-            location.pathname === "/ticket" ? "bg-stone-100" : ""
+          className={`text-dark-text font-medium tracking-tight text-sm hover:bg-white py-2 px-5 rounded-full relative ${
+            location.pathname === "/ticket" ? "bg-white ring-1 ring-slate-200/40" : ""
           }`}
         >
           Buy Tickets
-          <span
+          {/* <span
             className={`h-[6px] w-[20px] bg-main-color rounded-full ring-4 ring-white absolute bottom-[-3px] left-0 right-0 mx-auto ${
               location.pathname === "/ticket" ? "flex" : "hidden"
             }`}
-          ></span>
+          ></span> */}
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-2">

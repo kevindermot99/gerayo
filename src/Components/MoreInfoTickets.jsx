@@ -1,20 +1,26 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { IoArrowBackOutline, IoBusOutline } from "react-icons/io5";
 import { IoNotificationsOffOutline } from "react-icons/io5";
-import { BusStationsImages, KigaliBusJourney, ProvinceJourney, busStopsImages } from "../content/data";
+import {
+  BusStationsImages,
+  KigaliBusJourney,
+  ProvinceJourney,
+  busStopsImages,
+} from "../content/data";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { BsCart3, BsFillBusFrontFill } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
 import { PiBus } from "react-icons/pi";
 import { CgSpinner } from "react-icons/cg";
 import { Link, useLocation } from "react-router-dom";
+import { TbCreditCardPay } from "react-icons/tb";
 
 function MoreInfoTickets({ hide, id }) {
   const [animate, setAnimate] = useState(false);
   const [load, setLoad] = useState(true);
   const [image, setImage] = useState("");
   const [showImageFull, setShowImageFull] = useState(false);
-  const pathname = useLocation()
+  const pathname = useLocation();
 
   useEffect(() => {
     setAnimate(true);
@@ -39,11 +45,13 @@ function MoreInfoTickets({ hide, id }) {
   );
 
   const imageFrom = useMemo(
-    () => BusStationsImages.find((image) => image.location === openedJourney.from),
+    () =>
+      BusStationsImages.find((image) => image.location === openedJourney.from),
     [openedJourney]
   );
   const imageTo = useMemo(
-    () => BusStationsImages.find((image) => image.location === openedJourney.to),
+    () =>
+      BusStationsImages.find((image) => image.location === openedJourney.to),
     [openedJourney]
   );
 
@@ -58,25 +66,25 @@ function MoreInfoTickets({ hide, id }) {
 
   return (
     <>
-    {/* full screen image */}
-    <div
-          className={`fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center ${
-            showImageFull ? "visible " : "invisible "
+      {/* full screen image */}
+      <div
+        className={`fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center ${
+          showImageFull ? "visible " : "invisible "
+        }`}
+      >
+        <div
+          onClick={() => setShowImageFull(false)}
+          className={`absolute top-0 left-0 bg-black/10 w-full h-full backdrop-blur-sm transition-all ease-out ${
+            showImageFull ? "opacity-100 " : "opacity-0 "
+          } `}
+        ></div>
+        <img
+          src={image}
+          className={` max-h-[70%] h-[220px] brightness-[110%] min-w-[300px] max-w-[80%] object-cover shadow rounded-xl z-10 select-none transition-all ease-in ${
+            showImageFull ? "opacity-100 " : "opacity-0 scale-95  "
           }`}
-        >
-          <div
-            onClick={() => setShowImageFull(false)}
-            className={`absolute top-0 left-0 bg-black/10 w-full h-full backdrop-blur-sm transition-all ease-out ${
-              showImageFull ? "opacity-100 " : "opacity-0 "
-            } `}
-          ></div>
-          <img
-            src={image}
-            className={` max-h-[70%] h-[220px] brightness-[110%] min-w-[300px] max-w-[80%] object-cover shadow rounded-xl z-10 select-none transition-all ease-in ${
-              showImageFull ? "opacity-100 " : "opacity-0 scale-95  "
-            }`}
-          />
-        </div>
+        />
+      </div>
       <div
         onClick={hideNotificationPopup}
         className={`w-full h-full fixed top-0 left-0 bg-stone-600/10 z-40 transition-all ease-in-out duration-300 ${
@@ -105,7 +113,7 @@ function MoreInfoTickets({ hide, id }) {
         {/* no notification */}
         {load ? (
           <div className="w-full h-full flex items-center justify-center pb-0">
-          <CgSpinner className="animate-spinLoader text-2xl text-dark-text/50" />
+            <CgSpinner className="animate-spinLoader text-2xl text-dark-text/50" />
           </div>
         ) : (
           <div className="h-full w-full max-w-[500px] flex flex-col gap-5 max-md:px-3 px-7 pt-8 pb-14 max-md:pb-32 overflow-y-auto">
@@ -115,7 +123,7 @@ function MoreInfoTickets({ hide, id }) {
                   From: {openedJourney.from}
                 </h1>
                 <img
-                onClick={() => showImage(imageFrom.image)}
+                  onClick={() => showImage(imageFrom.image)}
                   src={imageFrom.image}
                   className="w-full h-[130px] cursor-pointer bg-stone-100 rounded-xl shadow-md object-cover object-bottom"
                 />
@@ -160,7 +168,8 @@ function MoreInfoTickets({ hide, id }) {
               <div className="flex flex-col items-start justify-start gap-4">
                 {openedJourney.districts.map((stopName, index) => (
                   <p key={index} className="text-sm capitalize font-medium">
-                    <span className="text-dark-text/40">&bull; &nbsp; </span> {stopName}
+                    <span className="text-dark-text/40">&bull; &nbsp; </span>{" "}
+                    {stopName}
                   </p>
                 ))}
               </div>
@@ -174,14 +183,16 @@ function MoreInfoTickets({ hide, id }) {
               <span className="font-bold">{openedJourney.busType}</span>
             </h1>
             <h1 className="text-sm capitalize min-h-fit">
-              Price: <span className="font-bold">{openedJourney.price} rwf</span>
+              Price:{" "}
+              <span className="font-bold">{openedJourney.price} rwf</span>
             </h1>
             <h1 className="text-sm capitalize min-h-fit">
-              Seats Left: <span className="font-bold">{openedJourney.seatsLeft}</span>
+              Seats Left:{" "}
+              <span className="font-bold">{openedJourney.seatsLeft}</span>
             </h1>
             <button className="min-h-[40px] w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
-              <BsCart3 className="text-xl" />
-              Buy ticket
+              <TbCreditCardPay className="text-xl" />
+              Buy Ticket
             </button>
           </div>
         )}

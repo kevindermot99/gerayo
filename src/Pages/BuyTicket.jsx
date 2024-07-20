@@ -182,13 +182,14 @@ function BuyTicket({ guestEmail }) {
       <MobileBottomNavbar guestEmail={guestEmail} />
 
       {/* pc navBar */}
-      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-white/80 dark:bg-white/80 ">
+      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        <FilterTickets
+        
+      </div>
+      <FilterTickets
           mobileSearch={mobileSearch}
           onFilterSubmit={handleFilterSubmit}
         />
-      </div>
 
       <div className="w-full h-fit flex bg-stone-100">
         <div className=" w-full min-h-full">
@@ -246,7 +247,7 @@ function BuyTicket({ guestEmail }) {
             </p>
 
             {/* Buses */}
-            <div className="grid grid-cols-2 2xl:grid-cols-3 max-lg:grid-cols-1 gap-5 h-fit w-full">
+            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5 h-fit w-full">
               {loading ? (
                 <>
                   <div className="w-full h-fit col-span-2 flex items-start justify-center pt-16 pb-3">
