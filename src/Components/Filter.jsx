@@ -90,7 +90,7 @@ function Filter({ onFilterSubmit, mobileSearch }) {
             : "max-md:opacity-0 max-md:-translate-y-full"
         }`}
       >
-        <p className="text-white/90 z-10 font-semibold tracking-tight text-2xl pb-5">
+        <p className="text-white z-10 font-extrabold tracking-tighter text-3xl pb-5">
           Find Your Bus!
         </p>
         <form
@@ -163,7 +163,7 @@ function Filter({ onFilterSubmit, mobileSearch }) {
             </button>
             <button
               onClick={clearForm}
-              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white bg-white/70 backdrop-blur-md cursor-pointer dark:hover:bg-white ring-0 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
+              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white bg-white/70 backdrop-blur-md cursor-pointer hover:bg-white ring-0 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
                 formEmpty
                   ? "opacity-100"
                   : "md:opacity-0 md:pointer-events-none md:-z-10"

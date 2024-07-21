@@ -60,7 +60,9 @@ function Navbar({ show, guestEmail }) {
         <Link
           to={`/`}
           className={`text-dark-text dark:text-light-text font-medium tracking-tight text-sm  hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
-            location.pathname === "/" ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40 " : ""
+            location.pathname === "/"
+              ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40 "
+              : ""
           }`}
         >
           Find my bus
@@ -73,7 +75,9 @@ function Navbar({ show, guestEmail }) {
         <Link
           to={`/ticket`}
           className={`text-dark-text dark:text-light-text font-medium tracking-tight text-sm hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
-            location.pathname === "/ticket" ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40" : ""
+            location.pathname === "/ticket"
+              ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
+              : ""
           }`}
         >
           Buy Tickets
@@ -109,15 +113,18 @@ function Navbar({ show, guestEmail }) {
         <div className="flex cursor-pointer select-none relative">
           <div
             onClick={showMenu}
-            className={`h-7 active:scale-95 aspect-square rounded-full flex items-center justify-center ${
+            className={`h-8 w-fit active:scale-95 bg-white dark:bg-container-dark p-1 rounded-full flex items-center justify-center ${
               profileMenu ? "z-30" : ""
             }`}
             title={`Guest${guestEmail}`}
           >
             <p
-              className={`bg-orange-500 text-white w-full h-full font-bold rounded-full flex items-center justify-center `}
+              className={`bg-orange-500 text-white w-auto h-full aspect-square font-bold rounded-full flex items-center justify-center `}
             >
               G
+            </p>
+            <p className="text-dark-text dark:text-light-text text-sm tracking-tight px-1 font-medium">
+              Guest
             </p>
           </div>
 

@@ -179,7 +179,7 @@ function Track({ guestEmail }) {
       <MobileBottomNavbar guestEmail={guestEmail} />
 
       {/* pc navBar */}
-      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 dark:bg-body-color-dark/90 ">
+      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 dark:bg-body-color-dark/80 ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
         
       </div>

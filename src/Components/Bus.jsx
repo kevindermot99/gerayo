@@ -163,7 +163,7 @@ function Bus({
             </Link>
             <button
               onClick={() => showMoreInfo(id)}
-              className="h-[40px] backdrop-blur-md w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 dark:bg-container-dark-3 text-dark-text/60 dark:text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 "
+              className="h-[40px] backdrop-blur-md w-[160px] mt-2 max-md:w-full px-2 bg-stone-200/50 dark:bg-container-dark-3 dark:hover:bg-container-dark-2 text-dark-text/60 dark:text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 "
             >
               <LuInfo className="text-xl" />
               More info

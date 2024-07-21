@@ -90,7 +90,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
             : "max-md:opacity-0 max-md:-translate-y-full"
         }`}
       >
-        <p className="text-white/90 z-10 font-semibold tracking-tight text-2xl pb-5">
+        <p className="text-white z-10 font-extrabold tracking-tighter text-3xl pb-5">
           Get yourself a seat!
         </p>
         <form
@@ -104,7 +104,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
               type="text"
               onChange={checkEmptyFrom}
               value={inputValueFrom}
-              className="bg-white ring-0 ring-stone-200/50 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-white/70 backdrop-blur-md transition duration-300 focus:bg-white ring-0 ring-stone-200/50 dark:placeholder:text-dark-text h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
               className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5 rounded-md overscroll-contain overflow-auto flex flex-col ${
@@ -136,7 +136,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
               type="text"
               onChange={checkEmptyTo}
               value={inputValueTo}
-              className="bg-white ring-0 ring-stone-200/50 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-white/70 backdrop-blur-md transition duration-300 focus:bg-white ring-0 ring-stone-200/50 dark:placeholder:text-dark-text h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
               className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overscroll-contain overflow-auto flex flex-col ${
@@ -163,7 +163,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
             </button>
             <button
               onClick={clearForm}
-              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white ring-0 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
+              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white bg-white/70 backdrop-blur-md cursor-pointer hover:bg-white ring-0 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
                 formEmpty
                   ? "opacity-100"
                   : "md:opacity-0 md:pointer-events-none md:-z-10"
