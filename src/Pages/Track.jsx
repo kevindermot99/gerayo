@@ -201,11 +201,11 @@ function Track({ guestEmail }) {
       <div className="w-full h-fit flex ">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full mx-auto max-w-[1700px] h-fit pb-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
-            <p className="text-dark-text dark:text-light-text font-bold tracking-tight text-sm">
+          <div className="w-full mx-auto max-w-[1700px] h-fit pb-10 pt-3 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
+            <p className="text-dark-text dark:text-white font-medium text-sm">
               Most known places
             </p>
-            <div className="hidescrollbar w-full h-[70px] py-4 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 ">
+            <div className="hidescrollbar w-full h-fit pt-2 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 ">
               {BusPark.map((park, index) => (
                 <div
                   key={index}
@@ -222,7 +222,7 @@ function Track({ guestEmail }) {
               <div className="flex items-center justify-start gap-2">
                 <button
                   onClick={hidePinned}
-                  className={`text-dark-text dark:text-light-text whitespace-nowrap font-medium tracking-tight hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center justify-center cursor-pointer gap-1 ${
+                  className={`text-dark-text dark:text-white whitespace-nowrap font-medium hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center justify-center cursor-pointer gap-1 ${
                     pinnedBuses
                       ? ""
                       : "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
@@ -233,7 +233,7 @@ function Track({ guestEmail }) {
                 </button>
                 <button
                   onClick={showPinned}
-                  className={`text-dark-text dark:text-light-text whitespace-nowrap font-medium tracking-tight hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center cursor-pointer justify-center gap-1 ${
+                  className={`text-dark-text dark:text-white whitespace-nowrap font-medium hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center cursor-pointer justify-center gap-1 ${
                     pinnedBuses
                       ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
                       : ""
@@ -245,20 +245,6 @@ function Track({ guestEmail }) {
                 </button>
               </div>
             </div>
-
-            <p className="text-dark-text dark:text-light-text font-bold tracking-tight text-sm mt-2 mb-5">
-              {pinnedBuses ? (
-                `Showing ${
-                  pinnedBusIds.length > 0 ? pinnedBusIds.length : "0"
-                } bus(es)`
-              ) : (
-                <>
-                  {showFilteredOnly
-                    ? `Showing ${filtered.length} bus(es)`
-                    : `Showing ${KigaliBusJourney.length} bus(es)`}
-                </>
-              )}
-            </p>
 
             {/* Buses */}
             <div className="grid grid-cols-2 2xl:grid-cols-3 max-lg:grid-cols-1 gap-5 h-fit w-full">

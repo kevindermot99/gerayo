@@ -24,11 +24,17 @@ import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 import Filter from "../Components/Filter";
 import Notification from "../Components/Notification";
 import Welcome from "../Components/Welcome";
-import { BusPark, BusStations, KigaliBusJourney, ProvinceJourney } from "../content/data";
+import {
+  BusPark,
+  BusStations,
+  KigaliBusJourney,
+  ProvinceJourney,
+} from "../content/data";
 import MoreInfo from "../Components/MoreInfo";
 import FilterTickets from "../Components/FilterTickets";
 import Ticket from "../Components/Ticket";
 import MoreInfoTickets from "../Components/MoreInfoTickets";
+import Profile from "../Components/Profile";
 
 function BuyTicket({ guestEmail }) {
   const [visited, setVisited] = useState(false);
@@ -46,6 +52,7 @@ function BuyTicket({ guestEmail }) {
   const [pinnedBusIds, setPinnedBusIds] = useState([]);
   const [pinnedJourneys, setPinnedJourneys] = useState([]);
   const [watchPinned, setWatchPinned] = useState("");
+  const [showProfile, setProfile] = useState(false);
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -87,6 +94,17 @@ function BuyTicket({ guestEmail }) {
 
   const hideMoreInfoPopup = () => {
     setMoreInfo(false);
+    document.documentElement.classList.remove("no-scroll");
+  };
+
+  // Profile
+  const showProfilePopup = () => {
+    setProfile(true);
+    document.documentElement.classList.add("no-scroll");
+  };
+
+  const hideProfilePopup = () => {
+    setProfile(false);
     document.documentElement.classList.remove("no-scroll");
   };
 
@@ -147,15 +165,20 @@ function BuyTicket({ guestEmail }) {
   };
 
   return (
-    <div className="bg-stone-100 dark:bg-stone-100 min-h-svh max-md:pb-10 text-dark-text">
+    <div className="bg-stone-100 dark:bg-body-color-dark min-h-svh max-md:pb-10 text-dark-text">
       {/* Welcome */}
       {!visited && <Welcome />}
 
       {/* Notification */}
       {showNotification && <Notification hide={hideNotificationPopup} />}
-
+      {/* profile */}
+      {showProfile && (
+        <Profile hide={hideProfilePopup} guestEmail={guestEmail} />
+      )}
       {/* MoreInfo */}
-      {showMoreInfo && <MoreInfoTickets id={moreInfoId} hide={hideMoreInfoPopup} />}
+      {showMoreInfo && (
+        <MoreInfoTickets id={moreInfoId} hide={hideMoreInfoPopup} />
+      )}
 
       {/* Helmet */}
       <Helmet>
@@ -182,28 +205,31 @@ function BuyTicket({ guestEmail }) {
       <MobileBottomNavbar guestEmail={guestEmail} />
 
       {/* pc navBar */}
-      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 ">
-        <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        
+      <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 dark:bg-body-color-dark/80 ">
+        <Navbar
+          show={showNotificationPopup}
+          showPf={showProfilePopup}
+          guestEmail={guestEmail}
+        />
       </div>
       <FilterTickets
-          mobileSearch={mobileSearch}
-          onFilterSubmit={handleFilterSubmit}
-        />
+        mobileSearch={mobileSearch}
+        onFilterSubmit={handleFilterSubmit}
+      />
 
-      <div className="w-full h-fit flex bg-stone-100">
+      <div className="w-full h-fit flex">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full mx-auto max-w-[1700px] h-fit py-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
-            <p className="text-dark-text font-bold tracking-tight text-sm">
+          <div className="w-full mx-auto max-w-[1700px] h-fit pb-10 pt-3 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
+            <p className="text-dark-text dark:text-white font-medium text-sm">
               Most known places
             </p>
-            <div className="hidescrollbar w-full h-[70px] py-4 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 ">
+            <div className="hidescrollbar w-full h-fit pt-2 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 ">
               {BusStations.map((park, index) => (
                 <div
                   key={index}
                   onClick={() => handleFilterSubmit(park, "")}
-                  className="h-full ring-1 ring-slate-200/40 w-fit transition duration-150 hover:shadow-lg hover:shadow-stone-200 hover:text-main-color cursor-pointer bg-white text-dark-text/60 text-sm font-medium rounded-full flex items-center justify-center py-2 px-6 whitespace-nowrap"
+                  className="h-full ring-1 ring-slate-200/40 dark:ring-transparent w-fit transition duration-150 hover:shadow-lg hover:text-main-color cursor-pointer bg-white dark:bg-container-dark text-dark-text/60 dark:text-light-text text-sm font-medium rounded-full flex items-center justify-center py-2 px-6 whitespace-nowrap"
                 >
                   {park}
                 </div>
@@ -215,8 +241,10 @@ function BuyTicket({ guestEmail }) {
               <div className="flex items-center justify-start gap-2">
                 <button
                   onClick={hidePinned}
-                  className={`text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-white text-sm py-2 px-4 rounded-full flex items-center justify-center cursor-pointer gap-1 ${
-                    pinnedBuses ? "" : "bg-white ring-1 ring-slate-200/40"
+                  className={`text-dark-text dark:text-white whitespace-nowrap font-medium hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center justify-center cursor-pointer gap-1 ${
+                    pinnedBuses
+                      ? ""
+                      : "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
                   } `}
                 >
                   <TbBusStop className="text-xl" />
@@ -224,34 +252,25 @@ function BuyTicket({ guestEmail }) {
                 </button>
                 <button
                   onClick={showPinned}
-                  className={`text-dark-text whitespace-nowrap font-medium tracking-tight hover:bg-white text-sm py-2 px-4 rounded-full flex items-center cursor-pointer justify-center gap-1 ${
-                    pinnedBuses ? "bg-white ring-1 ring-slate-200/40" : ""
+                  className={`text-dark-text dark:text-white whitespace-nowrap font-medium hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center cursor-pointer justify-center gap-1 ${
+                    pinnedBuses
+                      ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
+                      : ""
                   }`}
                 >
                   <TiPin className="text-xl" />
-                  Pinned {`(${pinnedBusIds.length > 0 ? (pinnedBusIds.length) : ('0') })`}
+                  Pinned{" "}
+                  {`(${pinnedBusIds.length > 0 ? pinnedBusIds.length : "0"})`}
                 </button>
               </div>
             </div>
-
-            <p className="text-dark-text font-bold tracking-tight text-sm mt-2 mb-5">
-              {pinnedBuses ? (
-                `Showing ${pinnedBusIds.length > 0 ? (pinnedBusIds.length) : ('0') } ticket(s)`
-              ) : (
-                <>
-                  {showFilteredOnly
-                    ? `Showing ${filtered.length} ticket(s)`
-                    : `Showing ${ProvinceJourney.length} ticket(s)`}
-                </>
-              )}
-            </p>
 
             {/* Buses */}
             <div className="grid grid-cols-2 2xl:grid-cols-3 max-lg:grid-cols-1 gap-5 h-fit w-full">
               {loading ? (
                 <>
                   <div className="w-full h-fit col-span-2 flex items-start justify-center pt-16 pb-3">
-                    <CgSpinner className="animate-spinLoader text-3xl text-dark-text/40 " />
+                    <CgSpinner className="animate-spinLoader text-3xl text-dark-text/40 dark:text-light-text " />
                   </div>
                 </>
               ) : (

@@ -4,7 +4,18 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { HiOutlineTicket } from "react-icons/hi2";
 import { IoArrowBackOutline, IoCloseOutline } from "react-icons/io5";
 import { IoNotificationsOffOutline } from "react-icons/io5";
-import { LuCrown, LuHistory, LuInfo, LuMessagesSquare, LuSettings, LuTicket, LuUser2, LuUsers2 } from "react-icons/lu";
+import {
+  LuBookmark,
+  LuCalendarClock,
+  LuCrown,
+  LuHistory,
+  LuInfo,
+  LuMessagesSquare,
+  LuSettings,
+  LuTicket,
+  LuUser2,
+  LuUsers2,
+} from "react-icons/lu";
 import { PiTicket, PiTicketDuotone } from "react-icons/pi";
 
 function Profile({ hide, guestEmail }) {
@@ -40,7 +51,7 @@ function Profile({ hide, guestEmail }) {
       ></div>
       <div
         className={`fixed top-0 right-0 bg-white shadow-xl dark:bg-body-color-dark text-dark-text dark:text-light-text w-full max-w-[320px] h-full z-[60] p-4 transition-all ease-in-out duration-300 flex flex-col gap-4 ${
-          animate ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 "
+          animate ? "translate-x-0" : "translate-x-full "
         }`}
       >
         <div className="w-full flex items-center justify-between gap-4">
@@ -52,7 +63,7 @@ function Profile({ hide, guestEmail }) {
             </p>
             <div className="flex items-start justify-start flex-col">
               <p className="text-sm capitalize font-bold tracking-tight">
-                guest{guestEmail}
+                guest
               </p>
               <p className="text-sm tracking-tight opacity-75 truncate text-ellipsis max-w-[200px]">
                 guest{guestEmail}@gmail.com
@@ -71,10 +82,7 @@ function Profile({ hide, guestEmail }) {
         <div className="h-auto flex-1 w-full flex items-center justify-between flex-col overflow-y-auto">
           <div className="w-full h-auto flex-1">
             {/* Link */}
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuUser2 className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 Your profile
@@ -83,22 +91,23 @@ function Profile({ hide, guestEmail }) {
 
             {/* separator */}
             <div className="w-full max-w-[95%] mx-auto h-[1px] bg-border-lines-light dark:bg-container-dark-2 my-2"></div>
-            
+
             {/* Link */}
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
+              <LuCalendarClock className="text-lg text-dark-text/70 dark:text-light-text" />
+              <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
+                Manage Bookings
+              </h1>
+            </button>
+            {/* Link */}
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuTicket className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 Your Tickets
               </h1>
             </button>
             {/* Link */}
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuHistory className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 Purchase history
@@ -107,32 +116,23 @@ function Profile({ hide, guestEmail }) {
 
             {/* separator */}
             <div className="w-full max-w-[95%] mx-auto h-[1px] bg-border-lines-light dark:bg-container-dark-2 my-2"></div>
-            
+
             {/* Link */}
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuSettings className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 Settings
               </h1>
             </button>
             {/* Link */}
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuCrown className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 Try Premium
               </h1>
             </button>
             {/* Link */}
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuInfo className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 About Gerayo
@@ -141,21 +141,15 @@ function Profile({ hide, guestEmail }) {
 
             {/* separator */}
             <div className="w-full max-w-[95%] mx-auto h-[1px] bg-border-lines-light dark:bg-container-dark-2 my-2"></div>
-            
+
             {/* Link */}
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuUsers2 className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 Gerayo Support
               </h1>
             </button>
-            <button
-              onClick={logMeOut}
-              className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2"
-            >
+            <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuMessagesSquare className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
                 Gerayo Community

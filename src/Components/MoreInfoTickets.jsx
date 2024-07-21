@@ -92,13 +92,13 @@ function MoreInfoTickets({ hide, id }) {
         } `}
       ></div>
       <div
-        className={`absolute top-0 right-0 bg-white text-dark-text w-full max-w-[500px] h-full z-40 p-4 flex flex-col transition-all ease-in-out duration-200  ${
+        className={`absolute right-0 bg-white dark:bg-body-color-dark shadow-2xl text-dark-text dark:text-light-text w-full max-w-[500px] h-full z-40 p-4 flex flex-col transition-all ease-in-out duration-200  ${
           animate
             ? " translate-x-0 opacity-100"
             : " translate-x-full opacity-0 "
         }`}
       >
-        <div className="flex h-fit items-center justify-start gap-4">
+        <div className="flex h-fit items-center justify-start gap-4 pb-3">
           <button
             onClick={hideNotificationPopup}
             className="active:scale-75 transition flex items-center justify-center "
@@ -130,7 +130,7 @@ function MoreInfoTickets({ hide, id }) {
                 <a
                   href={`https://www.google.com/maps/place/${openedJourney.from}`}
                   target="_blank"
-                  className="group p-2 rounded-xl bg-white/90 transition active:scale-105 backdrop-blur-sm shadow-lg absolute bottom-2 right-2"
+                  className="group p-2 rounded-xl bg-white/90 dark:bg-container-dark transition active:scale-105 backdrop-blur-sm shadow-lg absolute bottom-2 right-2"
                 >
                   <FaMapLocationDot className="text-sm transition group-hover:text-main-color" />
                 </a>
@@ -147,28 +147,28 @@ function MoreInfoTickets({ hide, id }) {
                 <a
                   href={`https://www.google.com/maps/place/${openedJourney.to}`}
                   target="_blank"
-                  className="group p-2 rounded-xl bg-white/90 transition active:scale-105 backdrop-blur-sm shadow-lg absolute bottom-2 right-2"
+                  className="group p-2 rounded-xl bg-white/90 dark:bg-container-dark transition active:scale-105 backdrop-blur-sm shadow-lg absolute bottom-2 right-2"
                 >
                   <FaMapLocationDot className="text-sm transition group-hover:text-main-color" />
                 </a>
               </div>
             </div>
-            <span className="border-b-[1px] border-border-lines-light mt-2 w-full max-w-[70%] mx-auto h-[1px]"></span>
+            <span className="border-b-[1px] border-border-lines-light dark:border-container-dark-2 mt-2 w-full max-w-[70%] mx-auto h-[1px]"></span>
             <h1 className="text-sm capitalize min-h-fit">Districts</h1>
             <div className="flex items-start justify-start gap-2">
               <div className="h-full w-fit flex items-center justify-between flex-col gap-1">
                 <span>
-                  <PiBus className=" text-xl text-dark-text/80" />
+                  <PiBus className=" text-xl text-dark-text/80 dark:text-light-text/80" />
                 </span>
                 <span className="h-full w-[4px] rounded-sm bg-main-color"></span>
                 <span>
-                  <GrLocation className=" text-xl text-dark-text/80" />
+                  <GrLocation className=" text-xl text-dark-text/80 dark:text-light-text/80" />
                 </span>
               </div>
               <div className="flex flex-col items-start justify-start gap-4">
                 {openedJourney.districts.map((stopName, index) => (
                   <p key={index} className="text-sm capitalize font-medium">
-                    <span className="text-dark-text/40">&bull; &nbsp; </span>{" "}
+                    <span className="text-dark-text/40 dark:text-light-text">&bull; &nbsp; </span>{" "}
                     {stopName}
                   </p>
                 ))}

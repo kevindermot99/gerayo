@@ -84,13 +84,14 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
   return (
     <div className="w-full h-fit px-10 mb-3">
       <div
-        className={`bg-search-light relative dark:bg-search-dark bg-center-30 dark:bg-center-60 bg-cover bg-no-repeat h-fit max-md:h-fit max-md:absolute w-full rounded-[30px] flex flex-col items-center justify-start px-10 py-14 max-md:px-4 shadow-xl max-w-[1700px] mx-auto ${
+        className={`bg-search-light relative dark:bg-search-dark bg-center-30 dark:bg-center-60 bg-cover bg-no-repeat h-fit max-md:h-fit max-md:absolute w-full rounded-[30px] flex flex-col items-center justify-start px-10 py-16 max-md:px-4 shadow-xl max-w-[1700px] mx-auto ${
           animateShow
             ? "max-md:opacity-100 max-md:relative "
             : "max-md:opacity-0 max-md:-translate-y-full"
         }`}
       >
-        <p className="text-white/90 z-10 font-extrabold tracking-tighter text-3xl pb-5">
+        <div className="w-full h-full absolute top-0 left-0 bg-stone-500/20 dark:bg-container-dark/60 rounded-[30px]"></div>
+        <p className="text-white/90 z-10 font-extrabold tracking-tighter text-3xl pb-2">
           Get yourself a seat!
         </p>
         <form

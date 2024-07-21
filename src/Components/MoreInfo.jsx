@@ -59,7 +59,7 @@ function MoreInfo({ hide, id }) {
   return (
     <div className="fixed top-0 bottom-0 right-0 left-0 m-auto w-full h-full z-40">
       {/* full screen image */}
-      {/* <div
+      <div
         className={`fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center ${
           showImageFull ? "visible " : "invisible "
         }`}
@@ -76,13 +76,13 @@ function MoreInfo({ hide, id }) {
             showImageFull ? "opacity-100 " : "opacity-0 scale-95  "
           }`}
         />
-      </div> */}
-      {/* <div
+      </div>
+      <div
         onClick={hideNotificationPopup}
         className={`w-full h-full fixed top-0 left-0 bg-stone-600/10 z-40 transition-all ease-in-out duration-300 ${
           animate ? "opacity-100" : "opacity-0"
         } `}
-      ></div> */}
+      ></div>
       <div
         className={`absolute right-0 bg-white dark:bg-body-color-dark shadow-2xl text-dark-text dark:text-light-text w-full max-w-[500px] h-full z-40 p-4 flex flex-col transition-all ease-in-out duration-200  ${
           animate
@@ -145,7 +145,7 @@ function MoreInfo({ hide, id }) {
                 </a>
               </div>
             </div>
-            <span className="border-b-[1px] border-border-lines-light mt-2 w-full max-w-[70%] mx-auto h-[1px]"></span>
+            <span className="border-b-[1px] border-border-lines-light dark:border-container-dark-2 mt-2 w-full max-w-[70%] mx-auto h-[1px]"></span>
             <h1 className="text-sm capitalize min-h-fit">Bus Stops</h1>
             <div className="flex items-start justify-start gap-2">
               <div className="h-full w-fit flex items-center justify-between flex-col gap-1">

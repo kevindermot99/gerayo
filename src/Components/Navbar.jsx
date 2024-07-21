@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IoNotifications, IoNotificationsOutline } from "react-icons/io5";
+import { IoCreate, IoNotifications, IoNotificationsOutline } from "react-icons/io5";
 import { BiSearch } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import { FiSettings } from "react-icons/fi";
@@ -14,12 +14,12 @@ import { CgSpinner } from "react-icons/cg";
 import { BiSupport } from "react-icons/bi";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { TfiHelpAlt } from "react-icons/tfi";
-import { LuHelpCircle, LuInfo } from "react-icons/lu";
-import { BsInfoCircle } from "react-icons/bs";
+import { LuBell, LuCalendarPlus, LuHelpCircle, LuInfo } from "react-icons/lu";
+import { BsCalendar2DateFill, BsInfoCircle } from "react-icons/bs";
 import { FaRoad } from "react-icons/fa";
 import { TbHelpOctagonFilled } from "react-icons/tb";
 
-function Navbar({ show, guestEmail }) {
+function Navbar({ show, showPf, guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,10 +61,10 @@ function Navbar({ show, guestEmail }) {
 
         <Link
           to={`/`}
-          className={`text-dark-text dark:text-light-text font-medium tracking-tight text-sm  hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
+          className={`font-medium text-sm  hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
             location.pathname === "/"
-              ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40 "
-              : ""
+              ? "text-black dark:text-white bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40 "
+              : "text-dark-text dark:text-light-text "
           }`}
         >
           Find my bus
@@ -76,10 +76,10 @@ function Navbar({ show, guestEmail }) {
         </Link>
         <Link
           to={`/ticket`}
-          className={`text-dark-text dark:text-light-text font-medium tracking-tight text-sm hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
+          className={` font-medium text-sm hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
             location.pathname === "/ticket"
-              ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
-              : ""
+              ? "text-black dark:text-white bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
+              : "text-dark-text dark:text-light-text"
           }`}
         >
           Buy Tickets
@@ -90,32 +90,25 @@ function Navbar({ show, guestEmail }) {
           ></span> */}
         </Link>
       </div>
-      <div className="w-fit flex items-center justify-end gap-2">
-        <Link
-          to={`/help`}
-          className=" h-8 aspect-square flex items-center justify-center group active:scale-95 select-none"
-          title="Route IDs"
-        >
-          <FaRoad className="text-2xl text-dark-text/50 dark:text-light-text/80 group-hover:text-dark-text dark:group-hover:text-white " />
-        </Link>
-        <Link
-          to={`/help`}
-          className=" h-8 aspect-square flex items-center justify-center group active:scale-95 select-none"
-          title="help center"
-        >
-          <TbHelpOctagonFilled className="text-2xl text-dark-text/50 dark:text-light-text/80 group-hover:text-dark-text dark:group-hover:text-white " />
-        </Link>
-        <button
+      <div className="w-fit flex items-center justify-end gap-5">
+      <button
           onClick={show}
-          className=" h-8 aspect-square flex items-center justify-center group active:scale-95 select-none"
+          className=" flex items-center justify-center group active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotifications className="text-2xl text-dark-text/50 dark:text-light-text/80 group-hover:text-dark-text dark:group-hover:text-white " />
+          <LuCalendarPlus className="text-xl text-dark-text dark:text-light-text group-hover:text-dark-text dark:group-hover:text-white " />
         </button>
-        <div className="flex cursor-pointer select-none relative">
+        <button
+          onClick={show}
+          className=" flex items-center justify-center group active:scale-95 select-none"
+          title="Notifications"
+        >
+          <LuBell className="text-xl text-dark-text dark:text-light-text group-hover:text-dark-text dark:group-hover:text-white " />
+        </button>
+        <div className="flex cursor-pointer select-none relative ml-1">
           <div
-            onClick={showMenu}
-            className={`h-8 w-fit active:scale-95 bg-white dark:bg-container-dark p-1 rounded-full flex items-center justify-center ${
+            onClick={showPf}
+            className={`h-8 w-fit active:scale-95 rounded-full flex items-center justify-center ${
               profileMenu ? "z-30" : ""
             }`}
             title={`Guest${guestEmail}`}
@@ -125,73 +118,8 @@ function Navbar({ show, guestEmail }) {
             >
               G
             </p>
-            <p className="text-dark-text dark:text-light-text text-sm tracking-tight px-1 font-medium">
-              Guest
-            </p>
           </div>
 
-          {/* dropdown */}
-          <div
-            className={`bg-white min-h-[180px] w-[230px] absolute top-[35px] rounded-xl right-0 overflow-clip whitespace-nowrap border-[1px] border-border-lines-light flex flex-col items-center justify-start p-2 origin-top-right transition-all duration-200 ease-in-out ${
-              profileMenu
-                ? "opacity-100 visible z-30 translate-y-0"
-                : "opacity-0 invisible -z-10 -translate-y-1"
-            }`}
-          >
-            <div className="h-[43px] min-h-[43px] w-full rounded-lg cursor-default flex items-center justify-start px-3 gap-3">
-              <h1 className="text-dark-text font-medium tracking-tight whitespace-nowrap overflow-clip text-sm ">
-                guest{guestEmail}@gmail.com
-              </h1>
-            </div>
-            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <VscAccount className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
-                Profile
-              </h1>
-            </button>
-            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <HiOutlineTicket className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize">
-                My Tickets
-              </h1>
-            </button>
-            <button className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3">
-              <FiSettings className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
-                Settings
-              </h1>
-            </button>
-            <Link
-              to={`/info`}
-              className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
-            >
-              <LuInfo className="text-[23px] text-dark-text/60" />
-              <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize ">
-                About
-              </h1>
-            </Link>
-            <div className="w-full h-[1px] bg-border-lines-light my-2"></div>
-            <button
-              onClick={logMeOut}
-              className="h-[43px] min-h-[43px] w-full hover:bg-stone-100 rounded-lg flex items-center justify-start px-3 gap-3"
-            >
-              {loggingOut ? (
-                <>
-                  <CgSpinner className="animate-spinLoader text-[23px] text-red-600/70" />
-                  <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize group-hover:text-main-color ">
-                    Logging out..
-                  </h1>
-                </>
-              ) : (
-                <>
-                  <HiOutlineLogout className="text-[23px] text-red-600/70" />
-                  <h1 className="text-dark-text font-normal tracking-tight text-sm capitalize group-hover:text-main-color ">
-                    Log Out
-                  </h1>
-                </>
-              )}
-            </button>
-          </div>
         </div>
       </div>
     </div>
