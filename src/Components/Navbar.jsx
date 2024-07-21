@@ -59,8 +59,8 @@ function Navbar({ show, guestEmail }) {
 
         <Link
           to={`/`}
-          className={`text-dark-text font-medium tracking-tight text-sm  hover:bg-white py-2 px-5 rounded-full relative ${
-            location.pathname === "/" ? "bg-white ring-1 ring-slate-200/40 " : ""
+          className={`text-dark-text dark:text-light-text font-medium tracking-tight text-sm  hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
+            location.pathname === "/" ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40 " : ""
           }`}
         >
           Find my bus
@@ -72,8 +72,8 @@ function Navbar({ show, guestEmail }) {
         </Link>
         <Link
           to={`/ticket`}
-          className={`text-dark-text font-medium tracking-tight text-sm hover:bg-white py-2 px-5 rounded-full relative ${
-            location.pathname === "/ticket" ? "bg-white ring-1 ring-slate-200/40" : ""
+          className={`text-dark-text dark:text-light-text font-medium tracking-tight text-sm hover:bg-white dark:hover:bg-container-dark-2 py-2 px-5 rounded-full relative ${
+            location.pathname === "/ticket" ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40" : ""
           }`}
         >
           Buy Tickets
@@ -94,17 +94,17 @@ function Navbar({ show, guestEmail }) {
         </Link> */}
         <Link
           to={`/help`}
-          className=" h-8 aspect-square flex items-center justify-center rounded-full group active:scale-95 select-none"
+          className=" h-8 aspect-square flex items-center bg-white dark:bg-container-dark justify-center rounded-full group active:scale-95 select-none"
           title="help center"
         >
-          <IoIosHelpCircleOutline className="text-2xl text-dark-text group-hover:text-main-color " />
+          <IoIosHelpCircleOutline className="text-2xl text-dark-text dark:text-light-text group-hover:text-main-color " />
         </Link>
         <button
           onClick={show}
-          className=" h-8 aspect-square flex items-center justify-center rounded-full group mr-[7px] active:scale-95 select-none"
+          className=" h-8 aspect-square flex items-center bg-white dark:bg-container-dark justify-center rounded-full group mr-[7px] active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotificationsOutline className="text-[22px] text-dark-text group-hover:text-main-color " />
+          <IoNotificationsOutline className="text-[22px] text-dark-text dark:text-light-text group-hover:text-main-color " />
         </button>
         <div className="flex cursor-pointer select-none relative">
           <div

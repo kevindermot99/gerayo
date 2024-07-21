@@ -12,7 +12,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
   const [inputTo, setInputTo] = useState(false);
   const [inputValueTo, setInputValueTo] = useState("");
   const [formEmpty, setFormEmpty] = useState(false);
-  const [animateShow, setAnimateShow] = useState(false)
+  const [animateShow, setAnimateShow] = useState(false);
 
   // submiting
   const submit = (e) => {
@@ -68,31 +68,30 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
   );
 
   useEffect(() => {
-    if(mobileSearch === true){
-    setAnimateShow(true)
+    if (mobileSearch === true) {
+      setAnimateShow(true);
+    } else {
+      setAnimateShow(false);
     }
-    else{
-      setAnimateShow(false)
-    }
-  },[mobileSearch])
+  }, [mobileSearch]);
 
   const swapFields = () => {
-    const temp = inputValueFrom
-    setInputValueFrom(inputValueTo)
-    setInputValueTo(temp)
-  }
+    const temp = inputValueFrom;
+    setInputValueFrom(inputValueTo);
+    setInputValueTo(temp);
+  };
 
   return (
-    <>
+    <div className="w-full h-fit px-10 mb-3">
       <div
-        className={`h-fit max-md:h-fit max-md:absolute w-full border-b-[0px] border-border-lines-light flex flex-col items-center justify-start px-10 py-3 max-md:px-4 ${
+        className={`bg-search-light relative dark:bg-search-dark bg-center-30 dark:bg-center-60 bg-cover bg-no-repeat h-fit max-md:h-fit max-md:absolute w-full rounded-[30px] flex flex-col items-center justify-start px-10 py-14 max-md:px-4 shadow-xl max-w-[1700px] mx-auto ${
           animateShow
             ? "max-md:opacity-100 max-md:relative "
             : "max-md:opacity-0 max-md:-translate-y-full"
         }`}
       >
-        <p className="text-dark-text font-semibold tracking-tight text-2xl p-5">
-        Get yourself a seat!
+        <p className="text-white/90 z-10 font-semibold tracking-tight text-2xl pb-5">
+          Get yourself a seat!
         </p>
         <form
           onSubmit={submit}
@@ -105,7 +104,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
               type="text"
               onChange={checkEmptyFrom}
               value={inputValueFrom}
-              className="bg-white ring-1 ring-stone-200/50 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-white ring-0 ring-stone-200/50 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
               className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5 rounded-md overscroll-contain overflow-auto flex flex-col ${
@@ -126,7 +125,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
           <div
             onClick={swapFields}
             title="Swap fields"
-            className="cursor-pointer transition active:scale-90 hover:text-main-color bg-transparent max-md:hidden text-dark-text/40 h-full flex items-center justify-center aspect-square rounded-full z-10 "
+            className="cursor-pointer transition active:scale-90 hover:scale-105 bg-transparent max-md:hidden text-white h-full flex items-center justify-center aspect-square rounded-full z-10 "
           >
             <FaArrowRightArrowLeft className="text-md" />
           </div>
@@ -137,7 +136,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
               type="text"
               onChange={checkEmptyTo}
               value={inputValueTo}
-              className="bg-white ring-1 ring-stone-200/50 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-white ring-0 ring-stone-200/50 h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
               className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overscroll-contain overflow-auto flex flex-col ${
@@ -164,7 +163,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
             </button>
             <button
               onClick={clearForm}
-              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white ring-1 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
+              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white ring-0 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
                 formEmpty
                   ? "opacity-100"
                   : "md:opacity-0 md:pointer-events-none md:-z-10"
@@ -175,7 +174,7 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 
