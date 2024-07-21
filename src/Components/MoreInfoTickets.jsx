@@ -68,7 +68,7 @@ function MoreInfoTickets({ hide, id }) {
     <>
       {/* full screen image */}
       <div
-        className={`fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center ${
+        className={`absolute top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center ${
           showImageFull ? "visible " : "invisible "
         }`}
       >
@@ -92,7 +92,7 @@ function MoreInfoTickets({ hide, id }) {
         } `}
       ></div>
       <div
-        className={`fixed top-0 right-0 bg-white text-dark-text w-full max-w-[500px] h-full z-40 p-4 flex flex-col transition-all ease-in-out duration-200  ${
+        className={`absolute top-0 right-0 bg-white text-dark-text w-full max-w-[500px] h-full z-40 p-4 flex flex-col transition-all ease-in-out duration-200  ${
           animate
             ? " translate-x-0 opacity-100"
             : " translate-x-full opacity-0 "

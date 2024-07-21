@@ -93,12 +93,9 @@ function Ticket({
   };
 
   return (
-    <div className="w-full h-fit bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-6 relative">
+    <div className="w-full h-fit bg-white ring-1 ring-slate-200/40 mt-0 rounded-xl flex flex-col text-start justify-start p-6 relative overflow-clip">
 
-      {/* sides Wraps */}
-      <div className="absolute top-0 bottom-0 my-auto left-[-20px] h-[35px] w-auto aspect-square rounded-[45%] bg-stone-100 "></div>
-      <div className="absolute top-0 bottom-0 my-auto right-[-20px] h-[35px] w-auto aspect-square rounded-[45%] bg-stone-100 "></div>
-      {/* icon */}
+     {/* icon */}
       {/* <div className="h-[50px] aspect-square rounded-full absolute top-[-25px] right-8 z-10 bg-white p-2 ">
         <img
           src="https://img.icons8.com/?size=96&id=WuEAfdVu7ugL&format=png"

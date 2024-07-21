@@ -194,7 +194,7 @@ function BuyTicket({ guestEmail }) {
       <div className="w-full h-fit flex bg-stone-100">
         <div className=" w-full min-h-full">
           {/* content */}
-          <div className="w-full mx-auto max-w-[1400px] h-fit py-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
+          <div className="w-full mx-auto max-w-[1700px] h-fit py-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
             <p className="text-dark-text font-bold tracking-tight text-sm">
               Most known places
             </p>
@@ -247,7 +247,7 @@ function BuyTicket({ guestEmail }) {
             </p>
 
             {/* Buses */}
-            <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-5 h-fit w-full">
+            <div className="grid grid-cols-2 2xl:grid-cols-3 max-lg:grid-cols-1 gap-5 h-fit w-full">
               {loading ? (
                 <>
                   <div className="w-full h-fit col-span-2 flex items-start justify-center pt-16 pb-3">
