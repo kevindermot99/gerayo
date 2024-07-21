@@ -48,7 +48,7 @@ function Register() {
   };
 
   return (
-    <div className="h-svh w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white ">
+    <div className="h-svh w-full overflow-x-clip overflow-y-auto flex items-center justify-between max-sm:justify-end p-8 max-sm:p-4 bg-white dark:bg-body-color-dark">
       {/* Helmet */}
       <Helmet>
         <title>Login | gerayo.</title>
@@ -86,62 +86,62 @@ function Register() {
               gerayo.
             </h1>
           </div>
-          <h1 className="font-bold tracking-tighter text-2xl text-left text-dark-text/90">
+          <h1 className="font-bold tracking-tighter text-2xl text-left text-dark-text/90 dark:text-white">
             Let's Sign you up.
           </h1>
-          <p className="tracking-tight text-sm text-left text-dark-text/80  max-w-[400px] font-semibold">
+          <p className="text-sm text-left text-dark-text/80 dark:text-light-text  max-w-[400px] font-medium">
             Join Gerayo today.
           </p>
 
-          <form className="w-full py-8 flex flex-col items-center justify-center gap-2">
+          <form className="w-full pt-3 flex flex-col items-center justify-center gap-2">
             <div className="flex flex-col w-full items-start justify-start max-w-[350px]">
-              <p className="text-sm font-medium py-1 text-dark-text">Email</p>
+              <p className="text-sm font-medium py-1 text-dark-text dark:text-light-text">Email</p>
               <input
                 type="text"
                 name=""
-                className="bg-[#F2F1F6] text-dark-text text-sm  h-[50px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
+                className="bg-[#F2F1F6] dark:bg-container-dark-2 text-dark-text dark:text-white text-sm  h-[40px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2 dark:ring-offset-body-color-dark dark:placeholder:text-light-text  rounded-full "
                 placeholder="Your Email"
               />
             </div>
             <div className="flex flex-col w-full items-start justify-start max-w-[350px]">
-              <p className="text-sm font-medium py-1 text-dark-text">
+              <p className="text-sm font-medium py-1 text-dark-text dark:text-light-text">
                 Password
               </p>
               <input
                 type="password"
                 id="password"
-                className="bg-[#F2F1F6] text-dark-text text-sm  h-[50px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
+                className="bg-[#F2F1F6] dark:bg-container-dark-2 text-dark-text dark:text-white text-sm  h-[40px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2 dark:ring-offset-body-color-dark dark:placeholder:text-light-text  rounded-full "
                 placeholder="Password"
               />
             </div>
             <div className="flex flex-col w-full items-start justify-start max-w-[350px]">
-              <p className="text-sm font-medium py-1 text-dark-text">
+              <p className="text-sm font-medium py-1 text-dark-text dark:text-light-text">
                 Confirm Password
               </p>
               <input
                 type="password"
                 id="password"
-                className="bg-[#F2F1F6] text-dark-text text-sm  h-[50px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2  rounded-lg "
-                placeholder="Re-enter Password"
+                className="bg-[#F2F1F6] dark:bg-container-dark-2 text-dark-text dark:text-white text-sm  h-[40px] w-full flex items-center justify-start px-5 outline-none focus:ring-2 ring-main-color ring-offset-2 dark:ring-offset-body-color-dark dark:placeholder:text-light-text  rounded-full "
+                placeholder="Password"
               />
             </div>
           </form>
         </div>
-        <div className="flex flex-col items-start justify-start">
+        <div className="flex flex-col items-center justify-start w-full mt-4">
           <button
             // onClick={handleClick}
-            className="bg-main-color my-4 outline-none text-white font-bold text-base transition active:scale-90 h-[50px] w-full max-w-[250px] rounded-[20px] flex items-center justify-center gap-2"
+            className="bg-main-color my-4 outline-none text-white font-bold text-base transition active:scale-90 h-[40px] w-full max-w-[350px] rounded-full flex items-center justify-center gap-2"
           >
             {pending ? (
               <>
                 <CgSpinner className="animate-spinLoader text-2xl " />
-                Signing up..
+                Signing ypu up..
               </>
             ) : (
               <>Sign up</>
             )}
           </button>
-          <p className="flex items-center justify-center w-full text-sm gap-2 text-dark-text">
+          <p className="flex items-center justify-center w-full text-sm gap-2 text-dark-text dark:text-light-text ">
             Already have an account?{" "}
             <Link to={"/login"} className="text-main-color font-semibold">
               Login
