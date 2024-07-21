@@ -84,13 +84,13 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
   return (
     <div className="w-full h-fit px-10 mb-3">
       <div
-        className={`bg-search-light relative dark:bg-search-dark bg-center-30 dark:bg-center-60 bg-cover bg-no-repeat h-fit max-md:h-fit max-md:absolute w-full rounded-[30px] flex flex-col items-center justify-start px-10 py-16 max-md:px-4 shadow-xl max-w-[1700px] mx-auto ${
+        className={`bg-search-light relative dark:bg-search-dark bg-center-30 dark:bg-center-60 bg-cover bg-no-repeat h-fit max-md:h-fit max-md:absolute w-full rounded-[30px] flex flex-col items-center justify-start px-10 py-20 max-md:px-4 shadow-xl max-w-[1700px] mx-auto ${
           animateShow
             ? "max-md:opacity-100 max-md:relative "
             : "max-md:opacity-0 max-md:-translate-y-full"
         }`}
       >
-        <div className="w-full h-full absolute top-0 left-0 bg-stone-500/20 dark:bg-container-dark/60 rounded-[30px]"></div>
+        <div className="w-full h-full absolute top-0 left-0 bg-stone-700/40 dark:bg-container-dark/60 rounded-[30px]"></div>
         <p className="text-white z-10 font-extrabold tracking-tight text-4xl pb-1 ">
           Get yourself a seat!
         </p>
@@ -181,6 +181,14 @@ function FilterTickets({ onFilterSubmit, mobileSearch }) {
             </button>
           </div>
         </form>
+
+        {/* search by */}
+        <div className="w-fit h-fit flex items-center text-white gap-2 dark:text-white absolute bottom-5 left-5">
+          <div className="min-h-[34px] z-10 w-fit flex p-1 bg-dark-text/30 dark:bg-light-text/30 backdrop-blur-sm rounded-full ">
+            <button className="text-xs font-semibold text-dark-text bg-white rounded-full py-1 px-3">Location</button>
+            {/* <button className="text-xs font-semibold text-white rounded-full py-1 px-3">Route ID</button> */}
+          </div>
+        </div>
       </div>
     </div>
   );

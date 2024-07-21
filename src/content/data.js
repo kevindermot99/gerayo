@@ -317,7 +317,7 @@ export const KigaliBusJourney = [
     RouteId: "305",
   },
   {
-    id: "JF937H950-248820-DNDOB",
+    id: "JF937H950-248820-U229OB",
     plateNumber: "RAC861KG",
     numberOfSeats: 35,
     from: "Kimironko",
@@ -330,6 +330,94 @@ export const KigaliBusJourney = [
     RouteId: "314",
   },
 ]
+
+export const RouteIds = [
+  {
+    from: "Kimironko",
+    to: "Zindiro",
+    RouteId: "307",
+  },
+  {
+    from: "Kimironko",
+    to: "Downtown",
+    RouteId: "307",
+  },
+  {
+    from: "Nyanza",
+    to: "Downtown",
+    RouteId: "203",
+  },
+  {
+    from: "Nyanza",
+    to: "Nyabugogo",
+    RouteId: "204",
+  },
+  {
+    from: "Remera",
+    to: "Gikondo",
+    RouteId: "109",
+  },
+  {
+    from: "Busanza",
+    to: "Remera",
+    RouteId: "113",
+  },
+  {
+    from: "Nyamirambo",
+    to: "Nyabugogo",
+    RouteId: "402",
+  },
+  {
+    from: "Kagugu",
+    to: "Nyabugogo",
+    RouteId: "311",
+  },
+  {
+    from: "Gikondo",
+    to: "Nyabugogo",
+    RouteId: "206",
+  },
+  {
+    from: "Kabuga",
+    to: "Nyabugogo",
+    RouteId: "102",
+  },
+  {
+    from: "Kabuga",
+    to: "Kimironko",
+    RouteId: "325",
+  },
+  {
+    from: "Remera",
+    to: "Nyabugogo",
+    RouteId: "105",
+  },
+  {
+    from: "Remera",
+    to: "Masaka",
+    RouteId: "107",
+  },
+  {
+    from: "Kimironko",
+    to: "Masaka",
+    RouteId: "322",
+  },
+  {
+    from: "Kinyinya",
+    to: "Downtown",
+    RouteId: "317",
+  },
+  {
+    from: "Kimironko",
+    to: "Nyabugogo",
+    RouteId: "314",
+  },
+  {
+    from: "Kimironko",
+    to: "Nyabugogo",
+    RouteId: "305",
+  },
+] 
 
 export const BusStations = [
   "Kigali",

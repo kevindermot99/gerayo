@@ -38,6 +38,7 @@ function Track({ guestEmail }) {
   const [showMoreInfo, setMoreInfo] = useState(false);
   const [showProfile, setProfile] = useState(false);
   const [showFilteredOnly, setShowFilteredOnly] = useState(false);
+  const [showFilteredOnlyByRoute, setShowFilteredOnlyByRoute] = useState(false);
   const [filtered, setFiltered] = useState();
   const [moreInfoId, setMoreInfoId] = useState("0");
   const [mobileSearch, setMobileSearch] = useState(false);
@@ -107,7 +108,13 @@ function Track({ guestEmail }) {
         (to ? journey.to.toLowerCase() === to.toLowerCase() : true)
     );
   };
-
+  // filter by Route ID
+  const filterBusJourneysByRouteId = (busJourneys, routeId) => {
+    return busJourneys.filter(
+      (journey) => (routeId ? journey.RouteId === routeId : true)
+    );
+  };
+  // location Filter
   const handleFilterSubmit = (from, to) => {
     setLoading(true);
     setTimeout(() => {
@@ -116,6 +123,17 @@ function Track({ guestEmail }) {
     setShowFilteredOnly(true);
     console.log("Filter submitted:", from, to);
     setFiltered(filterBusJourneys(KigaliBusJourney, from, to));
+  };
+
+  // Route Id Filter
+  const handleRouteIdSubmit = (RouteId) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    setShowFilteredOnly(true);
+    console.log("Filter submitted:", RouteId);
+    setFiltered(filterBusJourneysByRouteId(KigaliBusJourney, RouteId));
   };
 
   const showSearch = () => {
@@ -196,7 +214,7 @@ function Track({ guestEmail }) {
       <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 dark:bg-body-color-dark/80 ">
         <Navbar show={showNotificationPopup} showPf={showProfilePopup} guestEmail={guestEmail} />
       </div>
-      <Filter mobileSearch={mobileSearch} onFilterSubmit={handleFilterSubmit} />
+      <Filter mobileSearch={mobileSearch} onRouteFilter={handleRouteIdSubmit} onFilterSubmit={handleFilterSubmit} />
 
       <div className="w-full h-fit flex ">
         <div className=" w-full min-h-full">
