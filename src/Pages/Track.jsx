@@ -273,7 +273,7 @@ function Track({ guestEmail }) {
                         />
                       ))}
                       <div
-                        className={`flex items-center justify-center col-span-2 text-sm italic text-dark-text/70 font-medium pt-8 max-md:pb-8 ${
+                        className={`flex items-center justify-center col-span-2 text-sm italic text-dark-text/70 dark:text-light-text font-medium pt-8 max-md:pb-8 ${
                           filtered.length <= 0 ? "visible " : "hidden"
                         } `}
                       >

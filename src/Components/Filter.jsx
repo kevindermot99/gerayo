@@ -84,13 +84,14 @@ function Filter({ onFilterSubmit, mobileSearch }) {
   return (
     <div className="w-full h-fit px-10 mb-3">
       <div
-        className={`bg-search-light relative dark:bg-search-dark bg-center-30 dark:bg-center-60 bg-cover bg-no-repeat h-fit max-md:h-fit max-md:absolute w-full rounded-[30px] flex flex-col items-center justify-start px-10 py-14 max-md:px-4 shadow-xl max-w-[1700px] mx-auto ${
+        className={`bg-search-light relative dark:bg-search-dark bg-center-30 dark:bg-center-60 bg-cover bg-no-repeat h-fit max-md:h-fit max-md:absolute w-full rounded-[30px] flex flex-col items-center justify-start px-10 py-16 max-md:px-4 shadow-xl max-w-[1700px] mx-auto ${
           animateShow
             ? "max-md:opacity-100 max-md:relative "
             : "max-md:opacity-0 max-md:-translate-y-full"
         }`}
       >
-        <p className="text-white z-10 font-extrabold tracking-tighter text-3xl pb-5">
+        <div className="w-full h-full absolute top-0 left-0 bg-stone-500/20 dark:bg-container-dark/60 rounded-[30px]"></div>
+        <p className="text-white/90 z-10 font-extrabold tracking-tighter text-3xl pb-2">
           Find Your Bus!
         </p>
         <form
@@ -104,22 +105,24 @@ function Filter({ onFilterSubmit, mobileSearch }) {
               type="text"
               onChange={checkEmptyFrom}
               value={inputValueFrom}
-              className="bg-white/70 backdrop-blur-md transition duration-300 focus:bg-white ring-0 ring-stone-200/50 dark:placeholder:text-dark-text h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-white/90 backdrop-blur-md transition duration-300 focus:bg-white ring-0 ring-stone-200/50 dark:placeholder:text-dark-text h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
-              className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5 rounded-md overscroll-contain overflow-auto flex flex-col ${
+              className={`ring-1 ring-border-lines-light z-30 absolute top-[50px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overflow-clip flex flex-col ${
                 inputFrom ? "visible " : "invisible"
               }`}
             >
-              {filteredBusStopsFrom.map((bstop, index) => (
-                <div
-                  key={index}
-                  onClick={() => choosenFrom(bstop)}
-                  className=" px-4 text-sm py-1 hover:bg-stone-100 rounded-md select-none cursor-pointer"
-                >
-                  {bstop}
-                </div>
-              ))}
+              <div className="scb p-1 w-full h-fit overflow-y-auto overscroll-contain">
+                {filteredBusStopsFrom.map((bstop, index) => (
+                  <div
+                    key={index}
+                    onClick={() => choosenFrom(bstop)}
+                    className=" px-4 text-sm font-normal tracking-tight py-1 hover:bg-stone-200 rounded-md select-none cursor-pointer"
+                  >
+                    {bstop}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <div
@@ -136,22 +139,24 @@ function Filter({ onFilterSubmit, mobileSearch }) {
               type="text"
               onChange={checkEmptyTo}
               value={inputValueTo}
-              className="bg-white/70 backdrop-blur-md transition duration-300 focus:bg-white ring-0 ring-stone-200/50 dark:placeholder:text-dark-text h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
+              className="bg-white/90 backdrop-blur-md transition duration-300 focus:bg-white ring-0 ring-stone-200/50 dark:placeholder:text-dark-text h-full max-md:h-[40px] w-full capitalize max-w-[240px] max-md:max-w-[100%] rounded-full px-5 font-medium tracking-tight text-sm"
             />
             <div
-              className={`ring-1 ring-border-lines-light z-30 absolute top-[45px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overscroll-contain overflow-auto flex flex-col ${
+              className={`ring-1 ring-border-lines-light z-30 absolute top-[50px] p-1 w-full max-w-[240px] max-h-[200px] bg-white shadow-xl shadow-black/5  rounded-md overflow-clip flex flex-col ${
                 inputTo ? "visible " : "invisible"
               }`}
             >
-              {filteredBusStopsTo.map((bstop, index) => (
-                <div
-                  key={index}
-                  onClick={() => choosenTo(bstop)}
-                  className=" px-4 text-sm py-1 hover:bg-stone-100 rounded-md select-none cursor-pointer"
-                >
-                  {bstop}
-                </div>
-              ))}
+              <div className="scb p-1 w-full h-fit overflow-y-auto overscroll-contain">
+                {filteredBusStopsTo.map((bstop, index) => (
+                  <div
+                    key={index}
+                    onClick={() => choosenTo(bstop)}
+                    className=" px-4 text-sm font-normal tracking-tight py-1 hover:bg-stone-200 rounded-md select-none cursor-pointer"
+                  >
+                    {bstop}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <div className="md:absolute left-[100%] py-2  flex h-full items-center justify-center max-md:w-full">
@@ -163,7 +168,7 @@ function Filter({ onFilterSubmit, mobileSearch }) {
             </button>
             <button
               onClick={clearForm}
-              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white bg-white/70 backdrop-blur-md cursor-pointer hover:bg-white ring-0 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
+              className={`h-full max-md:h-[40px] max-md:w-full  aspect-square bg-white bg-white/90 backdrop-blur-md cursor-pointer hover:bg-white ring-0 ring-stone-200 ml-2 rounded-full flex items-center justify-center text-red-400 font-semibold text-sm tracking-tight active:scale-90 whitespace-nowrap gap-1 transition-all ease-in-out duration-300 ${
                 formEmpty
                   ? "opacity-100"
                   : "md:opacity-0 md:pointer-events-none md:-z-10"

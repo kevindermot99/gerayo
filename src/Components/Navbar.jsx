@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IoNotificationsOutline } from "react-icons/io5";
+import { IoNotifications, IoNotificationsOutline } from "react-icons/io5";
 import { BiSearch } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import { FiSettings } from "react-icons/fi";
@@ -16,6 +16,8 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 import { TfiHelpAlt } from "react-icons/tfi";
 import { LuHelpCircle, LuInfo } from "react-icons/lu";
 import { BsInfoCircle } from "react-icons/bs";
+import { FaRoad } from "react-icons/fa";
+import { TbHelpOctagonFilled } from "react-icons/tb";
 
 function Navbar({ show, guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
@@ -89,26 +91,26 @@ function Navbar({ show, guestEmail }) {
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-2">
-        {/* <Link
-        to={`/help`}
-          className={`flex items-center justify-center gap-2 font-medium tracking-tight text-sm  hover:bg-stone-100 py-2 px-4 rounded-lg text-dark-text  ${location.pathname === '/help' ? ' bg-stone-100' : ''} `}
-        >
-          <FiHelpCircle className="text-xl" />
-          Help
-        </Link> */}
         <Link
           to={`/help`}
-          className=" h-8 aspect-square flex items-center bg-white dark:bg-container-dark justify-center rounded-full group active:scale-95 select-none"
+          className=" h-8 aspect-square flex items-center justify-center group active:scale-95 select-none"
+          title="Route IDs"
+        >
+          <FaRoad className="text-2xl text-dark-text/50 dark:text-light-text/80 group-hover:text-dark-text dark:group-hover:text-white " />
+        </Link>
+        <Link
+          to={`/help`}
+          className=" h-8 aspect-square flex items-center justify-center group active:scale-95 select-none"
           title="help center"
         >
-          <IoIosHelpCircleOutline className="text-2xl text-dark-text dark:text-light-text group-hover:text-main-color " />
+          <TbHelpOctagonFilled className="text-2xl text-dark-text/50 dark:text-light-text/80 group-hover:text-dark-text dark:group-hover:text-white " />
         </Link>
         <button
           onClick={show}
-          className=" h-8 aspect-square flex items-center bg-white dark:bg-container-dark justify-center rounded-full group mr-[7px] active:scale-95 select-none"
+          className=" h-8 aspect-square flex items-center justify-center group active:scale-95 select-none"
           title="Notifications"
         >
-          <IoNotificationsOutline className="text-[22px] text-dark-text dark:text-light-text group-hover:text-main-color " />
+          <IoNotifications className="text-2xl text-dark-text/50 dark:text-light-text/80 group-hover:text-dark-text dark:group-hover:text-white " />
         </button>
         <div className="flex cursor-pointer select-none relative">
           <div

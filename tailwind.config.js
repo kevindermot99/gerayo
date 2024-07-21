@@ -35,7 +35,7 @@ export default {
       },
       backgroundPosition: {
         'center-30': 'center 30%',
-        'center-60': 'center 25%',
+        'center-60': 'center 20%',
       },
     },
   },
