@@ -5,7 +5,6 @@ import { HiOutlineTicket } from "react-icons/hi2";
 import { IoArrowBackOutline, IoCloseOutline } from "react-icons/io5";
 import { IoNotificationsOffOutline } from "react-icons/io5";
 import {
-  LuBookmark,
   LuCalendarClock,
   LuCrown,
   LuHistory,
@@ -128,7 +127,7 @@ function Profile({ hide, guestEmail }) {
             <button className="h-fit w-full hover:bg-stone-100 dark:hover:bg-container-dark rounded-lg flex items-center justify-start px-2 py-[6px] gap-2">
               <LuCrown className="text-lg text-dark-text/70 dark:text-light-text" />
               <h1 className="font-normal text-sm group-hover:text-main-color text-black dark:text-white ">
-                Try Premium
+                Get Premium
               </h1>
             </button>
             {/* Link */}

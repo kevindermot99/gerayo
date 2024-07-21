@@ -14,7 +14,7 @@ import { CgSpinner } from "react-icons/cg";
 import { BiSupport } from "react-icons/bi";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { TfiHelpAlt } from "react-icons/tfi";
-import { LuBell, LuCalendarPlus, LuHelpCircle, LuInfo } from "react-icons/lu";
+import { LuBell, LuCalendarPlus, LuCrown, LuHelpCircle, LuInfo } from "react-icons/lu";
 import { BsCalendar2DateFill, BsInfoCircle } from "react-icons/bs";
 import { FaRoad } from "react-icons/fa";
 import { TbHelpOctagonFilled } from "react-icons/tb";
@@ -91,10 +91,17 @@ function Navbar({ show, showPf, guestEmail }) {
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-5">
+      <Link
+          to={`/ticket`}
+          className={`flex shadow-xl active:scale-95 transition items-center gap-2 font-semibold text-sm bg-main-color text-white py-2 px-5 rounded-full relative`}
+        >
+          <LuCrown className="text-lg " />
+          Get Premium
+        </Link>
       <button
-          onClick={show}
+          // onClick={show}
           className=" flex items-center justify-center group active:scale-95 select-none"
-          title="Notifications"
+          title="Book a Ticket"
         >
           <LuCalendarPlus className="text-xl text-dark-text dark:text-light-text group-hover:text-dark-text dark:group-hover:text-white " />
         </button>
