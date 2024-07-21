@@ -26,6 +26,7 @@ import Notification from "../Components/Notification";
 import Welcome from "../Components/Welcome";
 import { BusPark, KigaliBusJourney } from "../content/data";
 import MoreInfo from "../Components/MoreInfo";
+import Profile from "../Components/Profile";
 
 function Track({ guestEmail }) {
   const [visited, setVisited] = useState(false);
@@ -35,6 +36,7 @@ function Track({ guestEmail }) {
   const [profileMenu, setProfileMenu] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [showMoreInfo, setMoreInfo] = useState(false);
+  const [showProfile, setProfile] = useState(false);
   const [showFilteredOnly, setShowFilteredOnly] = useState(false);
   const [filtered, setFiltered] = useState();
   const [moreInfoId, setMoreInfoId] = useState("0");
@@ -84,6 +86,17 @@ function Track({ guestEmail }) {
 
   const hideMoreInfoPopup = () => {
     setMoreInfo(false);
+    document.documentElement.classList.remove("no-scroll");
+  };
+
+  // Profile
+  const showProfilePopup = () => {
+    setProfile(true);
+    document.documentElement.classList.add("no-scroll");
+  };
+
+  const hideProfilePopup = () => {
+    setProfile(false);
     document.documentElement.classList.remove("no-scroll");
   };
 
@@ -150,7 +163,8 @@ function Track({ guestEmail }) {
 
       {/* Notification */}
       {showNotification && <Notification hide={hideNotificationPopup} />}
-
+      {/* profile */}
+      {showProfile && <Profile hide={hideProfilePopup} guestEmail={guestEmail} />}
       {/* MoreInfo */}
       {showMoreInfo && <MoreInfo id={moreInfoId} hide={hideMoreInfoPopup} />}
 
@@ -180,20 +194,15 @@ function Track({ guestEmail }) {
 
       {/* pc navBar */}
       <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 dark:bg-body-color-dark/80 ">
-        <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        
+        <Navbar show={showNotificationPopup} showPf={showProfilePopup} guestEmail={guestEmail} />
       </div>
-      <Filter
-          mobileSearch={mobileSearch}
-          onFilterSubmit={handleFilterSubmit}
-        />
+      <Filter mobileSearch={mobileSearch} onFilterSubmit={handleFilterSubmit} />
 
       <div className="w-full h-fit flex ">
         <div className=" w-full min-h-full">
           {/* content */}
           <div className="w-full mx-auto max-w-[1700px] h-fit pb-10 px-10 max-md:px-4 max-sm:py-7 max-md:mb-12">
-            
-          <p className="text-dark-text dark:text-light-text font-bold tracking-tight text-sm">
+            <p className="text-dark-text dark:text-light-text font-bold tracking-tight text-sm">
               Most known places
             </p>
             <div className="hidescrollbar w-full h-[70px] py-4 overflow-y-hidden overflow-x-auto flex items-center justify-start gap-2 ">
@@ -207,14 +216,16 @@ function Track({ guestEmail }) {
                 </div>
               ))}
             </div>
-            
+
             {/* tabs */}
             <div className="w-full h-fit flex items-center justify-between max-md:justify-start gap-2 py-3 mt-4 max-md:overflow-x-auto hidescrollbar">
               <div className="flex items-center justify-start gap-2">
                 <button
                   onClick={hidePinned}
                   className={`text-dark-text dark:text-light-text whitespace-nowrap font-medium tracking-tight hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center justify-center cursor-pointer gap-1 ${
-                    pinnedBuses ? "" : "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
+                    pinnedBuses
+                      ? ""
+                      : "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
                   } `}
                 >
                   <TbBusStop className="text-xl" />
@@ -223,18 +234,23 @@ function Track({ guestEmail }) {
                 <button
                   onClick={showPinned}
                   className={`text-dark-text dark:text-light-text whitespace-nowrap font-medium tracking-tight hover:bg-white dark:hover:bg-container-dark-2 text-sm py-2 px-4 rounded-full flex items-center cursor-pointer justify-center gap-1 ${
-                    pinnedBuses ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40" : ""
+                    pinnedBuses
+                      ? "bg-white dark:bg-container-dark ring-1 dark:ring-transparent ring-slate-200/40"
+                      : ""
                   }`}
                 >
                   <TiPin className="text-xl" />
-                  Pinned {`(${pinnedBusIds.length > 0 ? (pinnedBusIds.length) : ('0') })`}
+                  Pinned{" "}
+                  {`(${pinnedBusIds.length > 0 ? pinnedBusIds.length : "0"})`}
                 </button>
               </div>
             </div>
 
             <p className="text-dark-text dark:text-light-text font-bold tracking-tight text-sm mt-2 mb-5">
               {pinnedBuses ? (
-                `Showing ${pinnedBusIds.length > 0 ? (pinnedBusIds.length) : ('0') } bus(es)`
+                `Showing ${
+                  pinnedBusIds.length > 0 ? pinnedBusIds.length : "0"
+                } bus(es)`
               ) : (
                 <>
                   {showFilteredOnly
