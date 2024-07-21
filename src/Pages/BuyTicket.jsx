@@ -53,6 +53,11 @@ function BuyTicket({ guestEmail }) {
   const [pinnedJourneys, setPinnedJourneys] = useState([]);
   const [watchPinned, setWatchPinned] = useState("");
   const [showProfile, setProfile] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");

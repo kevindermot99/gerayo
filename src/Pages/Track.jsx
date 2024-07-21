@@ -27,6 +27,7 @@ import Welcome from "../Components/Welcome";
 import { BusPark, KigaliBusJourney } from "../content/data";
 import MoreInfo from "../Components/MoreInfo";
 import Profile from "../Components/Profile";
+import Premium from "../Components/Premium";
 
 function Track({ guestEmail }) {
   const [visited, setVisited] = useState(false);
@@ -46,6 +47,12 @@ function Track({ guestEmail }) {
   const [pinnedBusIds, setPinnedBusIds] = useState([]);
   const [pinnedJourneys, setPinnedJourneys] = useState([]);
   const [watchPinned, setWatchPinned] = useState("");
+  const { pathname } = useLocation();
+  const [showPremium, setShowPremium] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     const visitadAs = localStorage.getItem("visitedAs");
@@ -174,6 +181,17 @@ function Track({ guestEmail }) {
     }, 500);
   };
 
+  // show Premium
+  const showPremiumModal = () => {
+    setShowPremium(true)
+    document.documentElement.classList.add("no-scroll");
+  }
+
+  const hidePremiumModal = () => {
+    setShowPremium(false)
+    document.documentElement.classList.remove("no-scroll");
+  }
+
   return (
     <div className="bg-stone-100 dark:bg-body-color-dark min-h-svh max-md:pb-10 text-dark-text">
       {/* Welcome */}
@@ -185,6 +203,8 @@ function Track({ guestEmail }) {
       {showProfile && <Profile hide={hideProfilePopup} guestEmail={guestEmail} />}
       {/* MoreInfo */}
       {showMoreInfo && <MoreInfo id={moreInfoId} hide={hideMoreInfoPopup} />}
+      {/* Premium */}
+      {showPremium && <Premium hidePremiumModal={hidePremiumModal} />}
 
       {/* Helmet */}
       <Helmet>
@@ -212,7 +232,7 @@ function Track({ guestEmail }) {
 
       {/* pc navBar */}
       <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 dark:bg-body-color-dark/80 ">
-        <Navbar show={showNotificationPopup} showPf={showProfilePopup} guestEmail={guestEmail} />
+        <Navbar show={showNotificationPopup} showPremiumModal={showPremiumModal} showPf={showProfilePopup} guestEmail={guestEmail} />
       </div>
       <Filter mobileSearch={mobileSearch} onRouteFilter={handleRouteIdSubmit} onFilterSubmit={handleFilterSubmit} />
 
