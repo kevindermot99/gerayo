@@ -65,6 +65,14 @@ body {
   border-radius: 30px;
 }
 
+.icons-bg-dark{
+  background-image: url('./assets/rp.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 40%;
+  rotate: -40deg;
+  scale: 1.5;
+}
 
 .help-header {
   background-image: url('https://img.freepik.com/premium-vector/white-abstract-background-with-hexagon-pattern-style-seamless-concept_57082-2435.jpg');
