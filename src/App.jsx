@@ -7,6 +7,7 @@ import Track from "./Pages/Track";
 import Help from "./Pages/Help";
 import Info from "./Pages/Info";
 import TrackMap from "./Pages/TrackMap";
+import Purchase from "./Pages/Purchase";
 
 function App() {
   const [visited, setVisited] = useState(false);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/help" element={<Help guestEmail={guestEmail} />} />
           <Route path="/info" element={<Info guestEmail={guestEmail} />} />
           <Route path="/map" element={<TrackMap guestEmail={guestEmail} />} />
+          <Route path="/purchaseticket" element={<Purchase guestEmail={guestEmail} />} />
           {/* <Route path="/*" element={<PageError />} /> */}
         </Routes>
       </HashRouter>

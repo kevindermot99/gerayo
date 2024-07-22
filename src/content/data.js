@@ -427,7 +427,7 @@ export const BusStations = [
 ];
 
 export const BusStationsImages = [
-  {location: 'Kigali', image: "https://lh5.googleusercontent.com/p/AF1QipPw_XoLpIJMT5BLSZTUKrpBKyaxX9fjF17KdvHT=w493-h240-k-no"},
+  {location: 'Kigali', image: "https://www.safarisrwandasafari.com/wp-content/uploads/2022/09/kigali-city..-1.jpg"},
   {location: 'Huye', image: "https://c1.staticflickr.com/2/1712/25836586392_a2372e9e95_b.jpg"},
   {location: 'Musanze', image: "https://media.istockphoto.com/id/1471123952/photo/a-man-who-works-for-musanze-bus-station.jpg?s=612x612&w=0&k=20&c=aOn8NJditzTGaRbRhS_lOQQyW8YCym3-JDAJCaziSxk="},
   {location: 'Nyanza', image: "https://www.nyungweforestnationalpark.org/wp-content/uploads/2022/05/Kings-Palace-Nyanza.jpg"},

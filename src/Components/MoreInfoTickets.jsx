@@ -190,10 +190,10 @@ function MoreInfoTickets({ hide, id }) {
               Seats Left:{" "}
               <span className="font-bold">{openedJourney.seatsLeft}</span>
             </h1>
-            <button className="min-h-[40px] w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <Link to={'/purchaseticket'} className="min-h-[40px] w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <TbCreditCardPay className="text-xl" />
               Buy Ticket
-            </button>
+            </Link>
           </div>
         )}
       </div>

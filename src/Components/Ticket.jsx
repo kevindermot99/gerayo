@@ -158,7 +158,7 @@ function Ticket({
             <p className="text-dark-text/70 dark:text-light-text capitalize font-medium tracking-tight text-sm mb-5 max-md:mb-3">
               Travel Cost
             </p>
-            <Link to={`/map`} className="h-[40px] w-[160px] max-md:w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
+            <Link to={`/purchaseticket`} className="h-[40px] w-[160px] max-md:w-full px-2 bg-main-color text-white font-semibold rounded-full text-sm flex items-center justify-center gap-1 cursor-pointer transition active:scale-95 ">
               <TbCreditCardPay className="text-xl" />
               Buy Ticket
             </Link>
