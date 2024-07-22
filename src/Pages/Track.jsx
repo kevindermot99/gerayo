@@ -248,7 +248,7 @@ function Track({ guestEmail }) {
                 <div
                   key={index}
                   onClick={() => handleFilterSubmit(park, "")}
-                  className="h-full ring-1 ring-slate-200/40 dark:ring-transparent w-fit transition duration-150 hover:shadow-lg hover:text-main-color cursor-pointer bg-white dark:bg-container-dark text-dark-text/60 dark:text-light-text text-sm font-medium rounded-full flex items-center justify-center py-2 px-6 whitespace-nowrap"
+                  className="h-full ring-1 ring-slate-200/40 dark:ring-transparent w-fit hover:shadow-lg hover:text-main-color cursor-pointer bg-white dark:bg-container-dark text-dark-text/60 dark:text-light-text text-sm font-medium rounded-full flex items-center justify-center py-2 px-6 whitespace-nowrap"
                 >
                   {park}
                 </div>

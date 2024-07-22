@@ -24,6 +24,8 @@ import {
   LuCrown,
   LuHelpCircle,
   LuInfo,
+  LuMoon,
+  LuSun,
 } from "react-icons/lu";
 import { BsCalendar2DateFill, BsInfoCircle } from "react-icons/bs";
 import { FaRoad } from "react-icons/fa";
@@ -34,6 +36,8 @@ function Navbar({ show, showPf, guestEmail, showPremiumModal }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [loggingOut, setLoggingOut] = useState(false);
+  const [theme, setTheme] = useState("Light");
+  const { pathname } = useLocation()
 
   const showMenu = () => {
     setProfileMenu(!profileMenu);
@@ -45,6 +49,27 @@ function Navbar({ show, showPf, guestEmail, showPremiumModal }) {
     setTimeout(() => {
       window.location.reload();
     }, 1000);
+  };
+
+  // add dark on load
+  useEffect(() => {
+    const preferedTheme = localStorage.getItem('gerayoTheme')
+    if(preferedTheme){
+    document.documentElement.classList.add("dark");
+    setTheme("Dark");
+    }
+  }, [pathname])
+
+  const switchThemeDark = () => {
+    document.documentElement.classList.add("dark");
+    setTheme("Dark");
+    localStorage.setItem('gerayoTheme', 'Dark')
+  };
+
+  const switchThemeLight = () => {
+    document.documentElement.classList.remove("dark");
+    setTheme("Light");
+    localStorage.removeItem('gerayoTheme')
   };
 
   return (
@@ -101,13 +126,23 @@ function Navbar({ show, showPf, guestEmail, showPremiumModal }) {
         </Link>
       </div>
       <div className="w-fit flex items-center justify-end gap-5">
-        <button
-          onClick={showPremiumModal}
-          className={`flex transition items-center gap-1 font-semibold text-sm text-main-color rounded-full px-1 relative`}
-        >
-          <LuCrown className="text-base " />
-          Go Pro
-        </button>
+        {theme === "Light" ? (
+          <button
+            onClick={switchThemeDark}
+            className={`flex items-center gap-1 cursor-pointer font-semibold text-sm bg-white dark:bg-container-dark-2 dark:text-white/70 py-2 px-4 rounded-full relative`}
+          >
+            <LuMoon className="text-lg " />
+            Dark
+          </button>
+        ) : (
+          <button
+            onClick={switchThemeLight}
+            className={`flex items-center gap-1 cursor-pointer font-semibold text-sm bg-white dark:bg-container-dark-2 dark:text-white/70 py-2 px-4 rounded-full relative`}
+          >
+            <LuSun className="text-lg " />
+            Light
+          </button>
+        )}
         <button
           // onClick={show}
           className=" flex items-center justify-center group active:scale-95 select-none"
