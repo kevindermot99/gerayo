@@ -52,9 +52,12 @@ function Purchase({ guestEmail }) {
   const [watchPinned, setWatchPinned] = useState("");
   const { pathname } = useLocation();
   const [showPremium, setShowPremium] = useState(false);
-  const [methodChecked, setMethodChecked] = useState("");
+  const [methodChecked, setMethodChecked] = useState("Card");
   const [cardNumber, setCardNumber] = useState("");
   const [cardCvc, setCardCvc] = useState("");
+  const [baggageSize, setBaggageSize] = useState("N/A");
+  const [nkids, setNkids] = useState("N/A");
+  const [cNames, setCNames] = useState("Your Names")
 
   const handleInputChange = (e) => {
     let value = e.target.value;
@@ -281,6 +284,9 @@ function Purchase({ guestEmail }) {
         </p>
         <div className="flex items-start justify-center gap-10 w-full">
           <div className="bg-white dark:bg-container-dark p-8 rounded-2xl shadow-lg w-auto flex-1 h-full flex flex-col items-start justify-start gap-3">
+          <p className="text-dark-text dark:text-white/90 z-10 tracking-tight text-base ">
+              Ticket: Nyanza to Kigali
+            </p>
             <p className="text-dark-text dark:text-white/90 z-10 font-medium tracking-tight text-base ">
               1. How would you like to pay?
             </p>
@@ -292,6 +298,7 @@ function Purchase({ guestEmail }) {
                     name="method"
                     hidden
                     onChange={() => setMethodChecked("Card")}
+                    checked={true}
                   />
                   <div
                     className={`w-[150px] h-[60px] rounded-lg flex items-start justify-center gap-[3px] flex-col px-3 cursor-pointer ring-2 ${
@@ -309,11 +316,11 @@ function Purchase({ guestEmail }) {
                     type="radio"
                     name="method"
                     hidden
-                    onChange={() => setMethodChecked("Gpay")}
+                    onChange={() => setMethodChecked("PayPal")}
                   />
                   <div
                     className={`w-[150px] h-[60px] rounded-lg flex items-start justify-center gap-[3px] flex-col px-3 cursor-pointer ring-2 ${
-                      methodChecked === "Gpay"
+                      methodChecked === "PayPal"
                         ? " ring-main-color/60 dark:bg-container-dark-2 text-main-color"
                         : "bg-stone-100 dark:bg-container-dark-2 text-dark-text dark:text-light-text ring-transparent"
                     }`}
@@ -437,7 +444,7 @@ function Purchase({ guestEmail }) {
               </div>
             </div>
 
-            {/* Your Information */}
+            {/*2 Your Information */}
             <p className="text-dark-text dark:text-white/90 z-10 font-medium tracking-tight text-base mt-6 ">
               2. Customer Information
             </p>
@@ -450,9 +457,11 @@ function Purchase({ guestEmail }) {
                 </p>
                 <input
                   type="text"
-                  name=""
+                  name="name"
                   className="h-[40px] w-full placeholder:text-dark-text/50 dark:placeholder:text-light-text rounded-md px-4 text-sm font-medium text-dark-text dark:text-white bg-stone-100 dark:bg-container-dark-2"
                   placeholder="Your Names"
+                  onChange={(e) => setCNames(e.target.value)}
+                  // value={cNames}
                 />
               </div>
               {/* 2 */}
@@ -469,6 +478,103 @@ function Purchase({ guestEmail }) {
                 />
               </div>
             </div>
+            <p className="text-dark-text dark:text-white font-medium text-sm">
+              Customer's Baggage Size
+            </p>
+            <label
+              onChange={() => setBaggageSize("Small")}
+              className="w-fit flex items-center gap-2 cursor-default"
+            >
+              <input
+                type="radio"
+                name="bsize"
+                className=" accent-main-color h-4 w-4"
+              />
+              <p className="text-dark-text dark:text-light-text font-medium tracking-tight text-sm ">
+                Small (e.g., Backpack, Laptop Bag, Handbag, Duffel Bag )
+              </p>
+            </label>
+            <label
+              onChange={() => setBaggageSize("Large")}
+              className="w-fit flex items-center gap-2 cursor-default"
+            >
+              <input
+                type="radio"
+                name="bsize"
+                className=" accent-main-color h-4 w-4"
+              />
+              <p className="text-dark-text dark:text-light-text font-medium tracking-tight text-sm ">
+                Large (e.g., Suitcase, Travel Trunk, Mattress )
+              </p>
+            </label>
+            <label
+              onChange={() => setBaggageSize("Other")}
+              className="w-fit flex items-center gap-2 cursor-default"
+            >
+              <input
+                type="radio"
+                name="bsize"
+                className=" accent-main-color h-4 w-4"
+              />
+              <p className="text-dark-text dark:text-light-text font-medium tracking-tight text-sm ">
+                other
+              </p>
+            </label>
+            {baggageSize === "Other" && (
+              <div className="flex flex-col gap-2 w-full">
+                <p className="text-dark-text dark:text-white font-medium text-sm">
+                  Describe your Baggage
+                </p>
+                <textarea
+                  type="text"
+                  name="baggage"
+                  className="h-[125px] max-h-[200px] w-full placeholder:text-dark-text/50 dark:placeholder:text-light-text rounded-md py-4 px-5 text-sm font-medium text-dark-text dark:text-white bg-stone-100 dark:bg-container-dark-2"
+                  placeholder="e.g., a Bicycle, 100 kg of potatoes,..."
+                />
+              </div>
+            )}
+            <p className="text-dark-text dark:text-white font-medium text-sm mt-3">
+              Customer's number of Kids
+            </p>
+            <label
+              onChange={() => setNkids("1")}
+              className="w-fit flex items-center gap-2 cursor-default"
+            >
+              <input
+                type="radio"
+                name="kids"
+                className=" accent-main-color h-4 w-4"
+              />
+              <p className="text-dark-text dark:text-light-text font-medium tracking-tight text-sm ">
+                1
+              </p>
+            </label>
+            <label
+              onChange={() => setNkids("2 or Above")}
+              className="w-fit flex items-center gap-2 cursor-default"
+            >
+              <input
+                type="radio"
+                name="kids"
+                className=" accent-main-color h-4 w-4"
+              />
+              <p className="text-dark-text dark:text-light-text font-medium tracking-tight text-sm ">
+                2 or above
+              </p>
+            </label>
+            <label
+              onChange={() => setNkids("None")}
+              className="w-fit flex items-center gap-2 cursor-default"
+            >
+              <input
+                type="radio"
+                name="kids"
+                className=" accent-main-color h-4 w-4"
+              />
+              <p className="text-dark-text dark:text-light-text font-medium tracking-tight text-sm ">
+                None
+              </p>
+            </label>
 
             <label className="w-fit flex items-center gap-2 my-3 cursor-default">
               <input type="checkbox" className=" accent-main-color h-4 w-4" />
@@ -500,21 +606,48 @@ function Purchase({ guestEmail }) {
               </Link>
             </div>
           </div>
-          <div className="min-w-[390px] text-dark-text dark:text-light-text py-8 h-full flex flex-col gap-2">
+          <div className="max-lg:hidden min-w-[300px] text-base capitalize text-dark-text dark:text-light-text py-8 h-full flex flex-col gap-2">
             <h1>Company Logo</h1>
             <h1>Company Phone numbers</h1>
             <h1>Company Email</h1>
-            <h1>✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶</h1>
-            <h1>Travel Details</h1>
-            <h1>Customer: Larissa</h1>
+            <span className="h-[1px] w-full bg-stone-200 dark:bg-container-dark-3"></span>
+            <h1 className="text-center font-medium uppercase py-2">
+              Travel Details
+            </h1>
+            {/* nested */}
+            <div className="flex items-start justify-between w-full">
+              {/* left */}
+              <h1>Customer</h1>
+            </div>
             {/* nested */}
             <div className="flex items-start justify-between w-full">
               {/* left */}
               <h1>
-                From: <span>Kivuye</span>
+                <h1 className="font-semibold dark:text-white/90">
+                {cNames}
+                </h1>
+              </h1>
+            </div>
+            {/* nested */}
+            <div className="flex items-start justify-between w-full">
+              {/* left */}
+              <h1>Baggage size</h1>
+              <h1>number of Kids</h1>
+            </div>
+            {/* nested */}
+            <div className="flex items-start justify-between w-full">
+              {/* left */}
+              <h1 className="font-semibold dark:text-white/90">{baggageSize}</h1>
+              <h1 className="font-semibold dark:text-white/90">{nkids}</h1>
+            </div>
+            {/* nested */}
+            <div className="flex items-start justify-between w-full">
+              {/* left */}
+              <h1>
+                From: <span className="font-semibold dark:text-white/90">Kigali</span>
               </h1>
               <h1>
-                To: <span>Kivuye</span>
+                To: <span className="font-semibold dark:text-white/90">Nyanza</span>
               </h1>
             </div>
             {/* nested */}
@@ -526,8 +659,8 @@ function Purchase({ guestEmail }) {
             {/* nested */}
             <div className="flex items-start justify-between w-full">
               {/* left */}
-              <h1>2024-05-24 11:12</h1>
-              <h1>13:45</h1>
+              <h1 className="font-semibold dark:text-white/90">2024-05-24 11:12</h1>
+              <h1 className="font-semibold dark:text-white/90">13:45</h1>
             </div>
             {/* nested */}
             <div className="flex items-start justify-between w-full">
@@ -538,8 +671,8 @@ function Purchase({ guestEmail }) {
             {/* nested */}
             <div className="flex items-start justify-between w-full">
               {/* left */}
-              <h1>4820583452</h1>
-              <h1>13</h1>
+              <h1 className="font-semibold dark:text-white/90">4820583452</h1>
+              <h1 className="font-semibold dark:text-white/90">13</h1>
             </div>
             {/* nested */}
             <div className="flex items-start justify-between w-full">
@@ -550,15 +683,31 @@ function Purchase({ guestEmail }) {
             {/* nested */}
             <div className="flex items-start justify-between w-full">
               {/* left */}
-              <h1>RAC430YS</h1>
-              <h1> Shalom</h1>
+              <h1 className="font-semibold dark:text-white/90">RAC430YS</h1>
+              <h1 className="font-semibold dark:text-white/90"> Shalom</h1>
             </div>
-            <h1>✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶✶</h1>
-            <h1>Travel Charges</h1>
-            <h1>Price: Shalom</h1>
-            <h1>Purchase Method: Gerayo (Online)</h1>
-            <h1>Done at: 2024-07-23 13:23:43 </h1>
-            <h1>Ticket ID: OUB3491280-321</h1>
+            <span className="h-[1px] w-full bg-stone-200 dark:bg-container-dark-3"></span>
+            <h1 className="text-center font-medium uppercase py-2">
+              Travel Charges
+            </h1>
+            <h1>
+              Price: <span className="font-semibold dark:text-white/90">2000 RWF</span>
+            </h1>
+            <h1>
+              Payment Method:{" "}
+              <span className="font-semibold dark:text-white/90">{methodChecked}</span>
+            </h1>
+            <h1>
+              Purchase Method:{" "}
+              <span className="font-semibold dark:text-white/90"> Gerayo (Online)</span>
+            </h1>
+            <h1>
+              Done at:{" "}
+              <span className="font-semibold dark:text-white/90">2024-07-23 13:23:43</span>
+            </h1>
+            <h1>
+              Ticket ID: <span className="font-semibold dark:text-white/90">OUB3491280-321</span>
+            </h1>
           </div>
         </div>
       </div>
