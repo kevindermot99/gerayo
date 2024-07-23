@@ -34,7 +34,7 @@ function App() {
           <Route path="/help" element={<Help guestEmail={guestEmail} />} />
           <Route path="/info" element={<Info guestEmail={guestEmail} />} />
           <Route path="/map" element={<TrackMap guestEmail={guestEmail} />} />
-          <Route path="/purchaseticket" element={<Purchase guestEmail={guestEmail} />} />
+          <Route path="/purchaseticket/:tid" element={<Purchase guestEmail={guestEmail} />} />
           {/* <Route path="/*" element={<PageError />} /> */}
         </Routes>
       </HashRouter>

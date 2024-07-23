@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { LuCreditCard, LuListFilter, LuSearch } from "react-icons/lu";
 import { BiSearch } from "react-icons/bi";
@@ -24,7 +24,7 @@ import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 import Filter from "../Components/Filter";
 import Notification from "../Components/Notification";
 import Welcome from "../Components/Welcome";
-import { BusPark, KigaliBusJourney } from "../content/data";
+import { BusPark, KigaliBusJourney, ProvinceJourney } from "../content/data";
 import MoreInfo from "../Components/MoreInfo";
 import Profile from "../Components/Profile";
 import Premium from "../Components/Premium";
@@ -62,6 +62,23 @@ function Purchase({ guestEmail }) {
   const [baggageSize, setBaggageSize] = useState("N/A");
   const [nkids, setNkids] = useState("N/A");
   const [cNames, setCNames] = useState("Your Names");
+  const [opendTicket, setOpenedTicket] = useState([]);
+
+  const { tid } = useParams();
+  const date = new Date()
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Adding 1 because getMonth() returns 0-11
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const formattedHours = hours % 12 || 12; // Converts 0 to 12 for 12 AM
+
+  const time = `${String(formattedHours).padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+
+  // get ticket
+  const ticket = ProvinceJourney.find((ticketInDb) => ticketInDb.id === tid);
 
   const handleInputChange = (e) => {
     let value = e.target.value;
@@ -626,13 +643,13 @@ function Purchase({ guestEmail }) {
                   <h1>
                     From:{" "}
                     <span className="font-semibold dark:text-white/90">
-                      Kigali
+                      {ticket.from}
                     </span>
                   </h1>
                   <h1>
                     To:{" "}
                     <span className="font-semibold dark:text-white/90">
-                      Nyanza
+                      {ticket.to}
                     </span>
                   </h1>
                 </div>
@@ -648,7 +665,9 @@ function Purchase({ guestEmail }) {
                   <h1 className="font-semibold dark:text-white/90">
                     2024-05-24 11:12
                   </h1>
-                  <h1 className="font-semibold dark:text-white/90">13:45</h1>
+                  <h1 className="font-semibold dark:text-white/90">
+                    2024-05-24 13:45
+                  </h1>
                 </div>
                 {/* nested */}
                 <div className="flex items-start justify-between w-full">
@@ -673,8 +692,10 @@ function Purchase({ guestEmail }) {
                 {/* nested */}
                 <div className="flex items-start justify-between w-full">
                   {/* left */}
-                  <h1 className="font-semibold dark:text-white/90">RAC430YS</h1>
-                  <h1 className="font-semibold dark:text-white/90"> Shalom</h1>
+                  <h1 className="font-semibold dark:text-white/90">
+                    {ticket.plateNumber}
+                  </h1>
+                  <h1 className="font-semibold dark:text-white/90">{""}</h1>
                 </div>
                 <span className="h-[1px] w-full bg-stone-200 dark:bg-container-dark-3"></span>
                 <h1 className="text-center font-medium uppercase py-2">
@@ -683,7 +704,7 @@ function Purchase({ guestEmail }) {
                 <h1>
                   Price:{" "}
                   <span className="font-semibold dark:text-white/90">
-                    2000 RWF
+                    {ticket.price} RWF
                   </span>
                 </h1>
                 <h1>
@@ -702,7 +723,7 @@ function Purchase({ guestEmail }) {
                 <h1>
                   Done at:{" "}
                   <span className="font-semibold dark:text-white/90">
-                    2024-07-23 13:23:43
+                  {year}-{month}-{day} {time}
                   </span>
                 </h1>
                 <h1>
