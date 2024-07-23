@@ -111,13 +111,6 @@ function Bus({
             <FaRectangleAd className="text-base opacity-30" />
             {plateNumber}
           </div>
-          <div
-            title="Bus Maximum Passengers"
-            className=" py-2 px-4 bg-stone-100 dark:bg-container-dark-2 whitespace-nowrap flex items-center gap-1 justify-center rounded-full text-xs font-semibold text-dark-text dark:text-white/90"
-          >
-            <MdEventSeat className="text-base opacity-30" />
-            {numberOfSeats} Seats max
-          </div>
         </div>
         <div className="w-full h-full flex justify-between items-start gap-0 max-md:flex-col ">
           <div className="w-full h-full flex flex-col justify-start items-start">
