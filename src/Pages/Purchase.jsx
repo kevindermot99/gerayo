@@ -48,10 +48,11 @@ function Purchase({ guestEmail }) {
   const [pinnedJourneys, setPinnedJourneys] = useState([]);
   const [watchPinned, setWatchPinned] = useState("");
   const { pathname } = useLocation();
-  const [showPremium, setShowPremium] = useState(false)
+  const [showPremium, setShowPremium] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.documentElement.classList.remove("no-scroll");
   }, [pathname]);
 
   useEffect(() => {
@@ -117,8 +118,8 @@ function Purchase({ guestEmail }) {
   };
   // filter by Route ID
   const filterBusJourneysByRouteId = (busJourneys, routeId) => {
-    return busJourneys.filter(
-      (journey) => (routeId ? journey.RouteId === routeId : true)
+    return busJourneys.filter((journey) =>
+      routeId ? journey.RouteId === routeId : true
     );
   };
   // location Filter
@@ -183,14 +184,14 @@ function Purchase({ guestEmail }) {
 
   // show Premium
   const showPremiumModal = () => {
-    setShowPremium(true)
+    setShowPremium(true);
     document.documentElement.classList.add("no-scroll");
-  }
+  };
 
   const hidePremiumModal = () => {
-    setShowPremium(false)
+    setShowPremium(false);
     document.documentElement.classList.remove("no-scroll");
-  }
+  };
 
   return (
     <div className="bg-stone-100 dark:bg-body-color-dark min-h-svh max-md:pb-10 text-dark-text">
@@ -200,7 +201,9 @@ function Purchase({ guestEmail }) {
       {/* Notification */}
       {showNotification && <Notification hide={hideNotificationPopup} />}
       {/* profile */}
-      {showProfile && <Profile hide={hideProfilePopup} guestEmail={guestEmail} />}
+      {showProfile && (
+        <Profile hide={hideProfilePopup} guestEmail={guestEmail} />
+      )}
       {/* MoreInfo */}
       {showMoreInfo && <MoreInfo id={moreInfoId} hide={hideMoreInfoPopup} />}
       {/* Premium */}
@@ -232,11 +235,33 @@ function Purchase({ guestEmail }) {
 
       {/* pc navBar */}
       <div className="w-full h-fit sticky max-md:relative top-0 z-20 backdrop-blur-md bg-stone-100/90 dark:bg-body-color-dark/80 ">
-        <Navbar show={showNotificationPopup} showPremiumModal={showPremiumModal} showPf={showProfilePopup} guestEmail={guestEmail} />
+        <Navbar
+          show={showNotificationPopup}
+          showPremiumModal={showPremiumModal}
+          showPf={showProfilePopup}
+          guestEmail={guestEmail}
+        />
       </div>
-      
-      <div className="w-full h-fit flex ">
-        
+
+      <div className="w-full h-fit flex flex-col items-start justify-start max-w-[900px] mx-auto p-8 ">
+        <p className="text-dark-text dark:text-white/90 z-10 font-semibold tracking-tight text-3xl pb-5 ">
+          Complete Payement
+        </p>
+        <div className="bg-white p-8 rounded-2xl shadow-lg w-full h-full flex flex-col items-start justify-start gap-3">
+          <p className="text-dark-text dark:text-white/90 z-10 font-medium tracking-tight text-base pb-1 ">
+            How would you like to pay?
+          </p>
+          <form className="w-full h-fit flex flex-col justify-start items-start gap-3">
+            <div className="w-full flex items-center justify-start">
+              <label>
+                <input type="radio" hidden name="method" />
+                <div className="w-[150px] h-[60px] rounded-lg bg-stone-100 flex items-start justify-start">
+                  
+                </div>
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

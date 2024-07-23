@@ -57,6 +57,7 @@ function BuyTicket({ guestEmail }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.documentElement.classList.remove("no-scroll");
   }, [pathname]);
 
   useEffect(() => {
