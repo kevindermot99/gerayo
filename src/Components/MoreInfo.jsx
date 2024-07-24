@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { IoArrowBackOutline, IoBusOutline } from "react-icons/io5";
 import { IoNotificationsOffOutline } from "react-icons/io5";
 import { KigaliBusJourney, busStopsImages } from "../content/data";
-import { FaMapLocationDot } from "react-icons/fa6";
+import { FaCircleCheck, FaMapLocationDot } from "react-icons/fa6";
 import { BsFillBusFrontFill } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
 import { PiBus } from "react-icons/pi";
@@ -159,11 +159,22 @@ function MoreInfo({ hide, id }) {
               </div>
               <div className="flex flex-col items-start justify-start gap-4">
                 {openedJourney.stops.map((stopName, index) => (
-                  <p key={index} className="text-sm capitalize font-medium">
-                    <span className="text-dark-text/40 dark:text-light-text">
-                      &bull; &nbsp;{" "}
-                    </span>{" "}
-                    {stopName}
+                  <p
+                    key={index}
+                    className="text-sm font-medium flex items-center gap-2"
+                  >
+                    <span className="text-dark-text/20 dark:text-light-text">
+                      <FaCircleCheck className={`text-xs ${index < 3 ? 'text-main-color' : ''}`} />
+                    </span>
+                    <span className="">
+                    {index === 0 && '8: 00 am'}
+                    {index === 1 && '8: 10 am'}
+                    {index === 2 && '8: 15 am'}
+                    {index === 3 && '8: 23 am'}
+                    {index === 4 && '8: 27 am'}
+                    {index === 5 && '8: 30 am'}
+                    </span>
+                    <span className="dark:text-white/90 capitalize">{stopName}</span>
                   </p>
                 ))}
               </div>

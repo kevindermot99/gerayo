@@ -116,9 +116,9 @@ export const KigaliBusJourney = [
     to: "Zindiro",
     busType: "Royal",
     departureAt: "8:00 am",
-    arrivalTime: "9:20 am",
+    arrivalTime: "8:30 am",
     price: "217",
-    stops: ["Kimironko Taxi Park", "Zindiro", "AZAM Roundabout","KSEZ"],
+    stops: ["Kimironko Taxi Park", "Kwa Mushimire", "Zindiro", "Kwa Nayinzira", "AZAM Roundabout", "ALU"],
     RouteId: "307",
   },
   {
