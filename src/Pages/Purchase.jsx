@@ -24,7 +24,7 @@ import MobileBottomNavbar from "../Components/MobileBottomNavbar";
 import Filter from "../Components/Filter";
 import Notification from "../Components/Notification";
 import Welcome from "../Components/Welcome";
-import { BusPark, KigaliBusJourney, ProvinceJourney } from "../content/data";
+import { BusPark, Companies, KigaliBusJourney, ProvinceJourney } from "../content/data";
 import MoreInfo from "../Components/MoreInfo";
 import Profile from "../Components/Profile";
 import Premium from "../Components/Premium";
@@ -79,6 +79,7 @@ function Purchase({ guestEmail }) {
 
   // get ticket
   const ticket = ProvinceJourney.find((ticketInDb) => ticketInDb.id === tid);
+  const company = Companies.filter((comp) => comp.name === ticket.company);
 
   const handleInputChange = (e) => {
     let value = e.target.value;
@@ -602,9 +603,9 @@ function Purchase({ guestEmail }) {
                 </div>
               </div>
               <div className="max-lg:hidden min-w-[300px] text-sm capitalize text-dark-text dark:text-light-text py-8 h-full flex flex-col gap-2">
-                <h1>Company Logo</h1>
+                {/* <img src={company.name}/> */}
                 <h1>Company Phone numbers</h1>
-                <h1>Company Email</h1>
+                <h1>{company.name}</h1>
                 <span className="h-[1px] w-full bg-stone-200 dark:bg-container-dark-3"></span>
                 <h1 className="text-center font-medium uppercase py-2">
                   Travel Details

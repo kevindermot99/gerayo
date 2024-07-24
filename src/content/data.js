@@ -436,7 +436,7 @@ export const BusStationsImages = [
 
 export const Companies = [
   {
-    name: "Volcane",
+    name: "Volcano",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1iszThteThGMm9XkwiKkYz_F0u3Z0pPfmALunl6MqNSUgV68RgdKfrgi_UADwfujqRAE&usqp=CAU",
     email: "volcano@gmail.com"
   },
