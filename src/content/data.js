@@ -132,7 +132,7 @@ export const KigaliBusJourney = [
     arrivalTime: "10:00 am",
     price: "300",
     stops: ["Kimironko Taxi Park","Stadium","chez lando","Kimihurura","Convetion center","Kigali City Tower"],
-    RouteId: "307",
+    RouteId: "302",
   },
   {
     id: "JF937H950-248804-DNDNL",
@@ -340,7 +340,7 @@ export const RouteIds = [
   {
     from: "Kimironko",
     to: "Downtown",
-    RouteId: "307",
+    RouteId: "302",
   },
   {
     from: "Nyanza",

@@ -245,7 +245,7 @@ function Purchase({ guestEmail }) {
 
       <div className="w-full h-fit flex flex-col items-start justify-start max-w-[1200px] mx-auto py-8 px-12 ">
         <p className="text-dark-text dark:text-white/90 z-10 font-semibold tracking-tight text-3xl pb-5 ">
-          Complete Payement
+          Complete Payment
         </p>
         {loading ? (
           <>
@@ -290,28 +290,6 @@ function Purchase({ guestEmail }) {
                           className="h-9 w-fit object-contain select-none pointer-events-none"
                         />
                         {/* <p className="text-sm font-medium dark:text-white">Card</p> */}
-                      </div>
-                    </label>
-                    <label htmlFor="input-payment-2" className="select-none">
-                      <input
-                        type="radio"
-                        name="method"
-                        hidden
-                        id="input-payment-2"
-                        value={"PayPal"}
-                        onChange={() => setMethodChecked("PayPal")}
-                      />
-                      <div
-                        className={`w-[120px] h-[50px] overflow-clip rounded-lg flex items-center justify-center gap-[3px] flex-col px-3 cursor-pointer ring-2 ring-offset-4 ring-offset-white dark:ring-offset-container-dark ${
-                          methodChecked === "PayPal"
-                            ? " ring-main-color text-main-color bg-stone-100 dark:bg-white"
-                            : "bg-stone-100 dark:bg-white text-dark-text dark:text-light-text ring-transparent"
-                        }`}
-                      >
-                        <img
-                          src={PaypaLogo}
-                          className="h-7 select-none pointer-events-none"
-                        />
                       </div>
                     </label>
                     <label htmlFor="input-payment-3" className="select-none">
@@ -583,7 +561,7 @@ function Purchase({ guestEmail }) {
                 <p className="text-dark-text dark:text-white/80 font-medium text-sm text-end w-full py-3">
                   Total amount:{" "}
                   <span className="font-semibold text-black dark:text-white">
-                    2,000 RWF
+                    {ticket.price} RWF
                   </span>
                 </p>
                 <div className="flex items-center justify-end gap-2 w-full ">
@@ -604,8 +582,9 @@ function Purchase({ guestEmail }) {
               </div>
               <div className="max-lg:hidden min-w-[300px] text-sm capitalize text-dark-text dark:text-light-text py-8 h-full flex flex-col gap-2">
                 {/* <img src={company.name}/> */}
-                <h1>Company Phone numbers</h1>
-                <h1>{company.name}</h1>
+                <h1>Company: Volcano</h1>
+                <h1>Phone: +250785614800</h1>
+                <h1>Email: volcano@gmail.com</h1>
                 <span className="h-[1px] w-full bg-stone-200 dark:bg-container-dark-3"></span>
                 <h1 className="text-center font-medium uppercase py-2">
                   Travel Details
