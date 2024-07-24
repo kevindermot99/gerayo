@@ -87,12 +87,12 @@ function Navbar({ show, showPf, guestEmail, showPremiumModal }) {
       {/* Menu */}
       <div className="flex items-center justify-start gap-2">
         {/* <img src="" alt="" /> */}
-        <div className="w-fit h-fit flex items-center justify-start">
+        <Link to={'/'} className="w-fit h-fit flex items-center justify-start">
           <MdLocationOn className="text-[30px] text-main-color translate-y-[1px] translate-x-[3px]" />
           <h1 className=" font-bold text-[26px] tracking-tighter text-main-color pr-8 pointer-events-none select-none ">
             gerayo
           </h1>
-        </div>
+        </Link>
 
         <Link
           to={`/`}
