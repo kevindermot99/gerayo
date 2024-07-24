@@ -114,10 +114,6 @@ function TrackMap({ guestEmail }) {
       {/* pc navBar */}
       <div className="w-full h-fit sticky max-md:relative top-0 z-20 bg-white dark:bg-white ">
         <Navbar show={showNotificationPopup} guestEmail={guestEmail} />
-        <Filter
-          mobileSearch={mobileSearch}
-          onFilterSubmit={handleFilterSubmit}
-        />
       </div>
 
       <div className="w-full h-fit flex bg-stone-100">
