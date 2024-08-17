@@ -46,5 +46,5 @@ export default {
   },
   plugins: [
   ],
-  darkMode: 'selector',
+  // darkMode: 'selector',
 };
